@@ -1,0 +1,14 @@
+Subject: Process ProcessRecord{bea30db 13596:com.google.android.nfc/1027} failed to complete startup
+RssHwmKb: 0
+RssKb: 0
+RssAnonKb: 0
+RssShmemKb: 0
+VmSwapKb: 0
+BaseFsVerity: false
+
+
+--- CriticalEventLog ---
+capacity: 20
+timestamp_ms: 9514696
+window_ms: 300000
+

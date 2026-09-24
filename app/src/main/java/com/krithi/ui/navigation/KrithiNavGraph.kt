@@ -27,6 +27,10 @@ import com.krithi.ui.search.SearchScreen
 import com.krithi.ui.settings.SettingsScreen
 import com.krithi.ui.theme.PrimaryTextDark
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
+
 @Composable
 fun KrithiNavGraph(
     modifier: Modifier = Modifier,
@@ -41,7 +45,11 @@ fun KrithiNavGraph(
 
     Scaffold(
         topBar = {
-            if (showBottomNav) {
+            AnimatedVisibility(
+                visible = showBottomNav,
+                enter = slideInVertically(initialOffsetY = { -it }),
+                exit = slideOutVertically(targetOffsetY = { -it })
+            ) {
                 KrithiTopBar(
                     title = currentRoute.replaceFirstChar { it.uppercase() },
                     actions = {
@@ -53,7 +61,11 @@ fun KrithiNavGraph(
             }
         },
         bottomBar = {
-            if (showBottomNav) {
+            AnimatedVisibility(
+                visible = showBottomNav,
+                enter = slideInVertically(initialOffsetY = { it }),
+                exit = slideOutVertically(targetOffsetY = { it })
+            ) {
                 Column {
                     if (showMiniPlayer) {
                         MiniPlayer(onNavigateToNowPlaying = { navController.navigate("now_playing") })
@@ -81,7 +93,9 @@ fun KrithiNavGraph(
                 composable("home") { HomeScreen() }
                 composable("library") { LibraryScreen() }
                 composable("search") { SearchScreen() }
-                composable("now_playing") { NowPlayingScreen() }
+                composable("now_playing") { 
+                    NowPlayingScreen(onBack = { navController.popBackStack() }) 
+                }
                 composable("settings") { SettingsScreen() }
             }
         }

@@ -14,16 +14,21 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.krithi.ui.SharedPlaybackViewModel
 import com.krithi.ui.theme.PrimaryTextDark
 import com.krithi.ui.theme.SecondaryTextDark
 import com.krithi.ui.theme.SurfaceDark
@@ -31,8 +36,14 @@ import com.krithi.ui.theme.SurfaceDark
 @Composable
 fun MiniPlayer(
     onNavigateToNowPlaying: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    viewModel: SharedPlaybackViewModel = hiltViewModel()
 ) {
+    val currentSong by viewModel.currentSong.collectAsState()
+    val isPlaying by viewModel.isPlaying.collectAsState()
+
+    if (currentSong == null) return
+
     Row(
         modifier = modifier
             .fillMaxWidth()
@@ -55,20 +66,22 @@ fun MiniPlayer(
             verticalArrangement = Arrangement.Center
         ) {
             Text(
-                text = "Song Name",
+                text = currentSong?.title ?: "Unknown Song",
                 style = MaterialTheme.typography.bodyLarge,
-                color = PrimaryTextDark
+                color = PrimaryTextDark,
+                maxLines = 1
             )
             Text(
-                text = "Artist",
+                text = currentSong?.artist ?: "Unknown Artist",
                 style = MaterialTheme.typography.labelSmall,
-                color = SecondaryTextDark
+                color = SecondaryTextDark,
+                maxLines = 1
             )
         }
-        IconButton(onClick = { /* TODO: Play/Pause */ }) {
+        IconButton(onClick = { viewModel.togglePlayPause() }) {
             Icon(
-                imageVector = Icons.Default.PlayArrow,
-                contentDescription = "Play",
+                imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
+                contentDescription = if (isPlaying) "Pause" else "Play",
                 tint = PrimaryTextDark
             )
         }

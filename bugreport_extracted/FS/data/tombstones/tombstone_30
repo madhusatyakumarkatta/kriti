@@ -1,0 +1,688 @@
+*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Build fingerprint: 'google/sdk_gphone16k_x86_64/emu64xa16k:17/CP41.260828.004.A7/16296984:user/dev-keys'
+Kernel Release: '6.12.81-android16-6-g4f69fc7b210c-ab16167562'
+Revision: '0'
+ABI: 'x86_64'
+Timestamp: 2026-09-25 01:05:07.994914227+0530
+Process uptime: 1s
+Page size: 16384 bytes
+Executable: /vendor/bin/hw/android.hardware.uwb-service
+Cmdline: /vendor/bin/hw/android.hardware.uwb-service /dev/uwb0
+pid: 26749, ppid: 1, tid: 26749, name: android.hardwar  >>> /vendor/bin/hw/android.hardware.uwb-service <<<
+uid: 1083
+signal 6 (SIGABRT), code -1 (SI_QUEUE), fault addr --------
+Abort message: 'failed to open the serial device: Os { code: 6, kind: Uncategorized, message: "No such device or address" }'
+
+    rax 0000000000000000  rbx 000000000000687d  rcx 000074e57bee306d  rdx 0000000000000006
+    r8  00007ffacc393de0  r9  00007ffacc393de0  r10 00007ffacc393ba0  r11 0000000000000207
+    r12 0000000000000000  r13 00007ffacc393d40  r14 000000000000687d  r15 00007ffacc393ba0
+    rdi 000000000000687d  rsi 000000000000687d
+    rbp 00007ffacc393c50  rsp 00007ffacc393ba0  rip 000074e57bee306d  err 0000000000000000
+
+18 total frames
+backtrace:
+      #00 pc 000000000005b06d  /apex/com.android.runtime/lib64/bionic/libc.so (abort+189) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+      #01 pc 000000000003ed09  /vendor/bin/hw/android.hardware.uwb-service (std::sys::pal::unix::abort_internal+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #02 pc 000000000003c488  /vendor/bin/hw/android.hardware.uwb-service (std::process::abort+8) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #03 pc 0000000000038e89  /vendor/bin/hw/android.hardware.uwb-service (__rustc::__rust_abort+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #04 pc 000000000002d262  /vendor/bin/hw/android.hardware.uwb-service (__rustc::__rust_start_panic+18) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #05 pc 0000000000038e79  /vendor/bin/hw/android.hardware.uwb-service (__rustc::rust_panic+9) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #06 pc 000000000003c72f  /vendor/bin/hw/android.hardware.uwb-service (std::panicking::panic_with_hook+260) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #07 pc 0000000000038516  /vendor/bin/hw/android.hardware.uwb-service (std::panicking::panic_handler::{closure#0}+70) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #08 pc 0000000000038eab  /vendor/bin/hw/android.hardware.uwb-service (__rustc::rust_begin_unwind+27) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #09 pc 00000000000253db  /vendor/bin/hw/android.hardware.uwb-service (core::panicking::panic_fmt+43) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #10 pc 0000000000025261  /vendor/bin/hw/android.hardware.uwb-service (core::result::unwrap_failed+81) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #11 pc 00000000000641af  /vendor/bin/hw/android.hardware.uwb-service (<uwb_default_hal::uwb_chip::UwbChip>::new::{closure#0}+7999) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #12 pc 000000000006865a  /vendor/bin/hw/android.hardware.uwb-service (<core::iter::adapters::map::Map<core::iter::adapters::map::Map<core::iter::adapters::enumerate::Enumerate<core::iter::adapters::skip::Skip<std::env::Args>>, uwb_default_hal::main::{closure#1}>, <uwb_default_hal::uwb::Uwb>::from_chips<core::iter::adapters::map::Map<core::iter::adapters::enumerate::Enumerate<core::iter::adapters::skip::Skip<std::env::Args>>, uwb_default_hal::main::{closure#1}>>::{closure#0}> as core::iter::traits::iterator::Iterator>::next+3434) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #13 pc 0000000000065c77  /vendor/bin/hw/android.hardware.uwb-service (uwb_default_hal::main+791) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #14 pc 00000000000619fb  /vendor/bin/hw/android.hardware.uwb-service (std::rt::lang_start::<core::result::Result<(), anyhow::Error>>::{closure#0}+27) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #15 pc 000000000003bce6  /vendor/bin/hw/android.hardware.uwb-service (std::rt::lang_start_internal+534) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #16 pc 000000000006b193  /vendor/bin/hw/android.hardware.uwb-service (main+51) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #17 pc 00000000000c3c10  /apex/com.android.runtime/lib64/bionic/libc.so (__libc_init+112) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+
+Note: To display stack pointer information, use the pbtombstone tool:
+        pbtombstone --display-sp tombstone_XX.pb
+
+memory near rcx (/apex/com.android.runtime/lib64/bionic/libc.so):
+    000074e57bee3040 41ffffffff0847c7 0009a260e8105f89  .G.....A._..`...  [ XXX, XXX ]
+    000074e57bee3050 1867894d14478941 06baf66349fb6348  A.G.M.g.Hc.Ic...  [ XXX, XXX ]
+    000074e57bee3060 00000129b8000000 c08548050ffa894d  ....)...M....H..  [ XXX, XXX ]
+    000074e57bee3070 06bf00000095880f a12ee8f631000000  ...........1....  [ XXX, XXX ]
+    000074e57bee3080 3100000027bf0009 89480009a232e8c0  ...'...1..2...H.  [ XXX, XXX ]
+    000074e57bee3090 c031000000babfc3 c689490009a223e8  ......1..#...I..  [ XXX, XXX ]
+    000074e57bee30a0 4107290f41c0570f 47290f411047290f  .W.A.).A.)G.A.)G  [ XXX, XXX ]
+    000074e57bee30b0 0f416047290f4170 4047290f41504729  pA.)G`A.)GPA.)G@  [ XXX, XXX ]
+    000074e57bee30c0 290f413047290f41 ffff0847c7412047  A.)G0A.)G A.G...  [ XXX, XXX ]
+    000074e57bee30d0 d5e8105f8941ffff 49144789410009a1  ..A._......A.G.I  [ XXX, XXX ]
+    000074e57bee30e0 48000000001847c7 0006baf66349fb63  .G.....Hc.Ic....  [ XXX, XXX ]
+    000074e57bee30f0 4d00000129b80000 78c08548050ffa89  ...)...M....H..x  [ XXX, XXX ]
+    000074e57bee3100 65e80000007fbf1b c38948d8f70009a5  .......e.....H..  [ XXX, XXX ]
+    000074e57bee3110 e9188900099edbe8 8948d8f7ffffff5a  ........Z.....H.  [ XXX, XXX ]
+    000074e57bee3120 188900099ecae8c3 ccccccccccccd7eb  ................  [ XXX, XXX ]
+    000074e57bee3130 78d28548e5894855 e95d2877c2394c0b  UH..H..x.L9.w(].  [ XXX, XXX ]
+
+memory near r8 ([stack]):
+    00007ffacc393dc0 0000575a936ce0ab 00007ffacc393de0  ..l.ZW...=9.....  [ /vendor/bin/hw/android.hardware.uwb-service, [stack] ]
+    00007ffacc393dd0 00007ffacc393e20 0000575a936f1262   >9.....b.o.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393de0 00007ffacc393e10 0000575a936f2920  .>9..... )o.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393df0 00007ffacc393e00 0000575a936f28f0  .>9......(o.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393e00 00007ffacc3944f0 0000575a9373d8b0  .D9.......s.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393e10 0000575a936d6bdb 0000000000000020  .km.ZW.. .......  [ /vendor/bin/hw/android.hardware.uwb-service, XXX ]
+    00007ffacc393e20 00007ffacc394ab0 0000575a937301b0  .J9.......s.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393e30 0000000000000000 00007ffacc393fbc  .........?9.....  [ XXX, [stack] ]
+    00007ffacc393e40 00007ffacc394d50 00007ffacc394cd8  PM9......L9.....  [ [stack], [stack] ]
+    00007ffacc393e50 0000000000000001 00007ffacc394f20  ........ O9.....  [ XXX, [stack] ]
+    00007ffacc393e60 00007ffacc394dd8 00007ffacc394dd0  .M9......M9.....  [ [stack], [stack] ]
+    00007ffacc393e70 00007ffacc394dc8 0000575a936ebec3  .M9.......n.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393e80 0000000000000002 00007ffacc394de0  .........M9.....  [ XXX, [stack] ]
+    00007ffacc393e90 00007ffacc394ee0 0000000060000020  .N9..... ..`....  [ [stack], XXX ]
+    00007ffacc393ea0 0000044c000001a2 00000344000003b2  ....L.......D...  [ XXX, XXX ]
+    00007ffacc393eb0 0000006e000001e4 00000084000002c0  ....n...........  [ XXX, XXX ]
+
+memory near r9 ([stack]):
+    00007ffacc393dc0 0000575a936ce0ab 00007ffacc393de0  ..l.ZW...=9.....  [ /vendor/bin/hw/android.hardware.uwb-service, [stack] ]
+    00007ffacc393dd0 00007ffacc393e20 0000575a936f1262   >9.....b.o.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393de0 00007ffacc393e10 0000575a936f2920  .>9..... )o.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393df0 00007ffacc393e00 0000575a936f28f0  .>9......(o.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393e00 00007ffacc3944f0 0000575a9373d8b0  .D9.......s.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393e10 0000575a936d6bdb 0000000000000020  .km.ZW.. .......  [ /vendor/bin/hw/android.hardware.uwb-service, XXX ]
+    00007ffacc393e20 00007ffacc394ab0 0000575a937301b0  .J9.......s.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393e30 0000000000000000 00007ffacc393fbc  .........?9.....  [ XXX, [stack] ]
+    00007ffacc393e40 00007ffacc394d50 00007ffacc394cd8  PM9......L9.....  [ [stack], [stack] ]
+    00007ffacc393e50 0000000000000001 00007ffacc394f20  ........ O9.....  [ XXX, [stack] ]
+    00007ffacc393e60 00007ffacc394dd8 00007ffacc394dd0  .M9......M9.....  [ [stack], [stack] ]
+    00007ffacc393e70 00007ffacc394dc8 0000575a936ebec3  .M9.......n.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393e80 0000000000000002 00007ffacc394de0  .........M9.....  [ XXX, [stack] ]
+    00007ffacc393e90 00007ffacc394ee0 0000000060000020  .N9..... ..`....  [ [stack], XXX ]
+    00007ffacc393ea0 0000044c000001a2 00000344000003b2  ....L.......D...  [ XXX, XXX ]
+    00007ffacc393eb0 0000006e000001e4 00000084000002c0  ....n...........  [ XXX, XXX ]
+
+memory near r10 ([stack]):
+    00007ffacc393b80 0000000000000001 0000575a9373d6a0  ..........s.ZW..  [ XXX, /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393b90 00007ffacc393c50 000074e57bee3050  P<9.....P0.{.t..  [ [stack], /apex/com.android.runtime/lib64/bionic/libc.so ]
+    00007ffacc393ba0 0000000000000000 00000000ffffffff  ................  [ XXX, XXX ]
+    00007ffacc393bb0 0000043b0000687d 0000000000000000  }h..;...........  [ XXX, XXX ]
+    00007ffacc393bc0 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393bd0 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393be0 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393bf0 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393c00 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393c10 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393c20 0000575a9373a980 0000000000000020  ..s.ZW.. .......  [ /vendor/bin/hw/android.hardware.uwb-service, XXX ]
+    00007ffacc393c30 0000575a937405f8 0000575a9373a980  ..t.ZW....s.ZW..  [ /vendor/bin/hw/android.hardware.uwb-service, /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c40 0000000000000001 0000575a9373d6a0  ..........s.ZW..  [ XXX, /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c50 00007ffacc393c60 0000575a9370ad0a  `<9.......p.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c60 00007ffacc393c70 0000575a93708489  p<9.......p.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c70 00007ffacc393c80 0000575a93704e8a  .<9......Np.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+
+memory near r13 ([stack]):
+    00007ffacc393d20 00007ffacc394cd8 00007ffacc394ee0  .L9......N9.....  [ [stack], [stack] ]
+    00007ffacc393d30 00007ffacc393d60 0000575a93704517  `=9......Ep.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393d40 0000000000000080 000074e4ea639c30  ........0.c..t..  [ XXX, [anon:scudo:primary] ]
+    00007ffacc393d50 000000000000006b 00007ffacc393d78  k.......x=9.....  [ XXX, [stack] ]
+    00007ffacc393d60 00007ffacc393d90 0000575a93704eac  .=9......Np.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393d70 000074e53a633500 00007ffacc393dc0  .5c:.t...=9.....  [ [anon:scudo:primary], [stack] ]
+    00007ffacc393d80 0000575a9373d6a0 00007ffacc393da8  ..s.ZW...=9.....  [ /vendor/bin/hw/android.hardware.uwb-service, [stack] ]
+    00007ffacc393d90 00007ffacc393dd0 0000575a936f13dc  .=9.......o.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393da0 0000000600000002 00007ffacc393dc0  .........=9.....  [ XXX, [stack] ]
+    00007ffacc393db0 0000575a9373d6a0 00007ffacc390001  ..s.ZW....9.....  [ /vendor/bin/hw/android.hardware.uwb-service, [stack] ]
+    00007ffacc393dc0 0000575a936ce0ab 00007ffacc393de0  ..l.ZW...=9.....  [ /vendor/bin/hw/android.hardware.uwb-service, [stack] ]
+    00007ffacc393dd0 00007ffacc393e20 0000575a936f1262   >9.....b.o.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393de0 00007ffacc393e10 0000575a936f2920  .>9..... )o.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393df0 00007ffacc393e00 0000575a936f28f0  .>9......(o.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393e00 00007ffacc3944f0 0000575a9373d8b0  .D9.......s.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393e10 0000575a936d6bdb 0000000000000020  .km.ZW.. .......  [ /vendor/bin/hw/android.hardware.uwb-service, XXX ]
+
+memory near r15 ([stack]):
+    00007ffacc393b80 0000000000000001 0000575a9373d6a0  ..........s.ZW..  [ XXX, /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393b90 00007ffacc393c50 000074e57bee3050  P<9.....P0.{.t..  [ [stack], /apex/com.android.runtime/lib64/bionic/libc.so ]
+    00007ffacc393ba0 0000000000000000 00000000ffffffff  ................  [ XXX, XXX ]
+    00007ffacc393bb0 0000043b0000687d 0000000000000000  }h..;...........  [ XXX, XXX ]
+    00007ffacc393bc0 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393bd0 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393be0 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393bf0 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393c00 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393c10 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393c20 0000575a9373a980 0000000000000020  ..s.ZW.. .......  [ /vendor/bin/hw/android.hardware.uwb-service, XXX ]
+    00007ffacc393c30 0000575a937405f8 0000575a9373a980  ..t.ZW....s.ZW..  [ /vendor/bin/hw/android.hardware.uwb-service, /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c40 0000000000000001 0000575a9373d6a0  ..........s.ZW..  [ XXX, /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c50 00007ffacc393c60 0000575a9370ad0a  `<9.......p.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c60 00007ffacc393c70 0000575a93708489  p<9.......p.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c70 00007ffacc393c80 0000575a93704e8a  .<9......Np.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+
+memory near rbp ([stack]):
+    00007ffacc393c30 0000575a937405f8 0000575a9373a980  ..t.ZW....s.ZW..  [ /vendor/bin/hw/android.hardware.uwb-service, /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c40 0000000000000001 0000575a9373d6a0  ..........s.ZW..  [ XXX, /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c50 00007ffacc393c60 0000575a9370ad0a  `<9.......p.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c60 00007ffacc393c70 0000575a93708489  p<9.......p.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c70 00007ffacc393c80 0000575a93704e8a  .<9......Np.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c80 00007ffacc393c90 0000575a936f9263  .<9.....c.o.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c90 00007ffacc393ca0 0000575a93704e7a  .<9.....zNp.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393ca0 00007ffacc393d30 0000575a93708730  0=9.....0.p.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393cb0 000000000000002b 4242424242424242  +.......BBBBBBBB  [ XXX, XXX ]
+    00007ffacc393cc0 4242424242424242 00007ffacc393d40  BBBBBBBB@=9.....  [ XXX, [stack] ]
+    00007ffacc393cd0 0000575a9373b2f0 0000575a9373d6a0  ..s.ZW....s.ZW..  [ /vendor/bin/hw/android.hardware.uwb-service, /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393ce0 4242424242420001 00007ffacc393d40  ..BBBBBB@=9.....  [ XXX, [stack] ]
+    00007ffacc393cf0 0000575a9373a980 0000575a9373d6a0  ..s.ZW....s.ZW..  [ /vendor/bin/hw/android.hardware.uwb-service, /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393d00 000074e400000000 00007ffacc394cd8  .....t...L9.....  [ [anon:scudo:primary_reserve], [stack] ]
+    00007ffacc393d10 0000000600000002 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393d20 00007ffacc394cd8 00007ffacc394ee0  .L9......N9.....  [ [stack], [stack] ]
+
+memory near rsp ([stack]):
+    00007ffacc393b80 0000000000000001 0000575a9373d6a0  ..........s.ZW..  [ XXX, /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393b90 00007ffacc393c50 000074e57bee3050  P<9.....P0.{.t..  [ [stack], /apex/com.android.runtime/lib64/bionic/libc.so ]
+    00007ffacc393ba0 0000000000000000 00000000ffffffff  ................  [ XXX, XXX ]
+    00007ffacc393bb0 0000043b0000687d 0000000000000000  }h..;...........  [ XXX, XXX ]
+    00007ffacc393bc0 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393bd0 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393be0 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393bf0 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393c00 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393c10 0000000000000000 0000000000000000  ................  [ XXX, XXX ]
+    00007ffacc393c20 0000575a9373a980 0000000000000020  ..s.ZW.. .......  [ /vendor/bin/hw/android.hardware.uwb-service, XXX ]
+    00007ffacc393c30 0000575a937405f8 0000575a9373a980  ..t.ZW....s.ZW..  [ /vendor/bin/hw/android.hardware.uwb-service, /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c40 0000000000000001 0000575a9373d6a0  ..........s.ZW..  [ XXX, /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c50 00007ffacc393c60 0000575a9370ad0a  `<9.......p.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c60 00007ffacc393c70 0000575a93708489  p<9.......p.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+    00007ffacc393c70 00007ffacc393c80 0000575a93704e8a  .<9......Np.ZW..  [ [stack], /vendor/bin/hw/android.hardware.uwb-service ]
+
+memory near rip (/apex/com.android.runtime/lib64/bionic/libc.so):
+    000074e57bee3040 41ffffffff0847c7 0009a260e8105f89  .G.....A._..`...  [ XXX, XXX ]
+    000074e57bee3050 1867894d14478941 06baf66349fb6348  A.G.M.g.Hc.Ic...  [ XXX, XXX ]
+    000074e57bee3060 00000129b8000000 c08548050ffa894d  ....)...M....H..  [ XXX, XXX ]
+    000074e57bee3070 06bf00000095880f a12ee8f631000000  ...........1....  [ XXX, XXX ]
+    000074e57bee3080 3100000027bf0009 89480009a232e8c0  ...'...1..2...H.  [ XXX, XXX ]
+    000074e57bee3090 c031000000babfc3 c689490009a223e8  ......1..#...I..  [ XXX, XXX ]
+    000074e57bee30a0 4107290f41c0570f 47290f411047290f  .W.A.).A.)G.A.)G  [ XXX, XXX ]
+    000074e57bee30b0 0f416047290f4170 4047290f41504729  pA.)G`A.)GPA.)G@  [ XXX, XXX ]
+    000074e57bee30c0 290f413047290f41 ffff0847c7412047  A.)G0A.)G A.G...  [ XXX, XXX ]
+    000074e57bee30d0 d5e8105f8941ffff 49144789410009a1  ..A._......A.G.I  [ XXX, XXX ]
+    000074e57bee30e0 48000000001847c7 0006baf66349fb63  .G.....Hc.Ic....  [ XXX, XXX ]
+    000074e57bee30f0 4d00000129b80000 78c08548050ffa89  ...)...M....H..x  [ XXX, XXX ]
+    000074e57bee3100 65e80000007fbf1b c38948d8f70009a5  .......e.....H..  [ XXX, XXX ]
+    000074e57bee3110 e9188900099edbe8 8948d8f7ffffff5a  ........Z.....H.  [ XXX, XXX ]
+    000074e57bee3120 188900099ecae8c3 ccccccccccccd7eb  ................  [ XXX, XXX ]
+    000074e57bee3130 78d28548e5894855 e95d2877c2394c0b  UH..H..x.L9.w(].  [ XXX, XXX ]
+
+
+memory map (180 entries):
+    0000575a'936cc000-0000575a'93737fff r-x         0     6c000  /vendor/bin/hw/android.hardware.uwb-service (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+                               VmFlags: rd ex mr mw me
+    0000575a'93738000-0000575a'9373ffff r--     6c000      8000  /vendor/bin/hw/android.hardware.uwb-service (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+                               VmFlags: rd mr mw me ac
+    0000575a'93740000-0000575a'93743fff rw-     74000      4000  /vendor/bin/hw/android.hardware.uwb-service (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+                               VmFlags: rd wr mr mw me ac
+    000074e2'e9bb0000-000074e2'e9bb3fff ---         0      4000
+                               VmFlags: mr mw me nr
+    000074e2'e9bb4000-000074e2'e9dbbfff rw-         0    208000  [anon:stack_and_tls:26754]
+                               VmFlags: rd wr mr mw me nr
+    000074e2'e9dbc000-000074e2'e9dc3fff ---         0      8000
+                               VmFlags: mr mw me nr
+    000074e2'e9dc4000-000074e2'e9fcbfff rw-         0    208000  [anon:stack_and_tls:26753]
+                               VmFlags: rd wr mr mw me nr
+    000074e2'e9fcc000-000074e2'e9fd3fff ---         0      8000
+                               VmFlags: mr mw me nr
+    000074e2'e9fd4000-000074e2'ea1dbfff rw-         0    208000  [anon:stack_and_tls:26752]
+                               VmFlags: rd wr mr mw me nr
+    000074e2'ea1dc000-000074e2'ea1e3fff ---         0      8000
+                               VmFlags: mr mw me nr
+    000074e2'ea1e4000-000074e2'ea3ebfff rw-         0    208000  [anon:stack_and_tls:26751]
+                               VmFlags: rd wr mr mw me nr
+    000074e2'ea3ec000-000074e2'ea3f3fff ---         0      8000
+                               VmFlags: mr mw me nr
+    000074e2'ea3f4000-000074e2'ea5fbfff rw-         0    208000  [anon:stack_and_tls:26750]
+                               VmFlags: rd wr mr mw me nr
+    000074e2'ea5fc000-000074e2'ea5fffff ---         0      4000
+                               VmFlags: mr mw me nr
+    000074e2'ea600000-000074e3'160d3fff ---         0  2bad4000  [anon:cfi shadow]
+                               VmFlags: mr mw me nr
+    000074e3'160d4000-000074e3'160d7fff r--         0      4000  [anon:cfi shadow]
+                               VmFlags: rd mr mw me ac
+    000074e3'160d8000-000074e3'24d27fff ---         0   ec50000  [anon:cfi shadow]
+                               VmFlags: mr mw me nr
+    000074e3'24d28000-000074e3'24d2bfff r--         0      4000  [anon:cfi shadow]
+                               VmFlags: rd mr mw me ac
+    000074e3'24d2c000-000074e3'6a5fffff ---         0  458d4000  [anon:cfi shadow]
+                               VmFlags: mr mw me nr
+    000074e3'6a600000-000074e3'7a62bfff ---         0  1002c000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e3'7a62c000-000074e3'7a66bfff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e3'7a66c000-000074e3'8a627fff ---         0   ffbc000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e3'8a628000-000074e3'8a667fff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e3'8a668000-000074e3'ea627fff ---         0  5ffc0000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e3'ea628000-000074e3'ea667fff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e3'ea668000-000074e3'fa63bfff ---         0   ffd4000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e3'fa63c000-000074e3'fa67bfff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e3'fa67c000-000074e4'1a633fff ---         0  1ffb8000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e4'1a634000-000074e4'1a673fff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e4'1a674000-000074e4'3a60ffff ---         0  1ff9c000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e4'3a610000-000074e4'3a64ffff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e4'3a650000-000074e4'5a623fff ---         0  1ffd4000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e4'5a624000-000074e4'5a663fff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e4'5a664000-000074e4'6a62ffff ---         0   ffcc000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e4'6a630000-000074e4'6a66ffff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e4'6a670000-000074e4'7a61ffff ---         0   ffb0000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e4'7a620000-000074e4'7a65ffff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e4'7a660000-000074e4'8a63ffff ---         0   ffe0000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e4'8a640000-000074e4'8a67ffff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e4'8a680000-000074e4'9a607fff ---         0   ff88000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e4'9a608000-000074e4'9a647fff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e4'9a648000-000074e4'aa61bfff ---         0   ffd4000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e4'aa61c000-000074e4'aa65bfff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e4'aa65c000-000074e4'ca63ffff ---         0  1ffe4000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e4'ca640000-000074e4'ca67ffff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e4'ca680000-000074e4'da603fff ---         0   ff84000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e4'da604000-000074e4'da643fff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e4'da644000-000074e4'ea637fff ---         0   fff4000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e4'ea638000-000074e4'ea677fff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e4'ea678000-000074e5'0a61ffff ---         0  1ffa8000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e5'0a620000-000074e5'0a65ffff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'0a660000-000074e5'2a61ffff ---         0  1ffc0000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e5'2a620000-000074e5'2a65ffff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'2a660000-000074e5'3a62ffff ---         0   ffd0000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e5'3a630000-000074e5'3a66ffff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'3a670000-000074e5'4a623fff ---         0   ffb4000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e5'4a624000-000074e5'4a663fff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'4a664000-000074e5'6a603fff ---         0  1ffa0000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e5'6a604000-000074e5'6a643fff rw-         0     40000  [anon:scudo:primary]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'6a644000-000074e5'7a5fffff ---         0   ffbc000  [anon:scudo:primary_reserve]
+                               VmFlags: mr mw me nr
+    000074e5'7a618000-000074e5'7a62bfff r--         0     14000  /apex/com.android.runtime/lib64/bionic/libm.so (BuildId: 471cfac5e42f5ac75269d47ae5b67bd5)
+                               VmFlags: rd mr mw me
+    000074e5'7a62c000-000074e5'7a657fff r-x     14000     2c000  /apex/com.android.runtime/lib64/bionic/libm.so (BuildId: 471cfac5e42f5ac75269d47ae5b67bd5)
+                               VmFlags: rd ex mr mw me
+    000074e5'7a658000-000074e5'7a65bfff r--     40000      4000  /apex/com.android.runtime/lib64/bionic/libm.so (BuildId: 471cfac5e42f5ac75269d47ae5b67bd5)
+                               VmFlags: rd mr mw me ac
+    000074e5'7a65c000-000074e5'7a65ffff rw-     44000      4000  /apex/com.android.runtime/lib64/bionic/libm.so (BuildId: 471cfac5e42f5ac75269d47ae5b67bd5)
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7a780000-000074e5'7a78ffff r--         0     10000  /system/lib64/libbase.so (BuildId: 3977439e9d7dd5a2b7cd3884ef76b7cc)
+                               VmFlags: rd mr mw me
+    000074e5'7a790000-000074e5'7a7b3fff r-x     10000     24000  /system/lib64/libbase.so (BuildId: 3977439e9d7dd5a2b7cd3884ef76b7cc)
+                               VmFlags: rd ex mr mw me
+    000074e5'7a7b4000-000074e5'7a7b7fff r--     34000      4000  /system/lib64/libbase.so (BuildId: 3977439e9d7dd5a2b7cd3884ef76b7cc)
+                               VmFlags: rd mr mw me ac
+    000074e5'7a7b8000-000074e5'7a7bbfff rw-         0      4000  [anon:.bss]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7a7c4000-000074e5'7a7cffff r--         0      c000  /system/lib64/libcutils.so (BuildId: 010cb340eb408c05884ba3b22fb9310e)
+                               VmFlags: rd mr mw me
+    000074e5'7a7d0000-000074e5'7a7dbfff r-x      c000      c000  /system/lib64/libcutils.so (BuildId: 010cb340eb408c05884ba3b22fb9310e)
+                               VmFlags: rd ex mr mw me
+    000074e5'7a7dc000-000074e5'7a7dffff r--     18000      4000  /system/lib64/libcutils.so (BuildId: 010cb340eb408c05884ba3b22fb9310e)
+                               VmFlags: rd mr mw me ac
+    000074e5'7a7e0000-000074e5'7a7e3fff rw-     1c000      4000  /system/lib64/libcutils.so (BuildId: 010cb340eb408c05884ba3b22fb9310e)
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7a800000-000074e5'7affffff ---         0    800000
+                               VmFlags: mr mw me
+    000074e5'7b00c000-000074e5'7b06bfff rw-         0     60000  [anon:linker_alloc]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7b06c000-000074e5'7b06ffff r--         0      4000  /apex/com.android.runtime/lib64/bionic/libdl.so (BuildId: c157a6a96b72ba1cb632a1c649c38618)
+                               VmFlags: rd mr mw me
+    000074e5'7b070000-000074e5'7b073fff r-x      4000      4000  /apex/com.android.runtime/lib64/bionic/libdl.so (BuildId: c157a6a96b72ba1cb632a1c649c38618)
+                               VmFlags: rd ex mr mw me
+    000074e5'7b074000-000074e5'7b077fff r--      8000      4000  /apex/com.android.runtime/lib64/bionic/libdl.so (BuildId: c157a6a96b72ba1cb632a1c649c38618)
+                               VmFlags: rd mr mw me ac
+    000074e5'7b078000-000074e5'7b07bfff r--         0      4000  [anon:.bss]
+                               VmFlags: rd mr mw me ac
+    000074e5'7b090000-000074e5'7b0a3fff r--         0     14000  /system/lib64/libbinder_ndk.so (BuildId: f55af0d3b470022edebc770dc7e3f794)
+                               VmFlags: rd mr mw me
+    000074e5'7b0a4000-000074e5'7b0b7fff r-x     14000     14000  /system/lib64/libbinder_ndk.so (BuildId: f55af0d3b470022edebc770dc7e3f794)
+                               VmFlags: rd ex mr mw me
+    000074e5'7b0b8000-000074e5'7b0bbfff r--     28000      4000  /system/lib64/libbinder_ndk.so (BuildId: f55af0d3b470022edebc770dc7e3f794)
+                               VmFlags: rd mr mw me ac
+    000074e5'7b0bc000-000074e5'7b0bffff rw-         0      4000  [anon:.bss]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7b0e4000-000074e5'7b12ffff r--         0     4c000  /system/lib64/libbinder.so (BuildId: 522a3c4d6365d0070222e87bc6be2d8f)
+                               VmFlags: rd mr mw me
+    000074e5'7b130000-000074e5'7b1bffff r-x     4c000     90000  /system/lib64/libbinder.so (BuildId: 522a3c4d6365d0070222e87bc6be2d8f)
+                               VmFlags: rd ex mr mw me
+    000074e5'7b1c0000-000074e5'7b1d3fff r--     dc000     14000  /system/lib64/libbinder.so (BuildId: 522a3c4d6365d0070222e87bc6be2d8f)
+                               VmFlags: rd mr mw me ac
+    000074e5'7b1d4000-000074e5'7b1d7fff rw-     f0000      4000  /system/lib64/libbinder.so (BuildId: 522a3c4d6365d0070222e87bc6be2d8f)
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7b200000-000074e5'7bdfffff ---         0    c00000
+                               VmFlags: mr mw me
+    000074e5'7be60000-000074e5'7be63fff r--         0      4000  /system/lib64/libvndksupport.so (BuildId: c2920605e0d1863e070472b86fdad76c)
+                               VmFlags: rd mr mw me
+    000074e5'7be64000-000074e5'7be67fff r-x      4000      4000  /system/lib64/libvndksupport.so (BuildId: c2920605e0d1863e070472b86fdad76c)
+                               VmFlags: rd ex mr mw me
+    000074e5'7be68000-000074e5'7be6bfff r--      8000      4000  /system/lib64/libvndksupport.so (BuildId: c2920605e0d1863e070472b86fdad76c)
+                               VmFlags: rd mr mw me ac
+    000074e5'7be6c000-000074e5'7be6ffff rw-         0      4000  [anon:.bss]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7be88000-000074e5'7bedffff r--         0     58000  /apex/com.android.runtime/lib64/bionic/libc.so (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+                               VmFlags: rd mr mw me
+    000074e5'7bee0000-000074e5'7bf7ffff r-x     58000     a0000  /apex/com.android.runtime/lib64/bionic/libc.so (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+                               VmFlags: rd ex mr mw me
+    000074e5'7bf80000-000074e5'7bf87fff r--     f8000      8000  /apex/com.android.runtime/lib64/bionic/libc.so (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+                               VmFlags: rd mr mw me ac
+    000074e5'7bf88000-000074e5'7bf8bfff rw-    100000      4000  /apex/com.android.runtime/lib64/bionic/libc.so (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7bf8c000-000074e5'7bf9ffff rw-         0     14000  [anon:.bss]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7bfa0000-000074e5'7bfa3fff r--         0      4000  [anon:.bss]
+                               VmFlags: rd mr mw me ac
+    000074e5'7bfa4000-000074e5'7bfabfff rw-         0      8000  [anon:.bss]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7bfd0000-000074e5'7bfdffff r--         0     10000  /system/lib64/libutils.so (BuildId: 2f60f1f8648d86bd29107cf325c95df3)
+                               VmFlags: rd mr mw me
+    000074e5'7bfe0000-000074e5'7bff3fff r-x     10000     14000  /system/lib64/libutils.so (BuildId: 2f60f1f8648d86bd29107cf325c95df3)
+                               VmFlags: rd ex mr mw me
+    000074e5'7bff4000-000074e5'7bff7fff r--     24000      4000  /system/lib64/libutils.so (BuildId: 2f60f1f8648d86bd29107cf325c95df3)
+                               VmFlags: rd mr mw me ac
+    000074e5'7bff8000-000074e5'7bffbfff rw-     28000      4000  /system/lib64/libutils.so (BuildId: 2f60f1f8648d86bd29107cf325c95df3)
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c00c000-000074e5'7c01bfff r--         0     10000  /system/lib64/libapexsupport.so (BuildId: 057d98c7f9fae4e10470cab56d2cb6c0)
+                               VmFlags: rd mr mw me
+    000074e5'7c01c000-000074e5'7c033fff r-x     10000     18000  /system/lib64/libapexsupport.so (BuildId: 057d98c7f9fae4e10470cab56d2cb6c0)
+                               VmFlags: rd ex mr mw me
+    000074e5'7c034000-000074e5'7c037fff r--     28000      4000  /system/lib64/libapexsupport.so (BuildId: 057d98c7f9fae4e10470cab56d2cb6c0)
+                               VmFlags: rd mr mw me ac
+    000074e5'7c038000-000074e5'7c03bfff rw-     2c000      4000  /system/lib64/libapexsupport.so (BuildId: 057d98c7f9fae4e10470cab56d2cb6c0)
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c054000-000074e5'7c05bfff r--         0      8000  /system/lib64/liblog.so (BuildId: d5afe7f5f82612f6cd4468dd13c93729)
+                               VmFlags: rd mr mw me
+    000074e5'7c05c000-000074e5'7c067fff r-x      8000      c000  /system/lib64/liblog.so (BuildId: d5afe7f5f82612f6cd4468dd13c93729)
+                               VmFlags: rd ex mr mw me
+    000074e5'7c068000-000074e5'7c06bfff r--     14000      4000  /system/lib64/liblog.so (BuildId: d5afe7f5f82612f6cd4468dd13c93729)
+                               VmFlags: rd mr mw me ac
+    000074e5'7c06c000-000074e5'7c06ffff rw-     18000      4000  /system/lib64/liblog.so (BuildId: d5afe7f5f82612f6cd4468dd13c93729)
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c0b4000-000074e5'7c0b7fff r--         0      4000  /apex/com.android.runtime/lib64/bionic/libdl_android.so (BuildId: faac8dd9ba5b6e0670f379bfa516d4a6)
+                               VmFlags: rd mr mw me
+    000074e5'7c0b8000-000074e5'7c0bbfff r-x      4000      4000  /apex/com.android.runtime/lib64/bionic/libdl_android.so (BuildId: faac8dd9ba5b6e0670f379bfa516d4a6)
+                               VmFlags: rd ex mr mw me
+    000074e5'7c0bc000-000074e5'7c0bffff r--      8000      4000  /apex/com.android.runtime/lib64/bionic/libdl_android.so (BuildId: faac8dd9ba5b6e0670f379bfa516d4a6)
+                               VmFlags: rd mr mw me ac
+    000074e5'7c0c8000-000074e5'7c13ffff r--         0     78000  /system/lib64/libc++.so (BuildId: 955be1bd65cb0bee1ba4447626611d8ca089d617) (load bias 0x4000)
+                               VmFlags: rd mr mw me
+    000074e5'7c140000-000074e5'7c1d3fff r-x     74000     94000  /system/lib64/libc++.so (BuildId: 955be1bd65cb0bee1ba4447626611d8ca089d617) (load bias 0x4000)
+                               VmFlags: rd ex mr mw me
+    000074e5'7c1d4000-000074e5'7c1dffff r--    104000      c000  /system/lib64/libc++.so (BuildId: 955be1bd65cb0bee1ba4447626611d8ca089d617) (load bias 0x4000)
+                               VmFlags: rd mr mw me ac
+    000074e5'7c1e0000-000074e5'7c1e3fff rw-    10c000      4000  /system/lib64/libc++.so (BuildId: 955be1bd65cb0bee1ba4447626611d8ca089d617) (load bias 0x4000)
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c1e4000-000074e5'7c1ebfff rw-         0      8000  [anon:.bss]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c238000-000074e5'7c23bfff ---         0      4000
+                               VmFlags: mr mw me
+    000074e5'7c23c000-000074e5'7c243fff rw-         0      8000  [anon:thread signal stack]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c244000-000074e5'7c247fff ---         0      4000
+                               VmFlags: mr mw me
+    000074e5'7c248000-000074e5'7c24ffff rw-         0      8000  [anon:thread signal stack]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c250000-000074e5'7c253fff ---         0      4000
+                               VmFlags: mr mw me
+    000074e5'7c254000-000074e5'7c25bfff rw-         0      8000  [anon:thread signal stack]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c25c000-000074e5'7c25ffff r--         0      4000  /system/lib64/libnetd_client.so (BuildId: 6c12e88cfee94a60e41842f9ba9289d9)
+                               VmFlags: rd mr mw me
+    000074e5'7c260000-000074e5'7c263fff r-x      4000      4000  /system/lib64/libnetd_client.so (BuildId: 6c12e88cfee94a60e41842f9ba9289d9)
+                               VmFlags: rd ex mr mw me
+    000074e5'7c264000-000074e5'7c267fff r--      8000      4000  /system/lib64/libnetd_client.so (BuildId: 6c12e88cfee94a60e41842f9ba9289d9)
+                               VmFlags: rd mr mw me ac
+    000074e5'7c268000-000074e5'7c26bfff rw-      c000      4000  /system/lib64/libnetd_client.so (BuildId: 6c12e88cfee94a60e41842f9ba9289d9)
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c274000-000074e5'7c277fff rw-         0      4000  [anon:abort message]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c278000-000074e5'7c297fff r--         0     20000  /dev/__properties__/u:object_r:log_file_logger_prop:s0
+                               VmFlags: rd mr me ms
+    000074e5'7c298000-000074e5'7c2b7fff r--         0     20000  /dev/__properties__/u:object_r:heapprofd_prop:s0
+                               VmFlags: rd mr me ms
+    000074e5'7c2b8000-000074e5'7c2d7fff r--         0     20000  /dev/__properties__/u:object_r:libc_debug_prop:s0
+                               VmFlags: rd mr me ms
+    000074e5'7c2d8000-000074e5'7c2f7fff r--         0     20000  /dev/__properties__/u:object_r:gwp_asan_prop:s0
+                               VmFlags: rd mr me ms
+    000074e5'7c2f8000-000074e5'7c317fff r--         0     20000  /dev/__properties__/u:object_r:debug_prop:s0
+                               VmFlags: rd mr me ms
+    000074e5'7c318000-000074e5'7c337fff r--         0     20000  /dev/__properties__/properties_serial
+                               VmFlags: rd mr me ms
+    000074e5'7c338000-000074e5'7c353fff r--         0     1c000  /dev/__properties__/property_info
+                               VmFlags: rd mr me ms
+    000074e5'7c358000-000074e5'7c35bfff ---         0      4000
+                               VmFlags: mr mw me
+    000074e5'7c35c000-000074e5'7c363fff rw-         0      8000  [anon:thread signal stack]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c364000-000074e5'7c367fff ---         0      4000
+                               VmFlags: mr mw me
+    000074e5'7c368000-000074e5'7c36ffff rw-         0      8000  [anon:thread signal stack]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c370000-000074e5'7c38ffff r--         0     20000  /dev/__properties__/u:object_r:log_tag_prop:s0
+                               VmFlags: rd mr me ms
+    000074e5'7c390000-000074e5'7c393fff r--         0      4000  [anon:atexit handlers]
+                               VmFlags: rd mr mw me ac
+    000074e5'7c394000-000074e5'7c3b3fff r--         0     20000  /dev/__properties__/u:object_r:vendor_socket_hook_prop:s0
+                               VmFlags: rd mr me ms
+    000074e5'7c3b4000-000074e5'7c473fff r--         0     c0000  [anon:linker_alloc]
+                               VmFlags: rd mr mw me ac
+    000074e5'7c474000-000074e5'7c477fff rw-         0      4000  [anon:bionic_alloc_small_objects]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c47c000-000074e5'7c483fff rw-         0      8000  [anon:bionic_alloc_small_objects]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c488000-000074e5'7c48bfff rw-         0      4000  [anon:System property context nodes]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c48c000-000074e5'7c48ffff rw-         0      4000  [anon:arc4random data]
+                               VmFlags: rd wr mr mw me ac wf
+    000074e5'7c490000-000074e5'7c493fff ---         0      4000
+                               VmFlags: mr mw me nr
+    000074e5'7c494000-000074e5'7c49bfff rw-         0      8000  [anon:stack_and_tls:main]
+                               VmFlags: rd wr mr mw me nr
+    000074e5'7c49c000-000074e5'7c49ffff ---         0      4000
+                               VmFlags: mr mw me nr
+    000074e5'7c4a0000-000074e5'7c4a7fff rw-         0      8000  [anon:bionic_alloc_small_objects]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c4a8000-000074e5'7c4c7fff r--         0     20000  /dev/__properties__/u:object_r:vndk_prop:s0
+                               VmFlags: rd mr me ms
+    000074e5'7c4c8000-000074e5'7c4cffff rw-         0      8000  [anon:bionic_alloc_small_objects]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c4d0000-000074e5'7c52ffff r--         0     60000  [anon:linker_alloc]
+                               VmFlags: rd mr mw me ac
+    000074e5'7c530000-000074e5'7c533fff rw-         0      4000  [anon:bionic_alloc_small_objects]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c534000-000074e5'7c553fff r--         0     20000  /dev/__properties__/u:object_r:debug_prop:s0
+                               VmFlags: rd mr me ms
+    000074e5'7c554000-000074e5'7c557fff ---         0      4000
+                               VmFlags: mr mw me
+    000074e5'7c558000-000074e5'7c577fff rw-         0     20000
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c578000-000074e5'7c57bfff ---         0      4000
+                               VmFlags: mr mw me
+    000074e5'7c57c000-000074e5'7c59bfff r--         0     20000  /dev/__properties__/properties_serial
+                               VmFlags: rd mr me ms
+    000074e5'7c59c000-000074e5'7c59ffff rw-         0      4000  [anon:System property context nodes]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c5a0000-000074e5'7c5fffff r--         0     60000  [anon:linker_alloc]
+                               VmFlags: rd mr mw me ac
+    000074e5'7c600000-000074e5'7c667fff r--         0     68000  /apex/com.android.runtime/bin/linker64 (BuildId: 973b99b00c477dcedd27fc84719b4965)
+                               VmFlags: rd mr mw me
+    000074e5'7c668000-000074e5'7c7dbfff r-x     68000    174000  /apex/com.android.runtime/bin/linker64 (BuildId: 973b99b00c477dcedd27fc84719b4965)
+                               VmFlags: rd ex mr mw me
+    000074e5'7c7dc000-000074e5'7c7e7fff r--    1dc000      c000  /apex/com.android.runtime/bin/linker64 (BuildId: 973b99b00c477dcedd27fc84719b4965)
+                               VmFlags: rd mr mw me ac
+    000074e5'7c7e8000-000074e5'7c7ebfff rw-    1e8000      4000  /apex/com.android.runtime/bin/linker64 (BuildId: 973b99b00c477dcedd27fc84719b4965)
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c7ec000-000074e5'7c7effff rw-         0      4000  [anon:.bss]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c7f0000-000074e5'7c7f3fff r--         0      4000  [anon:.bss]
+                               VmFlags: rd mr mw me ac
+    000074e5'7c7f4000-000074e5'7c803fff rw-         0     10000  [anon:.bss]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c808000-000074e5'7c823fff r--         0     1c000  /dev/__properties__/property_info
+                               VmFlags: rd mr me ms
+    000074e5'7c824000-000074e5'7c82bfff rw-         0      8000  [anon:bionic_alloc_small_objects]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c82c000-000074e5'7c82ffff r--         0      4000  [anon:atexit handlers]
+                               VmFlags: rd mr mw me ac
+    000074e5'7c830000-000074e5'7c833fff ---         0      4000
+                               VmFlags: mr mw me
+    000074e5'7c834000-000074e5'7c83bfff rw-         0      8000  [anon:thread signal stack]
+                               VmFlags: rd wr mr mw me ac
+    000074e5'7c83c000-000074e5'7c83ffff rw-         0      4000  [anon:arc4random data]
+                               VmFlags: rd wr mr mw me ac wf
+    000074e5'7c844000-000074e5'7c853fff r--         0     10000  [vvar]
+                               VmFlags: rd mr pf io de dd
+    000074e5'7c854000-000074e5'7c857fff r-x         0      4000  [vdso]
+                               VmFlags: rd ex mr mw me de
+    00007ffa'cc378000-00007ffa'cc39bfff rw-         0     24000  [stack]
+                               VmFlags: rd wr mr mw me gd ac
+    ffffffff'ff600000-ffffffff'ff603fff --x         0      4000  [vsyscall]
+                               VmFlags: ex
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+Executable: /vendor/bin/hw/android.hardware.uwb-service
+Cmdline: /vendor/bin/hw/android.hardware.uwb-service /dev/uwb0
+pid: 26749, ppid: 1, tid: 26750, name: tokio-rt-worker  >>> /vendor/bin/hw/android.hardware.uwb-service <<<
+uid: 1083
+    rax fffffffffffffe00  rbx 000074e2ea5f67f0  rcx 000074e57bee1c68  rdx 0000000000000000
+    r8  0000000000000000  r9  ffffffffffffffff  r10 0000000000000000  r11 0000000000000246
+    r12 0000000000000000  r13 000074e57bee1230  r14 000074e41a634874  r15 000074e57bee1c50
+    rdi 000074e41a634874  rsi 0000000000000089
+    rbp 000074e2ea5f6750  rsp 000074e2ea5f66a8  rip 000074e57bee1c68  err 0000000000000000
+8 total frames
+backtrace:
+      #00 pc 0000000000059c68  /apex/com.android.runtime/lib64/bionic/libc.so (syscall+24) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+      #01 pc 0000000000054288  /vendor/bin/hw/android.hardware.uwb-service (<tokio::runtime::scheduler::multi_thread::worker::Context>::park_internal+872) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #02 pc 0000000000058c79  /vendor/bin/hw/android.hardware.uwb-service (tokio::runtime::scheduler::multi_thread::worker::run+5929) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #03 pc 00000000000475d5  /vendor/bin/hw/android.hardware.uwb-service (tokio::runtime::task::raw::poll::<tokio::runtime::blocking::task::BlockingTask<<tokio::runtime::scheduler::multi_thread::worker::Launch>::launch::{closure#0}>, tokio::runtime::blocking::schedule::BlockingSchedule>+453) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #04 pc 0000000000049b82  /vendor/bin/hw/android.hardware.uwb-service (<std::thread::lifecycle::spawn_unchecked<<tokio::runtime::blocking::pool::Spawner>::spawn_thread::{closure#0}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0}+466) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #05 pc 00000000000403ab  /vendor/bin/hw/android.hardware.uwb-service (<std::sys::thread::unix::Thread>::new::thread_start+203) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #06 pc 000000000009376f  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+63) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+      #07 pc 00000000000856dd  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+45) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+Executable: /vendor/bin/hw/android.hardware.uwb-service
+Cmdline: /vendor/bin/hw/android.hardware.uwb-service /dev/uwb0
+pid: 26749, ppid: 1, tid: 26751, name: tokio-rt-worker  >>> /vendor/bin/hw/android.hardware.uwb-service <<<
+uid: 1083
+    rax fffffffffffffe00  rbx 000074e2ea3e67f0  rcx 000074e57bee1c68  rdx 0000000000000000
+    r8  0000000000000000  r9  ffffffffffffffff  r10 0000000000000000  r11 0000000000000246
+    r12 0000000000000000  r13 000074e57bee1230  r14 000074e41a6343b4  r15 000074e57bee1c50
+    rdi 000074e41a6343b4  rsi 0000000000000089
+    rbp 000074e2ea3e6750  rsp 000074e2ea3e66a8  rip 000074e57bee1c68  err 0000000000000000
+8 total frames
+backtrace:
+      #00 pc 0000000000059c68  /apex/com.android.runtime/lib64/bionic/libc.so (syscall+24) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+      #01 pc 0000000000054288  /vendor/bin/hw/android.hardware.uwb-service (<tokio::runtime::scheduler::multi_thread::worker::Context>::park_internal+872) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #02 pc 0000000000058c79  /vendor/bin/hw/android.hardware.uwb-service (tokio::runtime::scheduler::multi_thread::worker::run+5929) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #03 pc 00000000000475d5  /vendor/bin/hw/android.hardware.uwb-service (tokio::runtime::task::raw::poll::<tokio::runtime::blocking::task::BlockingTask<<tokio::runtime::scheduler::multi_thread::worker::Launch>::launch::{closure#0}>, tokio::runtime::blocking::schedule::BlockingSchedule>+453) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #04 pc 0000000000049b82  /vendor/bin/hw/android.hardware.uwb-service (<std::thread::lifecycle::spawn_unchecked<<tokio::runtime::blocking::pool::Spawner>::spawn_thread::{closure#0}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0}+466) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #05 pc 00000000000403ab  /vendor/bin/hw/android.hardware.uwb-service (<std::sys::thread::unix::Thread>::new::thread_start+203) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #06 pc 000000000009376f  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+63) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+      #07 pc 00000000000856dd  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+45) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+Executable: /vendor/bin/hw/android.hardware.uwb-service
+Cmdline: /vendor/bin/hw/android.hardware.uwb-service /dev/uwb0
+pid: 26749, ppid: 1, tid: 26752, name: tokio-rt-worker  >>> /vendor/bin/hw/android.hardware.uwb-service <<<
+uid: 1083
+    rax fffffffffffffffc  rbx 000074e45a625138  rcx 000074e57bee579a  rdx 0000000000000400
+    r8  0000000000000000  r9  0000000000000008  r10 00000000ffffffff  r11 0000000000000246
+    r12 000074e54a6266c0  r13 000074e41a634ad0  r14 000000003b9aca00  r15 000074e45a625138
+    rdi 0000000000000004  rsi 000074e3ea62ef30
+    rbp 000074e2ea1d6560  rsp 000074e2ea1d64e8  rip 000074e57bee579a  err 0000000000000000
+12 total frames
+backtrace:
+      #00 pc 000000000005d79a  /apex/com.android.runtime/lib64/bionic/libc.so (__epoll_pwait+10) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+      #01 pc 000000000004e8d6  /vendor/bin/hw/android.hardware.uwb-service (<tokio::runtime::io::driver::Driver>::turn+534) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #02 pc 0000000000051d26  /vendor/bin/hw/android.hardware.uwb-service (<tokio::runtime::driver::IoStack>::park+374) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #03 pc 000000000004ad71  /vendor/bin/hw/android.hardware.uwb-service (<tokio::runtime::time::Driver>::park_internal+513) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #04 pc 00000000000518a3  /vendor/bin/hw/android.hardware.uwb-service (<tokio::runtime::scheduler::multi_thread::park::Inner>::park_driver+163) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #05 pc 0000000000054024  /vendor/bin/hw/android.hardware.uwb-service (<tokio::runtime::scheduler::multi_thread::worker::Context>::park_internal+260) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #06 pc 0000000000058c79  /vendor/bin/hw/android.hardware.uwb-service (tokio::runtime::scheduler::multi_thread::worker::run+5929) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #07 pc 00000000000475d5  /vendor/bin/hw/android.hardware.uwb-service (tokio::runtime::task::raw::poll::<tokio::runtime::blocking::task::BlockingTask<<tokio::runtime::scheduler::multi_thread::worker::Launch>::launch::{closure#0}>, tokio::runtime::blocking::schedule::BlockingSchedule>+453) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #08 pc 0000000000049b82  /vendor/bin/hw/android.hardware.uwb-service (<std::thread::lifecycle::spawn_unchecked<<tokio::runtime::blocking::pool::Spawner>::spawn_thread::{closure#0}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0}+466) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #09 pc 00000000000403ab  /vendor/bin/hw/android.hardware.uwb-service (<std::sys::thread::unix::Thread>::new::thread_start+203) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #10 pc 000000000009376f  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+63) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+      #11 pc 00000000000856dd  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+45) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+Executable: /vendor/bin/hw/android.hardware.uwb-service
+Cmdline: /vendor/bin/hw/android.hardware.uwb-service /dev/uwb0
+pid: 26749, ppid: 1, tid: 26753, name: tokio-rt-worker  >>> /vendor/bin/hw/android.hardware.uwb-service <<<
+uid: 1083
+    rax fffffffffffffe00  rbx 000074e2e9fc67f0  rcx 000074e57bee1c68  rdx 0000000000000000
+    r8  0000000000000000  r9  ffffffffffffffff  r10 0000000000000000  r11 0000000000000246
+    r12 0000000000000000  r13 000074e57bee1230  r14 000074e41a634c74  r15 000074e57bee1c50
+    rdi 000074e41a634c74  rsi 0000000000000089
+    rbp 000074e2e9fc6750  rsp 000074e2e9fc66a8  rip 000074e57bee1c68  err 0000000000000000
+8 total frames
+backtrace:
+      #00 pc 0000000000059c68  /apex/com.android.runtime/lib64/bionic/libc.so (syscall+24) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+      #01 pc 0000000000054288  /vendor/bin/hw/android.hardware.uwb-service (<tokio::runtime::scheduler::multi_thread::worker::Context>::park_internal+872) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #02 pc 0000000000058c79  /vendor/bin/hw/android.hardware.uwb-service (tokio::runtime::scheduler::multi_thread::worker::run+5929) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #03 pc 00000000000475d5  /vendor/bin/hw/android.hardware.uwb-service (tokio::runtime::task::raw::poll::<tokio::runtime::blocking::task::BlockingTask<<tokio::runtime::scheduler::multi_thread::worker::Launch>::launch::{closure#0}>, tokio::runtime::blocking::schedule::BlockingSchedule>+453) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #04 pc 0000000000049b82  /vendor/bin/hw/android.hardware.uwb-service (<std::thread::lifecycle::spawn_unchecked<<tokio::runtime::blocking::pool::Spawner>::spawn_thread::{closure#0}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0}+466) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #05 pc 00000000000403ab  /vendor/bin/hw/android.hardware.uwb-service (<std::sys::thread::unix::Thread>::new::thread_start+203) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #06 pc 000000000009376f  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+63) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+      #07 pc 00000000000856dd  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+45) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+Executable: /vendor/bin/hw/android.hardware.uwb-service
+Cmdline: /vendor/bin/hw/android.hardware.uwb-service /dev/uwb0
+pid: 26749, ppid: 1, tid: 26754, name: tokio-rt-worker  >>> /vendor/bin/hw/android.hardware.uwb-service <<<
+uid: 1083
+    rax fffffffffffffdfc  rbx 0000000000000000  rcx 000074e57bee1c68  rdx 0000000000000000
+    r8  0000000000000000  r9  000074e5ffffffff  r10 000074e2e9db6898  r11 0000000000000246
+    r12 000074e57bee1230  r13 000074e57bee1c50  r14 000074e49a609e58  r15 0000000038b79601
+    rdi 000074e49a609e58  rsi 0000000000000089
+    rbp 000074e2e9db68e0  rsp 000074e2e9db6878  rip 000074e57bee1c68  err 0000000000000000
+6 total frames
+backtrace:
+      #00 pc 0000000000059c68  /apex/com.android.runtime/lib64/bionic/libc.so (syscall+24) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+      #01 pc 000000000003f6c9  /vendor/bin/hw/android.hardware.uwb-service (std::sys::pal::unix::futex::futex_wait+233) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #02 pc 0000000000049bfe  /vendor/bin/hw/android.hardware.uwb-service (<std::thread::lifecycle::spawn_unchecked<<tokio::runtime::blocking::pool::Spawner>::spawn_thread::{closure#0}, ()>::{closure#1} as core::ops::function::FnOnce<()>>::call_once::{shim:vtable#0}+590) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #03 pc 00000000000403ab  /vendor/bin/hw/android.hardware.uwb-service (<std::sys::thread::unix::Thread>::new::thread_start+203) (BuildId: b8f3093f355d6b415637c050fb6e8cf4)
+      #04 pc 000000000009376f  /apex/com.android.runtime/lib64/bionic/libc.so (__pthread_start(void*) (.__uniq.67847048707805468364044055584648682506)+63) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+      #05 pc 00000000000856dd  /apex/com.android.runtime/lib64/bionic/libc.so (__start_thread+45) (BuildId: 6a12fb8c62f84cd3689f4044ef042df1)
+
+
+open files:
+    fd 0: /dev/null (unowned)
+    fd 1: /dev/null (unowned)
+    fd 2: /dev/null (unowned)
+    fd 3: socket:[472607] (unowned)
+    fd 4: anon_inode:[eventpoll] (unowned)
+    fd 5: anon_inode:[eventfd] (unowned)
+    fd 6: anon_inode:[eventpoll] (unowned)
+    fd 7: socket:[472610] (unowned)
+    fd 8: socket:[472611] (unowned)
+    fd 9: socket:[472610] (unowned)
