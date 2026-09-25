@@ -1,6 +1,11 @@
 package com.krithi.ui.nowplaying
 
+import android.content.Intent
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.PickVisualMediaRequest
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -39,6 +44,21 @@ fun NowPlayingScreen(
     val isPlaying by viewModel.isPlaying.collectAsState()
     val currentPosition by viewModel.currentPosition.collectAsState()
     val duration by viewModel.duration.collectAsState()
+    val customCoverUri by viewModel.customCoverUri.collectAsState()
+
+    val context = LocalContext.current
+    val photoPickerLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.PickVisualMedia(),
+        onResult = { uri ->
+            if (uri != null) {
+                val flag = Intent.FLAG_GRANT_READ_URI_PERMISSION
+                context.contentResolver.takePersistableUriPermission(uri, flag)
+                currentSong?.let { song ->
+                    viewModel.setCustomCover(song.id, uri.toString())
+                }
+            }
+        }
+    )
 
     Column(
         modifier = modifier
@@ -65,20 +85,44 @@ fun NowPlayingScreen(
         Spacer(modifier = Modifier.height(32.dp))
 
         // Album Art
-        AsyncImage(
-            model = ImageRequest.Builder(LocalContext.current)
-                // Placeholder since we don't have real state hooked up in this Phase yet
-                .data("https://placeholder.com/500") 
-                .crossfade(true)
-                .build(),
-            contentDescription = "Large Album Art",
-            contentScale = ContentScale.Crop,
+        Box(
             modifier = Modifier
                 .aspectRatio(1f)
                 .fillMaxWidth()
                 .clip(RoundedCornerShape(32.dp))
                 .background(SurfaceVariantDark)
-        )
+                .clickable {
+                    photoPickerLauncher.launch(
+                        PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+                    )
+                }
+        ) {
+            AsyncImage(
+                model = ImageRequest.Builder(LocalContext.current)
+                    .data(customCoverUri ?: currentSong?.uri ?: "https://placeholder.com/500") 
+                    .crossfade(true)
+                    .build(),
+                contentDescription = "Large Album Art",
+                contentScale = ContentScale.Crop,
+                modifier = Modifier.fillMaxSize()
+            )
+            
+            // Edit icon overlay
+            Box(
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(16.dp)
+                    .background(BackgroundDark.copy(alpha = 0.7f), RoundedCornerShape(50))
+                    .padding(8.dp)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Edit,
+                    contentDescription = "Edit Cover",
+                    tint = PrimaryTextDark,
+                    modifier = Modifier.size(24.dp)
+                )
+            }
+        }
 
         Spacer(modifier = Modifier.height(32.dp))
 

@@ -3,7 +3,9 @@ package com.krithi.data.media
 import android.content.ContentUris
 import android.content.Context
 import android.net.Uri
+import android.os.Build
 import android.provider.MediaStore
+import com.krithi.domain.model.Album
 import com.krithi.domain.model.Song
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
@@ -33,7 +35,11 @@ class MediaStoreDataSource @Inject constructor(
             MediaStore.Audio.Media.DATA
         )
         
-        val selection = "${MediaStore.Audio.Media.IS_MUSIC} != 0"
+        val isRecordingSelection = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            " AND ${MediaStore.Audio.Media.IS_RECORDING} == 0"
+        } else ""
+
+        val selection = "${MediaStore.Audio.Media.IS_MUSIC} != 0$isRecordingSelection AND ${MediaStore.Audio.Media.IS_ALARM} == 0 AND ${MediaStore.Audio.Media.IS_NOTIFICATION} == 0 AND ${MediaStore.Audio.Media.IS_RINGTONE} == 0 AND ${MediaStore.Audio.Media.IS_PODCAST} == 0 AND ${MediaStore.Audio.Media.DATA} NOT LIKE '%WhatsApp Audio%'"
         val sortOrder = "${MediaStore.Audio.Media.TITLE} ASC"
         
         context.contentResolver.query(
@@ -97,5 +103,21 @@ class MediaStoreDataSource @Inject constructor(
         }
         
         songs
+    }
+
+    suspend fun getAlbums(): List<Album> = withContext(Dispatchers.IO) {
+        val songs = getSongs()
+        val groupedByAlbum = songs.groupBy { it.albumId }
+        
+        groupedByAlbum.map { (albumId, albumSongs) ->
+            Album(
+                id = albumId,
+                title = albumSongs.firstOrNull()?.album ?: "Unknown Album",
+                artist = albumSongs.firstOrNull()?.artist ?: "Unknown Artist",
+                songCount = albumSongs.size,
+                songs = albumSongs.sortedBy { it.trackNumber },
+                artworkUri = "content://media/external/audio/albumart/$albumId"
+            )
+        }.sortedBy { it.title }
     }
 }

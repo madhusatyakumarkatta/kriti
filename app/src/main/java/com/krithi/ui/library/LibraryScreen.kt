@@ -7,14 +7,21 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Album
 import androidx.compose.material3.*
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.krithi.ui.components.AlbumCard
 import com.krithi.ui.components.SongRow
 import com.krithi.ui.theme.BackgroundDark
 import com.krithi.ui.theme.PrimaryAccent
@@ -99,7 +106,22 @@ fun LibraryScreen(
                                 }
                             }
                         }
-                        1 -> Text("Albums Grid (Coming soon)", color = PrimaryTextDark)
+                        1 -> { // Albums
+                            LazyVerticalGrid(
+                                columns = GridCells.Fixed(3),
+                                modifier = Modifier.fillMaxSize(),
+                                contentPadding = PaddingValues(16.dp),
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                verticalArrangement = Arrangement.spacedBy(8.dp)
+                            ) {
+                                androidx.compose.foundation.lazy.grid.items(state.albums, key = { it.id }) { album ->
+                                    AlbumCard(
+                                        album = album,
+                                        onClick = { /* TODO: Navigate to Album */ }
+                                    )
+                                }
+                            }
+                        }
                         2 -> Text("Artists List (Coming soon)", color = PrimaryTextDark)
                         3 -> Text("Folders List (Coming soon)", color = PrimaryTextDark)
                     }

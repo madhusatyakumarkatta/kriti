@@ -13,13 +13,30 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+import com.krithi.domain.repository.CoverRepository
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.stateIn
+
 @HiltViewModel
 class SharedPlaybackViewModel @Inject constructor(
-    private val playerManager: PlayerManager
+    private val playerManager: PlayerManager,
+    private val coverRepository: CoverRepository
 ) : ViewModel() {
 
     val currentSong: StateFlow<Song?> = playerManager.currentSong
     val isPlaying: StateFlow<Boolean> = playerManager.isPlaying
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val customCoverUri: StateFlow<String?> = currentSong.flatMapLatest { song ->
+        if (song != null) {
+            coverRepository.observeCustomCoverUri(song.id)
+        } else {
+            flowOf(null)
+        }
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), null)
 
     private val _currentPosition = MutableStateFlow(0L)
     val currentPosition: StateFlow<Long> = _currentPosition.asStateFlow()
@@ -54,5 +71,9 @@ class SharedPlaybackViewModel @Inject constructor(
     fun seekTo(position: Long) {
         playerManager.seekTo(position)
         _currentPosition.value = position
+    }
+
+    fun setCustomCover(songId: Long, uri: String?) {
+        coverRepository.setCustomCoverUri(songId, uri)
     }
 }

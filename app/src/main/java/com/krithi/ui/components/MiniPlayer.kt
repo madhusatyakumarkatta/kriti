@@ -26,8 +26,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
+import androidx.compose.ui.platform.LocalContext
 import com.krithi.ui.SharedPlaybackViewModel
 import com.krithi.ui.theme.PrimaryTextDark
 import com.krithi.ui.theme.SecondaryTextDark
@@ -41,6 +45,7 @@ fun MiniPlayer(
 ) {
     val currentSong by viewModel.currentSong.collectAsState()
     val isPlaying by viewModel.isPlaying.collectAsState()
+    val customCoverUri by viewModel.customCoverUri.collectAsState()
 
     if (currentSong == null) return
 
@@ -53,8 +58,14 @@ fun MiniPlayer(
             .padding(horizontal = 16.dp, vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Placeholder for Album Art
-        Box(
+        // Album Art
+        AsyncImage(
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(customCoverUri ?: currentSong?.uri ?: "https://placeholder.com/50") 
+                .crossfade(true)
+                .build(),
+            contentDescription = "Mini Album Art",
+            contentScale = ContentScale.Crop,
             modifier = Modifier
                 .size(48.dp)
                 .clip(RoundedCornerShape(8.dp))

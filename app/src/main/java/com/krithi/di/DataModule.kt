@@ -1,6 +1,8 @@
 package com.krithi.di
 
+import com.krithi.data.repository.CoverRepositoryImpl
 import com.krithi.data.repository.MusicRepositoryImpl
+import com.krithi.domain.repository.CoverRepository
 import com.krithi.domain.repository.MusicRepository
 import dagger.Binds
 import dagger.Module
@@ -17,4 +19,10 @@ abstract class DataModule {
     abstract fun bindMusicRepository(
         musicRepositoryImpl: MusicRepositoryImpl
     ): MusicRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindCoverRepository(
+        coverRepositoryImpl: CoverRepositoryImpl
+    ): CoverRepository
 }

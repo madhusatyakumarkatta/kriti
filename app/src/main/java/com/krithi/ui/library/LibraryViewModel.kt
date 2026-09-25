@@ -2,6 +2,7 @@ package com.krithi.ui.library
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.krithi.domain.usecase.GetAlbumsUseCase
 import com.krithi.domain.usecase.GetSongsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -12,7 +13,8 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LibraryViewModel @Inject constructor(
-    private val getSongsUseCase: GetSongsUseCase
+    private val getSongsUseCase: GetSongsUseCase,
+    private val getAlbumsUseCase: GetAlbumsUseCase
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow<LibraryUiState>(LibraryUiState.PermissionRequired)
@@ -31,10 +33,11 @@ class LibraryViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val songs = getSongsUseCase()
+                val albums = getAlbumsUseCase()
                 if (songs.isEmpty()) {
                     _uiState.value = LibraryUiState.Empty
                 } else {
-                    _uiState.value = LibraryUiState.Success(songs)
+                    _uiState.value = LibraryUiState.Success(songs, albums)
                 }
             } catch (e: Exception) {
                 _uiState.value = LibraryUiState.Error(e.message ?: "Failed to load library")
