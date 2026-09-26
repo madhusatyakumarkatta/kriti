@@ -3,6 +3,7 @@ package com.krithi.data.local.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.krithi.data.local.dao.FavoriteDao
+import com.krithi.data.local.dao.PlaylistDao
 import com.krithi.data.local.entity.FavoriteEntity
 import com.krithi.data.local.entity.PlaylistEntity
 import com.krithi.data.local.entity.PlaylistSongEntity
@@ -14,4 +15,5 @@ import com.krithi.data.local.entity.PlaylistSongEntity
 )
 abstract class KrithiDatabase : RoomDatabase() {
     abstract val favoriteDao: FavoriteDao
+    abstract val playlistDao: PlaylistDao
 }

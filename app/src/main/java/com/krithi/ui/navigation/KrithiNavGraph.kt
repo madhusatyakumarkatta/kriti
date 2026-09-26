@@ -91,7 +91,18 @@ fun KrithiNavGraph(
                 startDestination = "home"
             ) {
                 composable("home") { HomeScreen() }
-                composable("library") { LibraryScreen() }
+                composable("library") { LibraryScreen(
+                    onNavigateToAlbum = { albumId -> navController.navigate("album/$albumId") }
+                ) }
+                composable("album/{albumId}") { backStackEntry ->
+                    val albumId = backStackEntry.arguments?.getString("albumId")?.toLongOrNull()
+                    if (albumId != null) {
+                        com.krithi.ui.library.AlbumDetailScreen(
+                            albumId = albumId,
+                            onBack = { navController.popBackStack() }
+                        )
+                    }
+                }
                 composable("search") { SearchScreen() }
                 composable("now_playing") { 
                     NowPlayingScreen(onBack = { navController.popBackStack() }) 

@@ -7,9 +7,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Album
@@ -31,11 +30,12 @@ import com.krithi.ui.theme.SecondaryTextDark
 @Composable
 fun LibraryScreen(
     modifier: Modifier = Modifier,
-    viewModel: LibraryViewModel = hiltViewModel()
+    viewModel: LibraryViewModel = hiltViewModel(),
+    onNavigateToAlbum: (Long) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
     var selectedTabIndex by remember { mutableStateOf(0) }
-    val tabs = listOf("Songs", "Albums", "Artists", "Folders")
+    val tabs = listOf("Songs", "Albums", "Artists", "Playlists")
 
     val permissionToRequest = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
         Manifest.permission.READ_MEDIA_AUDIO
@@ -114,10 +114,10 @@ fun LibraryScreen(
                                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                                 verticalArrangement = Arrangement.spacedBy(8.dp)
                             ) {
-                                androidx.compose.foundation.lazy.grid.items(state.albums, key = { it.id }) { album ->
+                                items(state.albums, key = { it.id }) { album ->
                                     AlbumCard(
                                         album = album,
-                                        onClick = { /* TODO: Navigate to Album */ }
+                                        onClick = { onNavigateToAlbum(album.id) }
                                     )
                                 }
                             }

@@ -34,7 +34,7 @@ class LibraryViewModel @Inject constructor(
             try {
                 val songs = getSongsUseCase()
                 val albums = getAlbumsUseCase()
-                if (songs.isEmpty()) {
+                if (songs.isEmpty() && albums.isEmpty()) {
                     _uiState.value = LibraryUiState.Empty
                 } else {
                     _uiState.value = LibraryUiState.Success(songs, albums)
