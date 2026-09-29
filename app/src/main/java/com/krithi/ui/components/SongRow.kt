@@ -46,7 +46,7 @@ fun SongRow(
     ) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current)
-                .data(song.uri)
+                .data(song.customCoverUri ?: song.uri)
                 .crossfade(true)
                 .build(),
             contentDescription = "Album Art",

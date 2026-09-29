@@ -13,14 +13,22 @@ import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.draw.clip
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.background
+import com.krithi.ui.theme.SurfaceVariantDark
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import coil.compose.AsyncImage
+import coil.request.ImageRequest
 import com.krithi.domain.model.Song
 import com.krithi.ui.theme.PrimaryTextDark
 import com.krithi.ui.theme.SecondaryTextDark
+import com.krithi.ui.theme.SurfaceVariantDark
 
 @Composable
 fun HomeScreen(
@@ -99,11 +107,17 @@ fun SongListItem(song: Song, onClick: () -> Unit) {
             .padding(horizontal = 16.dp, vertical = 12.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        Icon(
-            imageVector = Icons.Default.MusicNote,
-            contentDescription = null,
-            tint = SecondaryTextDark,
-            modifier = Modifier.size(40.dp)
+        AsyncImage(
+            model = ImageRequest.Builder(LocalContext.current)
+                .data(song.customCoverUri ?: song.uri)
+                .crossfade(true)
+                .build(),
+            contentDescription = "Album Art",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .size(48.dp)
+                .clip(RoundedCornerShape(8.dp))
+                .background(SurfaceVariantDark)
         )
         Spacer(modifier = Modifier.width(16.dp))
         Column(modifier = Modifier.weight(1f)) {

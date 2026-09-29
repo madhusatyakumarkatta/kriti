@@ -6,4 +6,8 @@ interface CoverRepository {
     fun getCustomCoverUri(songId: Long): String?
     fun observeCustomCoverUri(songId: Long): Flow<String?>
     fun setCustomCoverUri(songId: Long, uri: String?)
+    
+    fun getCustomTitle(songId: Long): String?
+    fun observeCustomTitle(songId: Long): Flow<String?>
+    fun setCustomTitle(songId: Long, title: String?)
 }

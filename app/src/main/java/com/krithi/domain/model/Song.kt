@@ -19,5 +19,6 @@ data class Song(
     val dateAdded: Long,
     val fileSize: Long,
     val mimeType: String,
-    val folder: String
+    val folder: String,
+    val customCoverUri: String? = null
 )
