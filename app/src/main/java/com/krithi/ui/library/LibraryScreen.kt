@@ -107,7 +107,7 @@ fun LibraryScreen(
                             }
                         }
                         1 -> { // Albums
-                            LazyVerticalGrid(
+                                LazyVerticalGrid(
                                 columns = GridCells.Fixed(3),
                                 modifier = Modifier.fillMaxSize(),
                                 contentPadding = PaddingValues(16.dp),
