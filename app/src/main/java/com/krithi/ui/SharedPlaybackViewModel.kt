@@ -2,6 +2,7 @@ package com.krithi.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.media3.common.Player
 import com.krithi.domain.model.Song
 import com.krithi.playback.PlayerManager
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -43,6 +44,9 @@ class SharedPlaybackViewModel @Inject constructor(
 
     private val _duration = MutableStateFlow(0L)
     val duration: StateFlow<Long> = _duration.asStateFlow()
+    
+    private val _repeatMode = MutableStateFlow(Player.REPEAT_MODE_OFF)
+    val repeatMode: StateFlow<Int> = _repeatMode.asStateFlow()
 
     init {
         viewModelScope.launch {
@@ -50,10 +54,15 @@ class SharedPlaybackViewModel @Inject constructor(
                 if (isPlaying.value) {
                     _currentPosition.value = playerManager.getCurrentPosition()
                     _duration.value = playerManager.getDuration()
+                    _repeatMode.value = playerManager.getRepeatMode()
                 }
                 delay(1000) // Update every second
             }
         }
+    }
+
+    fun playSongs(songs: List<Song>, startIndex: Int = 0) {
+        playerManager.playSongs(songs, startIndex)
     }
 
     fun togglePlayPause() {
@@ -72,8 +81,17 @@ class SharedPlaybackViewModel @Inject constructor(
         playerManager.seekTo(position)
         _currentPosition.value = position
     }
+    
+    fun toggleRepeatMode() {
+        playerManager.toggleRepeatMode()
+        _repeatMode.value = playerManager.getRepeatMode()
+    }
 
     fun setCustomCover(songId: Long, uri: String?) {
         coverRepository.setCustomCoverUri(songId, uri)
+    }
+
+    fun renameSong(songId: Long, newName: String) {
+        playerManager.renameSong(songId, newName)
     }
 }

@@ -98,4 +98,36 @@ class PlayerManager @Inject constructor(
     fun seekTo(position: Long) {
         mediaController?.seekTo(position)
     }
+    
+    fun toggleRepeatMode() {
+        mediaController?.let { controller ->
+            val currentMode = controller.repeatMode
+            controller.repeatMode = if (currentMode == Player.REPEAT_MODE_ONE) {
+                Player.REPEAT_MODE_OFF
+            } else {
+                Player.REPEAT_MODE_ONE
+            }
+        }
+    }
+    
+    fun getRepeatMode(): Int = mediaController?.repeatMode ?: Player.REPEAT_MODE_OFF
+
+    fun renameSong(songId: Long, newName: String) {
+        // Find in current playlist
+        val index = currentPlaylist.indexOfFirst { it.id == songId }
+        if (index != -1) {
+            val updatedSong = currentPlaylist[index].copy(title = newName)
+            val updatedList = currentPlaylist.toMutableList()
+            updatedList[index] = updatedSong
+            currentPlaylist = updatedList
+            
+            // If it's currently playing, update the StateFlow
+            if (_currentSong.value?.id == songId) {
+                _currentSong.value = updatedSong
+            }
+            
+            // Note: Ideally, this should update the underlying Database or MediaStore
+            // but for instant UI reflection during playback, we update the runtime models here.
+        }
+    }
 }

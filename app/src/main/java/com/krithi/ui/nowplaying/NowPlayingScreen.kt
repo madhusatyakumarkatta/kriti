@@ -14,6 +14,8 @@ import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -23,6 +25,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.media3.common.Player
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.krithi.ui.SharedPlaybackViewModel
@@ -45,6 +48,7 @@ fun NowPlayingScreen(
     val currentPosition by viewModel.currentPosition.collectAsState()
     val duration by viewModel.duration.collectAsState()
     val customCoverUri by viewModel.customCoverUri.collectAsState()
+    val repeatMode by viewModel.repeatMode.collectAsState()
 
     val context = LocalContext.current
     val photoPickerLauncher = rememberLauncherForActivityResult(
@@ -107,19 +111,57 @@ fun NowPlayingScreen(
                 modifier = Modifier.fillMaxSize()
             )
             
+            val showRenameDialog = remember { mutableStateOf(false) }
+            
             // Edit icon overlay
             Box(
                 modifier = Modifier
                     .align(Alignment.BottomEnd)
                     .padding(16.dp)
                     .background(BackgroundDark.copy(alpha = 0.7f), RoundedCornerShape(50))
+                    .clickable { showRenameDialog.value = true }
                     .padding(8.dp)
             ) {
                 Icon(
                     imageVector = Icons.Default.Edit,
-                    contentDescription = "Edit Cover",
+                    contentDescription = "Edit Song Name",
                     tint = PrimaryTextDark,
                     modifier = Modifier.size(24.dp)
+                )
+            }
+            
+            if (showRenameDialog.value) {
+                val newName = remember { mutableStateOf(currentSong?.title ?: "") }
+                AlertDialog(
+                    onDismissRequest = { showRenameDialog.value = false },
+                    title = { Text("Rename Song", color = PrimaryTextDark) },
+                    text = {
+                        OutlinedTextField(
+                            value = newName.value,
+                            onValueChange = { newName.value = it },
+                            label = { Text("Song Name") },
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedTextColor = PrimaryTextDark,
+                                unfocusedTextColor = PrimaryTextDark
+                            )
+                        )
+                    },
+                    confirmButton = {
+                        Button(onClick = {
+                            currentSong?.let {
+                                viewModel.renameSong(it.id, newName.value)
+                            }
+                            showRenameDialog.value = false
+                        }) {
+                            Text("Save")
+                        }
+                    },
+                    dismissButton = {
+                        TextButton(onClick = { showRenameDialog.value = false }) {
+                            Text("Cancel")
+                        }
+                    },
+                    containerColor = BackgroundDark
                 )
             }
         }
@@ -202,7 +244,13 @@ fun NowPlayingScreen(
             }
             
             IconButton(onClick = { viewModel.skipToNext() }) { Icon(Icons.Default.SkipNext, contentDescription = "Next", tint = PrimaryTextDark, modifier = Modifier.size(36.dp)) }
-            IconButton(onClick = {}) { Icon(Icons.Default.Repeat, contentDescription = "Repeat", tint = PrimaryTextDark) }
+            IconButton(onClick = { viewModel.toggleRepeatMode() }) { 
+                Icon(
+                    imageVector = if (repeatMode == Player.REPEAT_MODE_ONE) Icons.Default.RepeatOne else Icons.Default.Repeat,
+                    contentDescription = "Repeat", 
+                    tint = if (repeatMode == Player.REPEAT_MODE_ONE) PrimaryAccent else PrimaryTextDark
+                ) 
+            }
         }
 
         Spacer(modifier = Modifier.height(32.dp))

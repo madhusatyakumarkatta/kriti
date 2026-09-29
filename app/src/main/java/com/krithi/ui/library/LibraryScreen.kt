@@ -2,16 +2,21 @@ package com.krithi.ui.library
 
 import android.Manifest
 import android.os.Build
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Album
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.foundation.clickable
 import androidx.compose.material3.*
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.*
@@ -41,13 +46,16 @@ fun LibraryScreen(
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val playlists by viewModel.playlists.collectAsState()
+    val selectedPlaylistSongs by viewModel.selectedPlaylistSongs.collectAsState()
     var selectedTabIndex by remember { mutableStateOf(0) }
-    val tabs = listOf("Songs", "Albums", "Artists", "Playlists")
+    val tabs = listOf("Songs", "Albums", "Playlists")
     val context = LocalContext.current
     
     var showPlaylistDialog by remember { mutableStateOf<Song?>(null) }
     var showCreatePlaylistDialog by remember { mutableStateOf(false) }
     var newPlaylistName by remember { mutableStateOf("") }
+    
+    var selectedPlaylistId by remember { mutableStateOf<Long?>(null) }
     
     val deleteLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartIntentSenderForResult()
@@ -121,8 +129,10 @@ fun LibraryScreen(
                     when (selectedTabIndex) {
                         0 -> { // Songs
                             LazyColumn(modifier = Modifier.fillMaxSize()) {
-                                items(state.songs, key = { it.id }) { song ->
-                                    SongRow(song = song, onClick = { /* TODO: Play song */ }, onOptionsClick = { action ->
+                                itemsIndexed(state.songs, key = { _, it -> it.id }) { index, song ->
+                                    SongRow(song = song, onClick = { 
+                                        viewModel.playSongs(state.songs, index)
+                                    }, onOptionsClick = { action ->
                                         if (action == "delete") {
                                             val intentSender = viewModel.getDeleteIntentSender(context, song.uri)
                                             if (intentSender != null) {
@@ -155,8 +165,58 @@ fun LibraryScreen(
                                 }
                             }
                         }
-                        2 -> Text("Artists List (Coming soon)", color = PrimaryTextDark)
-                        3 -> Text("Folders List (Coming soon)", color = PrimaryTextDark)
+                        2 -> {
+                            if (selectedPlaylistId != null) {
+                                val currentPlaylist = playlists.find { it.id == selectedPlaylistId }
+                                Column(modifier = Modifier.fillMaxSize()) {
+                                    Row(
+                                        modifier = Modifier.fillMaxWidth().padding(16.dp),
+                                        verticalAlignment = Alignment.CenterVertically
+                                    ) {
+                                        IconButton(onClick = { 
+                                            selectedPlaylistId = null
+                                            viewModel.selectPlaylist(null) 
+                                        }) {
+                                            Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Back", tint = PrimaryTextDark)
+                                        }
+                                        Text(currentPlaylist?.name ?: "", style = MaterialTheme.typography.titleLarge, color = PrimaryTextDark, modifier = Modifier.padding(start = 16.dp))
+                                    }
+                                    LazyColumn(modifier = Modifier.fillMaxSize()) {
+                                        itemsIndexed(selectedPlaylistSongs, key = { _, it -> it.id }) { index, song ->
+                                            SongRow(song = song, onClick = {
+                                                viewModel.playSongs(selectedPlaylistSongs, index)
+                                            }, onOptionsClick = { action ->
+                                                if (action == "delete") {
+                                                    viewModel.removeSongFromPlaylist(selectedPlaylistId!!, song.id)
+                                                    viewModel.selectPlaylist(selectedPlaylistId)
+                                                }
+                                            })
+                                        }
+                                    }
+                                }
+                            } else {
+                                LazyColumn(modifier = Modifier.fillMaxSize()) {
+                                    items(playlists, key = { it.id }) { playlist ->
+                                        Row(
+                                            modifier = Modifier
+                                                .fillMaxWidth()
+                                                .clickable { 
+                                                    selectedPlaylistId = playlist.id
+                                                    viewModel.selectPlaylist(playlist.id)
+                                                }
+                                                .padding(16.dp),
+                                            horizontalArrangement = Arrangement.SpaceBetween,
+                                            verticalAlignment = Alignment.CenterVertically
+                                        ) {
+                                            Text(playlist.name, style = MaterialTheme.typography.titleMedium, color = PrimaryTextDark)
+                                            IconButton(onClick = { viewModel.deletePlaylist(playlist.id) }) {
+                                                Icon(imageVector = Icons.Default.Delete, contentDescription = "Delete Album", tint = SecondaryTextDark)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 is LibraryUiState.Error -> Text("Error: ${state.message}", color = PrimaryTextDark)
@@ -175,14 +235,16 @@ fun LibraryScreen(
                     } else {
                         LazyColumn {
                             items(playlists) { playlist ->
-                                TextButton(
+                                    TextButton(
                                     onClick = {
                                         viewModel.addSongToPlaylist(playlist.id, showPlaylistDialog!!.id)
                                         showPlaylistDialog = null
+                                        Toast.makeText(context, "Added to ${playlist.name}", Toast.LENGTH_SHORT).show()
                                     },
-                                    modifier = Modifier.fillMaxWidth()
+                                    modifier = Modifier.fillMaxWidth().padding(vertical = 4.dp),
+                                    colors = ButtonDefaults.textButtonColors(contentColor = PrimaryTextDark)
                                 ) {
-                                    Text(playlist.name, color = PrimaryTextDark)
+                                    Text(playlist.name, style = MaterialTheme.typography.titleMedium)
                                 }
                             }
                         }
