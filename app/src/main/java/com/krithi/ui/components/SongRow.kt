@@ -20,12 +20,22 @@ import com.krithi.ui.theme.PrimaryTextDark
 import com.krithi.ui.theme.SecondaryTextDark
 import com.krithi.ui.theme.SurfaceVariantDark
 import androidx.compose.foundation.background
+import androidx.compose.material.icons.Icons
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 
 @Composable
 fun SongRow(
     song: Song,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    onOptionsClick: ((String) -> Unit)? = null
 ) {
     Row(
         modifier = modifier
@@ -62,6 +72,38 @@ fun SongRow(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis
             )
+        }
+        if (onOptionsClick != null) {
+            Box {
+                val expanded = remember { mutableStateOf(false) }
+                IconButton(onClick = { expanded.value = true }) {
+                    Icon(
+                        imageVector = Icons.Default.MoreVert,
+                        contentDescription = "Options",
+                        tint = SecondaryTextDark
+                    )
+                }
+                DropdownMenu(
+                    expanded = expanded.value,
+                    onDismissRequest = { expanded.value = false },
+                    modifier = Modifier.background(SurfaceVariantDark)
+                ) {
+                    DropdownMenuItem(
+                        text = { Text("Add to Custom Album", color = PrimaryTextDark) },
+                        onClick = {
+                            expanded.value = false
+                            onOptionsClick("add_to_playlist")
+                        }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("Delete", color = PrimaryTextDark) },
+                        onClick = {
+                            expanded.value = false
+                            onOptionsClick("delete")
+                        }
+                    )
+                }
+            }
         }
     }
 }

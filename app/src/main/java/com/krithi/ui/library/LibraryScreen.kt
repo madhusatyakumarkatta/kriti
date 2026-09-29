@@ -4,10 +4,10 @@ import android.Manifest
 import android.os.Build
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -17,6 +17,7 @@ import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -26,6 +27,11 @@ import com.krithi.ui.theme.BackgroundDark
 import com.krithi.ui.theme.PrimaryAccent
 import com.krithi.ui.theme.PrimaryTextDark
 import com.krithi.ui.theme.SecondaryTextDark
+import android.app.Activity
+import androidx.activity.result.IntentSenderRequest
+import com.krithi.domain.model.Song
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.*
 
 @Composable
 fun LibraryScreen(
@@ -34,8 +40,22 @@ fun LibraryScreen(
     onNavigateToAlbum: (Long) -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsState()
+    val playlists by viewModel.playlists.collectAsState()
     var selectedTabIndex by remember { mutableStateOf(0) }
     val tabs = listOf("Songs", "Albums", "Artists", "Playlists")
+    val context = LocalContext.current
+    
+    var showPlaylistDialog by remember { mutableStateOf<Song?>(null) }
+    var showCreatePlaylistDialog by remember { mutableStateOf(false) }
+    var newPlaylistName by remember { mutableStateOf("") }
+    
+    val deleteLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartIntentSenderForResult()
+    ) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            viewModel.loadLibrary()
+        }
+    }
 
     val permissionToRequest = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
         Manifest.permission.READ_MEDIA_AUDIO
@@ -81,7 +101,7 @@ fun LibraryScreen(
                 is LibraryUiState.Loading -> CircularProgressIndicator(color = PrimaryAccent)
                 is LibraryUiState.PermissionRequired -> {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text("Permission required to scan local music.", color = PrimaryTextDark)
+                        Text("Permission required to scan local audio.", color = PrimaryTextDark)
                         Button(
                             onClick = { permissionLauncher.launch(permissionToRequest) },
                             modifier = Modifier.padding(top = 16.dp)
@@ -102,7 +122,20 @@ fun LibraryScreen(
                         0 -> { // Songs
                             LazyColumn(modifier = Modifier.fillMaxSize()) {
                                 items(state.songs, key = { it.id }) { song ->
-                                    SongRow(song = song, onClick = { /* TODO: Play song */ })
+                                    SongRow(song = song, onClick = { /* TODO: Play song */ }, onOptionsClick = { action ->
+                                        if (action == "delete") {
+                                            val intentSender = viewModel.getDeleteIntentSender(context, song.uri)
+                                            if (intentSender != null) {
+                                                deleteLauncher.launch(IntentSenderRequest.Builder(intentSender).build())
+                                            } else {
+                                                if (viewModel.deleteSongLegacy(context, song.uri)) {
+                                                    viewModel.loadLibrary()
+                                                }
+                                            }
+                                        } else if (action == "add_to_playlist") {
+                                            showPlaylistDialog = song
+                                        }
+                                    })
                                 }
                             }
                         }
@@ -129,5 +162,79 @@ fun LibraryScreen(
                 is LibraryUiState.Error -> Text("Error: ${state.message}", color = PrimaryTextDark)
             }
         }
+    }
+    
+    if (showPlaylistDialog != null) {
+        AlertDialog(
+            onDismissRequest = { showPlaylistDialog = null },
+            title = { Text("Add to Custom Album", color = PrimaryTextDark) },
+            text = {
+                Column {
+                    if (playlists.isEmpty()) {
+                        Text("No custom albums exist yet.", color = SecondaryTextDark)
+                    } else {
+                        LazyColumn {
+                            items(playlists) { playlist ->
+                                TextButton(
+                                    onClick = {
+                                        viewModel.addSongToPlaylist(playlist.id, showPlaylistDialog!!.id)
+                                        showPlaylistDialog = null
+                                    },
+                                    modifier = Modifier.fillMaxWidth()
+                                ) {
+                                    Text(playlist.name, color = PrimaryTextDark)
+                                }
+                            }
+                        }
+                    }
+                    Spacer(modifier = Modifier.height(16.dp))
+                    Button(onClick = { showCreatePlaylistDialog = true }) {
+                        Text("Create New")
+                    }
+                }
+            },
+            confirmButton = {
+                TextButton(onClick = { showPlaylistDialog = null }) {
+                    Text("Close")
+                }
+            },
+            containerColor = BackgroundDark
+        )
+    }
+
+    if (showCreatePlaylistDialog) {
+        AlertDialog(
+            onDismissRequest = { showCreatePlaylistDialog = false },
+            title = { Text("Create Custom Album", color = PrimaryTextDark) },
+            text = {
+                OutlinedTextField(
+                    value = newPlaylistName,
+                    onValueChange = { newPlaylistName = it },
+                    label = { Text("Name") },
+                    singleLine = true,
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = PrimaryTextDark,
+                        unfocusedTextColor = PrimaryTextDark
+                    )
+                )
+            },
+            confirmButton = {
+                Button(onClick = {
+                    if (newPlaylistName.isNotBlank()) {
+                        viewModel.createPlaylist(newPlaylistName)
+                        newPlaylistName = ""
+                        showCreatePlaylistDialog = false
+                    }
+                }) {
+                    Text("Create")
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showCreatePlaylistDialog = false }) {
+                    Text("Cancel")
+                }
+            },
+            containerColor = BackgroundDark
+        )
     }
 }

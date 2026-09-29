@@ -58,7 +58,7 @@ fun HomeScreen(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = "Storage permission is required to find your music.",
+                    text = "Storage permission is required to find your audio files.",
                     color = PrimaryTextDark,
                     modifier = Modifier.padding(16.dp)
                 )
