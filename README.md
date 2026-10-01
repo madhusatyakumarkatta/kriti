@@ -1,97 +1,62 @@
-# Krithi 🎵
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://github.com/rRemix/APlayer/blob/master/LICENSE)
+[![Telegram](https://img.shields.io/badge/Telegram-2CA5E0.svg?logo=telegram&style=flat-square)](https://t.me/joinchat/PqrPPBbM4poRPDH7qnXxLw "Join Telegram Group")
 
-**Krithi** is a modern, high-performance Android music player built with the latest Android development standards, offering a rich and intuitive user experience. 
 
----
+# [中文](/README_CN.md)
 
-## 🎯 Product Requirements Document (PRD)
+# APlayer - Android Music Player
 
-### 1. Objective
-To develop a robust, offline-first Android music player that provides seamless audio playback, elegant UI/UX through Jetpack Compose, and efficient media management using clean architecture principles.
+## Intro
+- A beautiful and powerful music player built with Jetpack Compose
 
-### 2. Target Audience
-* **Audiophiles & Music Lovers:** Users who need a fast, responsive app to manage and play their local audio libraries.
-* **Android Enthusiasts:** Users who appreciate modern Material 3 design, dark mode, and fluid animations.
+## Download
+[<img src="https://play.google.com/intl/en_us/badges/images/generic/en-play-badge.png"
+alt="Get it on Google Play"
+height="80">](https://play.google.com/store/apps/details?id=remix.myplayer)
+[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png"
+alt="Get it at IzzyOnDroid"
+height="80">](https://apt.izzysoft.de/packages/remix.myplayer)
 
-### 3. Key Features
-* **Modern UI:** Built entirely with Jetpack Compose and Material 3 design principles.
-* **Audio Playback Engine:** Powered by AndroidX Media3 (ExoPlayer) for stable background playback and media session support.
-* **Library Management:** Scans local storage for media; organizes by Artists, Albums, and Tracks.
-* **Playlists:** Custom playlist creation and management backed by a local Room database.
-* **Dynamic Media Controls:** Notifications and lock screen controls integrating with the system MediaSession.
-* **Image Loading:** Efficient album art fetching and caching using Coil.
+## Screenshot
+|   |   |   |   |
+|:-:|:-:|:-:|:-:|
+| <img src="screenshoots/1-home.png" width="200" alt="Home Screen" /> | <img src="screenshoots/2-albums.png" width="200" alt="Albums Screen" /> | <img src="screenshoots/3-playing-cover.png" width="200" alt="Playing Cover Screen" /> | <img src="screenshoots/4-playing-lyric.png" width="200" alt="Playing Lyric Screen" /> |
+| Home | Albums | Playing Cover | Playing Lyric |
 
-### 4. Non-Functional Requirements
-* **Architecture:** Strictly adheres to MVVM (Model-View-ViewModel) and Clean Architecture (Data, Domain, UI layers).
-* **Performance:** Smooth 60fps scrolling in Compose; background processing using Kotlin Coroutines and Flow.
-* **Compatibility:** Targets Android 14 (API 34) with backward compatibility down to Android 8.0 (API 26).
+|   |   |   |   |
+|:-:|:-:|:-:|:-:|
+| <img src="screenshoots/5-dark.png" width="200" alt="Dark Mode" /> | <img src="screenshoots/6-sleep-timer.png" width="200" alt="Sleep Timer" /> | <img src="screenshoots/7-desktop-lyric-widget.png" width="200" alt="Desktop Lyric & Widget" /> | <img src="screenshoots/8-lockscreen.png" width="200" alt="Lockscreen" /> |
+| Dark Mode | Sleep Timer | Desktop Lyric & Widget | Lockscreen |
 
----
+|   |   |   |
+|:-:|:-:|:-:|
+| <img src="screenshoots/9-land-home.png" width="220" alt="Landscape Home" /> | <img src="screenshoots/10-land-playing.png" width="220" alt="Landscape Playing" /> | <img src="screenshoots/11-land-desktop-lyric-widget.png" width="220" alt="Landscape Desktop Lyric & Widget" /> |
+| Landscape Home | Landscape Playing | Landscape Desktop Lyric & Widget |
 
-## 🚀 Phases of the Project
+## Feature
+- Configurable tabs: songs, artists, albums, folders, playlists, remote (WebDAV)
+- Local and online lyrics: embedded/local/online, word-by-word, searchable with priority
+- Floating lyrics and home screen widgets
+- Themes: light, dark, and AMOLED black, with customizable colors
+- Auto download album and artist artwork
+- Built-in tag editor for title/artist/album/lyrics
+- Playlists: create, edit, import, export, and per-playlist sorting
+- WebDAV streaming from your personal cloud storage
+- Playback controls: equalizer, speed control, sleep timer
+- Lock screen controls and Android media notification
+- Bluetooth/wired headset media buttons
+- Auto scan media library or manual folder scan
 
-### Phase 1: Foundation & UI Architecture
-* **Project Setup:** Gradle configuration, Hilt dependency injection setup, and package structuring (`data`, `di`, `domain`, `playback`, `ui`).
-* **Theming & Design System:** Implementing Material 3 color palettes, typography, and basic layouts.
-* **Component Library:** Building reusable Compose components (e.g., `AlbumCard`, `TrackListRow`).
-* **Navigation:** Setting up `navigation-compose` for routing between Library, Player, and Playlist screens.
+## Thanks
+- [XXPermissions](https://github.com/getActivity/XXPermissions)
+- [Retrofit](https://github.com/square/retrofit)
+- [Timber](https://github.com/JakeWharton/timber)
+- [Leakcanary](https://github.com/square/leakcanary)
+- [ImageCropper](https://github.com/CanHub/Android-Image-Cropper)
+- [TinyPinyin](https://github.com/promeG/TinyPinyin)
+- [TagLib for Android](https://github.com/rRemix/taglib)
 
-### Phase 2: Data Layer & Media Scanning
-* **Domain Models:** Defining core entities (`Artist`, `Album`, `Track`, `PlaylistEntity`).
-* **Local Storage (Room):** Setting up the Room database for user-generated data (Playlists, Favorites, Play History).
-* **MediaStore Integration:** Querying the Android device's local storage to fetch audio files and metadata securely.
-* **Repositories:** Creating data repositories and mapping them to domain use cases.
-
-### Phase 3: Playback Engine (Media3)
-* **Media Service:** Implementing a foreground `MediaSessionService` using AndroidX Media3.
-* **Player Controller:** Connecting the ExoPlayer instance to the Compose UI state.
-* **System Integration:** Handling audio focus, headset unplug events, and notification playback controls.
-* **State Management:** Exposing current playback state and progress via Kotlin StateFlow to the UI.
-
-### Phase 4: Polish, Animations & Advanced Features
-* **UI Polish:** Adding fluid transitions, shared element transitions (if supported), and micro-animations for play/pause interactions.
-* **Album Art Extraction:** Fetching embedded ID3 tag images and displaying them efficiently with Coil.
-* **Advanced Audio:** (Optional) Equalizer integration and gapless playback.
-* **Testing & Profiling:** Unit testing ViewModels and Use Cases; UI testing Compose screens.
-
----
-
-## 🏗️ System Architecture
-
-The app follows **Clean Architecture** combined with the **MVVM** pattern:
-
-* **`ui` (Presentation Layer):** Contains Jetpack Compose screens, ViewModels, and state management. Observes `Flow` from the Domain layer.
-* **`domain` (Domain Layer):** Contains core business models (`Artist.kt`, `Track.kt`) and Use Cases. Completely independent of Android framework classes.
-* **`data` (Data Layer):** Handles data retrieval from the local `Room` database (`PlaylistEntity.kt`) and the Android `MediaStore`. Implements repository interfaces defined in the Domain layer.
-* **`playback` (Media Layer):** Manages the `Media3` ExoPlayer lifecycle, MediaSession, and background service playback logic.
-* **`di` (Dependency Injection):** Configures Dagger Hilt modules to provide singletons and scoped dependencies across the app.
-
----
-
-## 🛠️ Tech Stack
-
-| Component | Technology |
-| :--- | :--- |
-| **Language** | Kotlin 1.9+ |
-| **UI Framework** | Jetpack Compose (Material 3) |
-| **Architecture** | MVVM, Clean Architecture |
-| **Dependency Injection**| Dagger Hilt |
-| **Asynchrony** | Coroutines & Flow |
-| **Media Playback** | AndroidX Media3 (ExoPlayer) |
-| **Local Database** | Room |
-| **Image Loading** | Coil |
-| **Navigation** | Navigation Compose |
-
----
-
-## ⚙️ Quick Start
-
-### Prerequisites
-* Android Studio Iguana (or newer)
-* JDK 17
-
-### Build & Run
-1. Clone the repository and open the `kriti` folder in Android Studio.
-2. Allow Gradle to sync dependencies.
-3. Build the project to generate Hilt and Room boilerplate classes.
-4. Run the app on an emulator or physical device (API 26+).
+## Finally
+- Pull request is welcome
+- I'll be appreciate if you star
+- If you have any question,you can send email to rRemix.me@gmail.com,open an issue or join [tg group](https://t.me/joinchat/PqrPPBbM4poRPDH7qnXxLw)
