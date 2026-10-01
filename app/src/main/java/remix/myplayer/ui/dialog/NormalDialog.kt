@@ -1,4 +1,4 @@
-package remix.myplayer.ui.dialog
+package com.krithi.ui.dialog
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -27,9 +27,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import remix.myplayer.R
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.util.ext.clickWithRipple
+import com.krithi.R
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.util.ext.clickWithRipple
 
 class ItemsCallbackMultiChoice(
   val selectedIndices: Set<Int>,

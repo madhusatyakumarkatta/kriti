@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.lyric
+package com.krithi.ui.widget.lyric
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.interaction.DragInteraction

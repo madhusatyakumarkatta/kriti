@@ -1,4 +1,4 @@
-package remix.myplayer.helper
+package com.krithi.helper
 
 import android.content.Context
 import android.hardware.Sensor
@@ -7,9 +7,9 @@ import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Handler
 import android.os.Looper
-import remix.myplayer.App
-import remix.myplayer.service.Command
-import remix.myplayer.util.Util.sendCMDLocalBroadcast
+import com.krithi.App
+import com.krithi.service.Command
+import com.krithi.util.Util.sendCMDLocalBroadcast
 
 /**
  * @ClassName

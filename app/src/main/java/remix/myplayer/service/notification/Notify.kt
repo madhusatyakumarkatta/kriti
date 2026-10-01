@@ -1,4 +1,4 @@
-package remix.myplayer.service.notification
+package com.krithi.service.notification
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -15,13 +15,13 @@ import androidx.core.app.NotificationCompat
 import androidx.core.app.ServiceCompat
 import androidx.core.app.TaskStackBuilder
 import com.bumptech.glide.request.target.CustomTarget
-import remix.myplayer.R
-import remix.myplayer.service.MusicService
-import remix.myplayer.service.MusicService.Companion.EXTRA_COMMAND
-import remix.myplayer.service.playback.MusicStateSource
-import remix.myplayer.ui.activity.ComposeActivity
-import remix.myplayer.ui.nav.playingScreenDeepLink
-import remix.myplayer.util.ext.getPendingIntentFlag
+import com.krithi.R
+import com.krithi.service.MusicService
+import com.krithi.service.MusicService.Companion.EXTRA_COMMAND
+import com.krithi.service.playback.MusicStateSource
+import com.krithi.ui.activity.ComposeActivity
+import com.krithi.ui.nav.playingScreenDeepLink
+import com.krithi.util.ext.getPendingIntentFlag
 import timber.log.Timber
 
 /**

@@ -1,4 +1,4 @@
-package remix.myplayer.helper
+package com.krithi.helper
 
 import android.app.Activity
 import android.content.Context
@@ -10,12 +10,12 @@ import android.media.audiofx.Equalizer
 import android.media.audiofx.Virtualizer
 import android.widget.Toast
 import dagger.hilt.android.EntryPointAccessors
-import remix.myplayer.App
-import remix.myplayer.R
-import remix.myplayer.data.prefs.SettingPrefsEntryPoint
-import remix.myplayer.data.prefs.delegate
-import remix.myplayer.service.MusicServiceRemote
-import remix.myplayer.util.Util.isIntentAvailable
+import com.krithi.App
+import com.krithi.R
+import com.krithi.data.prefs.SettingPrefsEntryPoint
+import com.krithi.data.prefs.delegate
+import com.krithi.service.MusicServiceRemote
+import com.krithi.util.Util.isIntentAvailable
 import timber.log.Timber
 
 /**

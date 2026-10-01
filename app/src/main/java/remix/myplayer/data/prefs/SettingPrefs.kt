@@ -1,4 +1,4 @@
-package remix.myplayer.data.prefs
+package com.krithi.data.prefs
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -11,9 +11,9 @@ import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
-import remix.myplayer.helper.LanguageHelper.AUTO
-import remix.myplayer.helper.SortOrder
-import remix.myplayer.util.Constants.MB
+import com.krithi.helper.LanguageHelper.AUTO
+import com.krithi.helper.SortOrder
+import com.krithi.util.Constants.MB
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.math.roundToInt

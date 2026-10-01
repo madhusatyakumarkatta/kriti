@@ -1,4 +1,4 @@
-package remix.myplayer.service
+package com.krithi.service
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter

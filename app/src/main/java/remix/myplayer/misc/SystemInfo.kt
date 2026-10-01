@@ -1,4 +1,4 @@
-package remix.myplayer.misc
+package com.krithi.misc
 
 import android.os.Build
 

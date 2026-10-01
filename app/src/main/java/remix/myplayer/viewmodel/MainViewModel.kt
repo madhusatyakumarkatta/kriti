@@ -1,4 +1,4 @@
-package remix.myplayer.viewmodel
+package com.krithi.viewmodel
 
 import android.content.Context
 import androidx.compose.foundation.gestures.AnchoredDraggableState
@@ -14,17 +14,17 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import remix.myplayer.BuildConfig
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.APlayerModel
-import remix.myplayer.data.model.github.Release
-import remix.myplayer.misc.update.DownloadWorker
-import remix.myplayer.misc.update.InAppUpdater
-import remix.myplayer.ui.dialog.DialogState
-import remix.myplayer.ui.dialog.runWithLoadingResult
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.util.Util
-import remix.myplayer.util.ext.updateIf
+import com.krithi.BuildConfig
+import com.krithi.R
+import com.krithi.data.model.audio.APlayerModel
+import com.krithi.data.model.github.Release
+import com.krithi.misc.update.DownloadWorker
+import com.krithi.misc.update.InAppUpdater
+import com.krithi.ui.dialog.DialogState
+import com.krithi.ui.dialog.runWithLoadingResult
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.util.Util
+import com.krithi.util.ext.updateIf
 import timber.log.Timber
 import javax.inject.Inject
 

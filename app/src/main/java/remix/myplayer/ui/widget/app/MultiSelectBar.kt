@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.app
+package com.krithi.ui.widget.app
 
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.DropdownMenu
@@ -27,15 +27,15 @@ import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.data.model.audio.APlayerModel
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.viewmodel.MultiSelectState
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.mainViewModel
-import remix.myplayer.viewmodel.playbackViewModel
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.data.model.audio.APlayerModel
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.viewmodel.MultiSelectState
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.mainViewModel
+import com.krithi.viewmodel.playbackViewModel
+import com.krithi.viewmodel.settingViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

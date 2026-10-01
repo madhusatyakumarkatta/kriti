@@ -1,4 +1,4 @@
-package remix.myplayer.repo
+package com.krithi.repo
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -7,12 +7,12 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
-import remix.myplayer.data.db.room.dao.PlayListDao
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.data.prefs.playlistSortOrderFlow
-import remix.myplayer.helper.ItemsSorter
-import remix.myplayer.helper.SortOrder
+import com.krithi.data.db.room.dao.PlayListDao
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.data.prefs.playlistSortOrderFlow
+import com.krithi.helper.ItemsSorter
+import com.krithi.helper.SortOrder
 import java.util.Date
 import javax.inject.Inject
 

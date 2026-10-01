@@ -1,4 +1,4 @@
-package remix.myplayer.request.qq
+package com.krithi.request.qq
 
 import android.content.Context
 import android.util.Base64
@@ -9,8 +9,8 @@ import okhttp3.Request
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONArray
 import org.json.JSONObject
-import remix.myplayer.lyric.LrcParser
-import remix.myplayer.lyric.decrypt.QrcDecrypt.qrcDecrypt
+import com.krithi.lyric.LrcParser
+import com.krithi.lyric.decrypt.QrcDecrypt.qrcDecrypt
 import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 import javax.inject.Singleton

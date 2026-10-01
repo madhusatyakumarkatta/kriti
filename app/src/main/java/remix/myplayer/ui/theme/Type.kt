@@ -1,4 +1,4 @@
-package remix.myplayer.ui.theme
+package com.krithi.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

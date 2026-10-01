@@ -1,4 +1,4 @@
-package remix.myplayer.ui.appwidgets
+package com.krithi.ui.appwidgets
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -14,17 +14,17 @@ import android.widget.RemoteViews
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import remix.myplayer.App
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicService
-import remix.myplayer.service.MusicService.Companion.EXTRA_COMMAND
-import remix.myplayer.service.playback.MusicStateSource
-import remix.myplayer.ui.activity.ComposeActivity
-import remix.myplayer.ui.appwidgets.big.AppWidgetBig
-import remix.myplayer.util.DensityUtil
-import remix.myplayer.util.ext.getPendingIntentFlag
+import com.krithi.App
+import com.krithi.R
+import com.krithi.data.model.audio.Song
+import com.krithi.service.Command
+import com.krithi.service.MusicService
+import com.krithi.service.MusicService.Companion.EXTRA_COMMAND
+import com.krithi.service.playback.MusicStateSource
+import com.krithi.ui.activity.ComposeActivity
+import com.krithi.ui.appwidgets.big.AppWidgetBig
+import com.krithi.util.DensityUtil
+import com.krithi.util.ext.getPendingIntentFlag
 import timber.log.Timber
 
 /**

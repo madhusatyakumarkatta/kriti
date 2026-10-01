@@ -1,12 +1,12 @@
-package remix.myplayer.lyric.provider.network
+package com.krithi.lyric.provider.network
 
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.lyric.LrcParser
-import remix.myplayer.lyric.provider.ILyricsProvider
-import remix.myplayer.lyric.provider.ILyricsProvider.Companion.CANDIDATE_KEY_NUMBER
-import remix.myplayer.lyric.provider.LyricsResult
-import remix.myplayer.lyric.provider.SearchScorer
-import remix.myplayer.util.SearchKeyUtil.getSearchKeys
+import com.krithi.data.model.audio.Song
+import com.krithi.lyric.LrcParser
+import com.krithi.lyric.provider.ILyricsProvider
+import com.krithi.lyric.provider.ILyricsProvider.Companion.CANDIDATE_KEY_NUMBER
+import com.krithi.lyric.provider.LyricsResult
+import com.krithi.lyric.provider.SearchScorer
+import com.krithi.util.SearchKeyUtil.getSearchKeys
 
 abstract class NetworkProvider<T> : ILyricsProvider {
 

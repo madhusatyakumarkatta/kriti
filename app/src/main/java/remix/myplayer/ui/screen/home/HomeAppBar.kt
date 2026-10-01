@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.home
+package com.krithi.ui.screen.home
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
@@ -16,11 +16,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.launch
-import remix.myplayer.data.model.misc.Library
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.defaultAppBarActions
-import remix.myplayer.ui.widget.popup.ScreenPopupButton
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.data.model.misc.Library
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.defaultAppBarActions
+import com.krithi.ui.widget.popup.ScreenPopupButton
+import com.krithi.viewmodel.settingViewModel
 
 
 @Composable

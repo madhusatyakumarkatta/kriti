@@ -1,4 +1,4 @@
-package remix.myplayer.repo.usecase
+package com.krithi.repo.usecase
 
 import android.app.RecoverableSecurityException
 import android.content.IntentSender
@@ -8,18 +8,18 @@ import android.provider.MediaStore.Audio
 import androidx.activity.result.IntentSenderRequest
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.data.model.audio.APlayerModel
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.repo.AbstractRepository.Companion.makeInStrQuery
-import remix.myplayer.repo.PlayListRepository
-import remix.myplayer.repo.PlayQueueRepository
-import remix.myplayer.repo.SongRepository
-import remix.myplayer.service.MusicServiceRemote
-import remix.myplayer.ui.activity.base.BaseActivity
-import remix.myplayer.ui.nav.MessageNotifier
+import com.krithi.R
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.data.model.audio.APlayerModel
+import com.krithi.data.model.audio.Song
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.repo.AbstractRepository.Companion.makeInStrQuery
+import com.krithi.repo.PlayListRepository
+import com.krithi.repo.PlayQueueRepository
+import com.krithi.repo.SongRepository
+import com.krithi.service.MusicServiceRemote
+import com.krithi.ui.activity.base.BaseActivity
+import com.krithi.ui.nav.MessageNotifier
 import timber.log.Timber
 import java.io.File
 import javax.inject.Inject

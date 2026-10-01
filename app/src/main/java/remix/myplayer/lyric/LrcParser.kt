@@ -1,8 +1,8 @@
-package remix.myplayer.lyric
+package com.krithi.lyric
 
 import android.annotation.SuppressLint
 import androidx.core.text.HtmlCompat
-import remix.myplayer.util.EncodingDetect
+import com.krithi.util.EncodingDetect
 import timber.log.Timber
 import java.nio.charset.Charset
 import kotlin.math.roundToLong

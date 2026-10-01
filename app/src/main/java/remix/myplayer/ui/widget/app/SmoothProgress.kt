@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.app
+package com.krithi.ui.widget.app
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect

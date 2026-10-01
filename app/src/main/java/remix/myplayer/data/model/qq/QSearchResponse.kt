@@ -1,4 +1,4 @@
-package remix.myplayer.data.model.qq
+package com.krithi.data.model.qq
 
 data class QSearchResponse(val data: SearchData) {
   data class SearchData(val song: SearchDataSong) {

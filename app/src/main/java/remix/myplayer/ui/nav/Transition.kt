@@ -1,4 +1,4 @@
-package remix.myplayer.ui.nav
+package com.krithi.ui.nav
 
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.EnterTransition
@@ -14,7 +14,7 @@ import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.ui.unit.IntOffset
 import androidx.navigation.NavBackStackEntry
-import remix.myplayer.BuildConfig
+import com.krithi.BuildConfig
 
 
 fun enterTransition(): AnimatedContentTransitionScope<NavBackStackEntry>.() -> EnterTransition? =

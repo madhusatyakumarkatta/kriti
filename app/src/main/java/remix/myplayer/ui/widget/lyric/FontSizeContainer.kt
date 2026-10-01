@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.lyric
+package com.krithi.ui.widget.lyric
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -23,10 +23,10 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import remix.myplayer.R
-import remix.myplayer.ui.widget.common.LineSlider
-import remix.myplayer.ui.widget.common.defaultLineSliderProperties
-import remix.myplayer.util.ext.clickWithRipple
+import com.krithi.R
+import com.krithi.ui.widget.common.LineSlider
+import com.krithi.ui.widget.common.defaultLineSliderProperties
+import com.krithi.util.ext.clickWithRipple
 
 @Composable
 internal fun FontSizeContainer(

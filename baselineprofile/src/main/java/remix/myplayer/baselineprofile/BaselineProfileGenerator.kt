@@ -1,4 +1,4 @@
-package remix.myplayer.baselineprofile
+package com.krithi.baselineprofile
 
 import android.Manifest
 import android.os.Build

@@ -1,16 +1,16 @@
-package remix.myplayer.data.prefs
+package com.krithi.data.prefs
 
 import android.content.Context
 import androidx.core.content.edit
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.serialization.json.Json
-import remix.myplayer.data.model.misc.LyricOrder
+import com.krithi.data.model.misc.LyricOrder
 import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
  * 通用的歌词配置，桌面歌词的配置在DesktopLyricPrefs
- * @see remix.myplayer.data.prefs.DesktopLyricPrefs
+ * @see com.krithi.data.prefs.DesktopLyricPrefs
  */
 @Singleton
 class LyricPrefs @Inject constructor(

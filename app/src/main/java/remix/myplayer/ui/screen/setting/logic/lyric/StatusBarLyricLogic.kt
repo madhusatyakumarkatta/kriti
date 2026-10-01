@@ -1,17 +1,17 @@
-package remix.myplayer.ui.screen.setting.logic.lyric
+package com.krithi.ui.screen.setting.logic.lyric
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.service.Command
-import remix.myplayer.ui.screen.setting.SwitchPreference
-import remix.myplayer.util.MusicUtil
-import remix.myplayer.util.Util.isSupportStatusBarLyric
-import remix.myplayer.util.Util.sendLocalBroadcast
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.service.Command
+import com.krithi.ui.screen.setting.SwitchPreference
+import com.krithi.util.MusicUtil
+import com.krithi.util.Util.isSupportStatusBarLyric
+import com.krithi.util.Util.sendLocalBroadcast
+import com.krithi.viewmodel.settingViewModel
 
 @Composable
 fun StatusBarLyricLogic() {

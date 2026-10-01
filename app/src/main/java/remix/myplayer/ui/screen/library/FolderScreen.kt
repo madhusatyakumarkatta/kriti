@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.library
+package com.krithi.ui.screen.library
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
@@ -27,19 +27,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Folder
-import remix.myplayer.ui.nav.DetailScreenRoute
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.theme.APlayerTheme
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.theme.icon
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.ui.widget.popup.LibraryItemPopupButton
-import remix.myplayer.viewmodel.MultiSelectState
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.mainViewModel
+import com.krithi.R
+import com.krithi.data.model.audio.Folder
+import com.krithi.ui.nav.DetailScreenRoute
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.theme.APlayerTheme
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.theme.icon
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.ui.widget.popup.LibraryItemPopupButton
+import com.krithi.viewmodel.MultiSelectState
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.mainViewModel
 
 @Composable
 fun FolderScreen() {

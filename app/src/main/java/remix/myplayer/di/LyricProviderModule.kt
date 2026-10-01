@@ -1,18 +1,18 @@
-package remix.myplayer.di
+package com.krithi.di
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import remix.myplayer.lyric.provider.DefProvider
-import remix.myplayer.lyric.provider.EmbeddedProvider
-import remix.myplayer.lyric.provider.ILyricsProvider
-import remix.myplayer.lyric.provider.IgnoredProvider
-import remix.myplayer.lyric.provider.LocalFileProvider
-import remix.myplayer.lyric.provider.network.KuGouProvider
-import remix.myplayer.lyric.provider.network.NetEaseProvider
-import remix.myplayer.lyric.provider.network.QQProvider
+import com.krithi.lyric.provider.DefProvider
+import com.krithi.lyric.provider.EmbeddedProvider
+import com.krithi.lyric.provider.ILyricsProvider
+import com.krithi.lyric.provider.IgnoredProvider
+import com.krithi.lyric.provider.LocalFileProvider
+import com.krithi.lyric.provider.network.KuGouProvider
+import com.krithi.lyric.provider.network.NetEaseProvider
+import com.krithi.lyric.provider.network.QQProvider
 import javax.inject.Singleton
 
 @Module

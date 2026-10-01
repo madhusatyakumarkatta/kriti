@@ -1,4 +1,4 @@
-package remix.myplayer.request.netease
+package com.krithi.request.netease
 
 import kotlinx.serialization.Serializable
 

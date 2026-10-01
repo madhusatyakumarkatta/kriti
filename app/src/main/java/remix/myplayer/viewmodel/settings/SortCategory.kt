@@ -1,6 +1,6 @@
-package remix.myplayer.viewmodel.settings
+package com.krithi.viewmodel.settings
 
-import remix.myplayer.data.prefs.SettingPrefs
+import com.krithi.data.prefs.SettingPrefs
 
 
 enum class SortCategory {

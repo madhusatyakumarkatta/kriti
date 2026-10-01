@@ -1,4 +1,4 @@
-package remix.myplayer.data.prefs
+package com.krithi.data.prefs
 
 /**
  * 统一管理 SharedPreferences 的键名。

@@ -1,4 +1,4 @@
-package remix.myplayer.lyric.decrypt
+package com.krithi.lyric.decrypt
 
 import java.io.ByteArrayOutputStream
 import java.util.zip.Inflater

@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.setting.logic.common
+package com.krithi.ui.screen.setting.logic.common
 
 import android.app.Activity
 import android.content.Intent
@@ -14,11 +14,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.documentfile.provider.DocumentFile
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import remix.myplayer.R
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.screen.setting.NormalPreference
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.screen.setting.NormalPreference
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.settingViewModel
 import java.io.BufferedReader
 import java.io.File
 import java.io.InputStreamReader

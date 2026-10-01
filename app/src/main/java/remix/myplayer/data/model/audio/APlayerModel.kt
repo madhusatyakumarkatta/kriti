@@ -1,7 +1,7 @@
-package remix.myplayer.data.model.audio
+package com.krithi.data.model.audio
 
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.util.Constants
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.util.Constants
 import java.io.Serializable
 
 /**

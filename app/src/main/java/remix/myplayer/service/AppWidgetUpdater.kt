@@ -1,4 +1,4 @@
-package remix.myplayer.service
+package com.krithi.service
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -9,14 +9,14 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import remix.myplayer.ui.appwidgets.BaseAppwidget
-import remix.myplayer.ui.appwidgets.big.AppWidgetBig
-import remix.myplayer.ui.appwidgets.medium.AppWidgetMedium
-import remix.myplayer.ui.appwidgets.medium.AppWidgetMediumTransparent
-import remix.myplayer.ui.appwidgets.small.AppWidgetSmall
-import remix.myplayer.ui.appwidgets.small.AppWidgetSmallTransparent
-import remix.myplayer.ui.theme.ThemeController
-import remix.myplayer.util.Util.isAppOnForeground
+import com.krithi.ui.appwidgets.BaseAppwidget
+import com.krithi.ui.appwidgets.big.AppWidgetBig
+import com.krithi.ui.appwidgets.medium.AppWidgetMedium
+import com.krithi.ui.appwidgets.medium.AppWidgetMediumTransparent
+import com.krithi.ui.appwidgets.small.AppWidgetSmall
+import com.krithi.ui.appwidgets.small.AppWidgetSmallTransparent
+import com.krithi.ui.theme.ThemeController
+import com.krithi.util.Util.isAppOnForeground
 import timber.log.Timber
 import javax.inject.Inject
 

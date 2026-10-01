@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.playing
+package com.krithi.ui.screen.playing
 
 import android.content.Intent
 import android.view.ViewGroup
@@ -47,27 +47,27 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.palette.graphics.Palette
-import remix.myplayer.R
-import remix.myplayer.data.prefs.SettingPrefs.Companion.MODE_LOOP
-import remix.myplayer.data.prefs.SettingPrefs.Companion.MODE_REPEAT
-import remix.myplayer.data.prefs.SettingPrefs.Companion.MODE_SHUFFLE
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicService
-import remix.myplayer.service.MusicService.Companion.EXTRA_POSITION
-import remix.myplayer.service.playback.PlaybackUiState
-import remix.myplayer.ui.dialog.BottomDialog
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.ui.widget.playpause.PlayPauseView
-import remix.myplayer.util.MusicUtil.makeCmdIntent
-import remix.myplayer.util.Util
-import remix.myplayer.util.Util.sendLocalBroadcast
-import remix.myplayer.util.ext.CenterInBox
-import remix.myplayer.util.ext.clickWithRipple
-import remix.myplayer.util.ext.isPortraitOrientation
-import remix.myplayer.viewmodel.playbackViewModel
+import com.krithi.R
+import com.krithi.data.prefs.SettingPrefs.Companion.MODE_LOOP
+import com.krithi.data.prefs.SettingPrefs.Companion.MODE_REPEAT
+import com.krithi.data.prefs.SettingPrefs.Companion.MODE_SHUFFLE
+import com.krithi.service.Command
+import com.krithi.service.MusicService
+import com.krithi.service.MusicService.Companion.EXTRA_POSITION
+import com.krithi.service.playback.PlaybackUiState
+import com.krithi.ui.dialog.BottomDialog
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.ui.widget.playpause.PlayPauseView
+import com.krithi.util.MusicUtil.makeCmdIntent
+import com.krithi.util.Util
+import com.krithi.util.Util.sendLocalBroadcast
+import com.krithi.util.ext.CenterInBox
+import com.krithi.util.ext.clickWithRipple
+import com.krithi.util.ext.isPortraitOrientation
+import com.krithi.viewmodel.playbackViewModel
 
 private val itemRes = mapOf(
   MODE_LOOP to Pair(R.drawable.play_btn_loop, R.string.model_normal),

@@ -1,6 +1,6 @@
-package remix.myplayer.misc
+package com.krithi.misc
 
-import remix.myplayer.BuildConfig
+import com.krithi.BuildConfig
 
 object AppInfo {
     val prettyPrinted by lazy {

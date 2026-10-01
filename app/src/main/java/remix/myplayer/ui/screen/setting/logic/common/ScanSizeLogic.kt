@@ -1,18 +1,18 @@
-package remix.myplayer.ui.screen.setting.logic.common
+package com.krithi.ui.screen.setting.logic.common
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.ui.dialog.ItemsCallbackSingleChoice
-import remix.myplayer.ui.dialog.NormalDialog
-import remix.myplayer.ui.dialog.rememberDialogState
-import remix.myplayer.ui.screen.setting.NormalPreference
-import remix.myplayer.util.Constants.KB
-import remix.myplayer.util.Constants.MB
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.ui.dialog.ItemsCallbackSingleChoice
+import com.krithi.ui.dialog.NormalDialog
+import com.krithi.ui.dialog.rememberDialogState
+import com.krithi.ui.screen.setting.NormalPreference
+import com.krithi.util.Constants.KB
+import com.krithi.util.Constants.MB
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.settingViewModel
 
 private val items = intArrayOf(0, 500 * KB, MB, 2 * MB, 5 * MB)
 

@@ -1,9 +1,9 @@
-package remix.myplayer.request.network
+package com.krithi.request.network
 
 import android.content.Context
 import okhttp3.Cache
 import okhttp3.OkHttpClient
-import remix.myplayer.misc.cache.DiskCache
+import com.krithi.misc.cache.DiskCache
 import java.security.cert.X509Certificate
 import java.util.concurrent.TimeUnit
 import javax.net.ssl.SSLSocketFactory

@@ -1,10 +1,10 @@
-package remix.myplayer.service
+package com.krithi.service
 
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
 
-import remix.myplayer.misc.manager.ServiceManager
+import com.krithi.misc.manager.ServiceManager
 
 /**
  * Created by Remix on 2016/3/26.

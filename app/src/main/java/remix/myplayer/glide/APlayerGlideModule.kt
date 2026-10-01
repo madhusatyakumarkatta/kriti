@@ -1,4 +1,4 @@
-package remix.myplayer.glide
+package com.krithi.glide
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -17,7 +17,7 @@ import com.bumptech.glide.load.engine.executor.GlideExecutor
 import com.bumptech.glide.module.AppGlideModule
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
-import remix.myplayer.data.model.audio.APlayerModel
+import com.krithi.data.model.audio.APlayerModel
 import java.io.InputStream
 
 @GlideModule

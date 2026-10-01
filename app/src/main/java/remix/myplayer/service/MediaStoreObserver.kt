@@ -1,4 +1,4 @@
-package remix.myplayer.service
+package com.krithi.service
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -7,7 +7,7 @@ import android.database.ContentObserver
 import android.net.Uri
 import android.os.Handler
 import android.os.Looper
-import remix.myplayer.util.Util
+import com.krithi.util.Util
 import timber.log.Timber
 
 /**

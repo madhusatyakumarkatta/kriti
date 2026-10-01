@@ -1,4 +1,4 @@
-package remix.myplayer.ui.appshortcuts.shortcuttype
+package com.krithi.ui.appshortcuts.shortcuttype
 
 import android.annotation.TargetApi
 import android.content.Context
@@ -6,7 +6,7 @@ import android.content.Intent
 import android.content.pm.ShortcutInfo
 import android.os.Build
 
-import remix.myplayer.ui.appshortcuts.AppShortcutActivity
+import com.krithi.ui.appshortcuts.AppShortcutActivity
 
 /**
  * Created by Remix on 2017/11/1.
@@ -25,7 +25,7 @@ abstract class BaseShortcutType constructor(val context: Context) {
   }
 
   companion object {
-    val ID_PREFIX = "com.remix.myplayer.appshortcuts.id."
+    val ID_PREFIX = "com.com.krithi.appshortcuts.id."
 
   }
 }

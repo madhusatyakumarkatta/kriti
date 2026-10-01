@@ -1,4 +1,4 @@
-//package remix.myplayer.bean.mp3
+//package com.krithi.bean.mp3
 //
 ///**
 // * @ClassName

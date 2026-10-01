@@ -1,4 +1,4 @@
-package remix.myplayer.lyric.decrypt
+package com.krithi.lyric.decrypt
 
 import okio.ByteString.Companion.decodeHex
 import org.json.JSONObject

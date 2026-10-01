@@ -1,4 +1,4 @@
-package remix.myplayer.ui.activity.base
+package com.krithi.ui.activity.base
 
 import android.Manifest
 import android.annotation.SuppressLint
@@ -15,15 +15,15 @@ import com.hjq.permissions.XXPermissions
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
-import remix.myplayer.BuildConfig
-import remix.myplayer.R
-import remix.myplayer.helper.AudioTagWriter
-import remix.myplayer.helper.AudioTagWriter.PendingWriteRequest
-import remix.myplayer.helper.LanguageHelper.setLocal
-import remix.myplayer.service.MusicService
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.util.PermissionUtil
-import remix.myplayer.util.Util
+import com.krithi.BuildConfig
+import com.krithi.R
+import com.krithi.helper.AudioTagWriter
+import com.krithi.helper.AudioTagWriter.PendingWriteRequest
+import com.krithi.helper.LanguageHelper.setLocal
+import com.krithi.service.MusicService
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.util.PermissionUtil
+import com.krithi.util.Util
 import timber.log.Timber
 
 /**

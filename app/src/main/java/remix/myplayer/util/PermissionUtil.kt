@@ -1,4 +1,4 @@
-package remix.myplayer.util
+package com.krithi.util
 
 import android.content.Context
 import android.content.Intent
@@ -10,8 +10,8 @@ import android.provider.Settings
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import com.hjq.permissions.Permission
-import remix.myplayer.App
-import remix.myplayer.BuildConfig
+import com.krithi.App
+import com.krithi.BuildConfig
 
 object PermissionUtil {
   private fun has(vararg permissions: String): Boolean {

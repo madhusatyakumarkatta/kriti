@@ -1,4 +1,4 @@
-package remix.myplayer.misc.receiver
+package com.krithi.misc.receiver
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -7,10 +7,10 @@ import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.view.KeyEvent
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicService.Companion.ACTION_CMD
-import remix.myplayer.service.MusicService.Companion.EXTRA_COMMAND
-import remix.myplayer.util.Util.sendLocalBroadcast
+import com.krithi.service.Command
+import com.krithi.service.MusicService.Companion.ACTION_CMD
+import com.krithi.service.MusicService.Companion.EXTRA_COMMAND
+import com.krithi.util.Util.sendLocalBroadcast
 import timber.log.Timber
 
 /**

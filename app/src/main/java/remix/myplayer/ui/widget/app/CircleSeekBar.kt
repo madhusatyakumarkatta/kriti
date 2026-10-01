@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.app
+package com.krithi.ui.widget.app
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.gestures.detectDragGestures
@@ -20,8 +20,8 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import remix.myplayer.ui.theme.APlayerTheme
-import remix.myplayer.ui.theme.LocalTheme
+import com.krithi.ui.theme.APlayerTheme
+import com.krithi.ui.theme.LocalTheme
 import kotlin.math.PI
 import kotlin.math.atan2
 import kotlin.math.cos

@@ -1,12 +1,12 @@
-package remix.myplayer.ui.dialog
+package com.krithi.ui.dialog
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.viewmodel.mainViewModel
+import com.krithi.R
+import com.krithi.viewmodel.mainViewModel
 
 @Composable
 fun InAppUpdateDialog() {

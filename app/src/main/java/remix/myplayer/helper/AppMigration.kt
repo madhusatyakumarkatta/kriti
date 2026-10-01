@@ -1,13 +1,13 @@
-package remix.myplayer.helper
+package com.krithi.helper
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
-import remix.myplayer.data.db.room.AppDatabase
-import remix.myplayer.data.model.misc.Library
-import remix.myplayer.data.prefs.LyricPrefs
-import remix.myplayer.data.prefs.SettingPrefs
+import com.krithi.data.db.room.AppDatabase
+import com.krithi.data.model.misc.Library
+import com.krithi.data.prefs.LyricPrefs
+import com.krithi.data.prefs.SettingPrefs
 import javax.inject.Inject
 import javax.inject.Singleton
 

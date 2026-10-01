@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.lyric
+package com.krithi.ui.widget.lyric
 
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -15,10 +15,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
-import remix.myplayer.R
-import remix.myplayer.ui.dialog.ColorSpace
-import remix.myplayer.ui.widget.common.LineSlider
-import remix.myplayer.ui.widget.common.defaultLineSliderProperties
+import com.krithi.R
+import com.krithi.ui.dialog.ColorSpace
+import com.krithi.ui.widget.common.LineSlider
+import com.krithi.ui.widget.common.defaultLineSliderProperties
 
 @Composable
 internal fun FontColorContainer(

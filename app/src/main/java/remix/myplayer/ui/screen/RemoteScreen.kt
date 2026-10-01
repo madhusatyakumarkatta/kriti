@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen
+package com.krithi.ui.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -21,23 +21,23 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.data.db.room.entity.Smb
-import remix.myplayer.data.db.room.entity.WebDav
-import remix.myplayer.ui.dialog.AddSmbDialog
-import remix.myplayer.ui.dialog.AddWebDavDialog
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.theme.icon
-import remix.myplayer.ui.widget.common.PopupButton
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.util.ext.clickWithRipple
-import remix.myplayer.viewmodel.SmbViewModel
-import remix.myplayer.viewmodel.WebDavViewModel
-import remix.myplayer.viewmodel.smbViewModel
-import remix.myplayer.viewmodel.webDavViewModel
+import com.krithi.R
+import com.krithi.data.db.room.entity.Smb
+import com.krithi.data.db.room.entity.WebDav
+import com.krithi.ui.dialog.AddSmbDialog
+import com.krithi.ui.dialog.AddWebDavDialog
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.theme.icon
+import com.krithi.ui.widget.common.PopupButton
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.util.ext.clickWithRipple
+import com.krithi.viewmodel.SmbViewModel
+import com.krithi.viewmodel.WebDavViewModel
+import com.krithi.viewmodel.smbViewModel
+import com.krithi.viewmodel.webDavViewModel
 
 @Composable
 fun RemoteScreen() {

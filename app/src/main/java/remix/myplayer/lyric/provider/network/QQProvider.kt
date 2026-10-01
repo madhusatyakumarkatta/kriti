@@ -1,10 +1,10 @@
-package remix.myplayer.lyric.provider.network
+package com.krithi.lyric.provider.network
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
-import remix.myplayer.data.model.misc.LyricOrder
-import remix.myplayer.request.qq.QQClient
-import remix.myplayer.request.qq.QQSong
+import com.krithi.data.model.misc.LyricOrder
+import com.krithi.request.qq.QQClient
+import com.krithi.request.qq.QQSong
 import javax.inject.Inject
 import javax.inject.Singleton
 

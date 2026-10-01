@@ -1,4 +1,4 @@
-package remix.myplayer.ui.nav
+package com.krithi.ui.nav
 
 import android.os.Handler
 import android.os.Looper
@@ -7,8 +7,8 @@ import android.widget.Toast
 import androidx.annotation.StringRes
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
-import remix.myplayer.App
-import remix.myplayer.util.Util
+import com.krithi.App
+import com.krithi.util.Util
 
 /**
  * app在前台时显示snackbar，否则展示toast

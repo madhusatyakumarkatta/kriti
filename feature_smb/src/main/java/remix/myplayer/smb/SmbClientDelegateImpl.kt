@@ -1,4 +1,4 @@
-package remix.myplayer.smb
+package com.krithi.smb
 
 import androidx.annotation.Keep
 import com.hierynomus.mserref.NtStatus
@@ -8,10 +8,10 @@ import com.hierynomus.smbj.auth.AuthenticationContext
 import com.hierynomus.smbj.share.DiskShare
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import remix.myplayer.data.db.room.entity.Smb
-import remix.myplayer.data.model.smb.SmbClientDelegate
-import remix.myplayer.data.model.smb.SmbException
-import remix.myplayer.data.model.smb.SmbFile
+import com.krithi.data.db.room.entity.Smb
+import com.krithi.data.model.smb.SmbClientDelegate
+import com.krithi.data.model.smb.SmbException
+import com.krithi.data.model.smb.SmbFile
 
 @Keep
 class SmbClientDelegateImpl : SmbClientDelegate {

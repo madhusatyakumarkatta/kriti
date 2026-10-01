@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.popup
+package com.krithi.ui.widget.popup
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -22,27 +22,27 @@ import androidx.compose.ui.res.stringResource
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.data.model.audio.APlayerModel
-import remix.myplayer.data.model.audio.Album
-import remix.myplayer.data.model.audio.Artist
-import remix.myplayer.data.model.audio.Folder
-import remix.myplayer.data.model.audio.Genre
-import remix.myplayer.data.model.audio.type
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicService.Companion.EXTRA_POSITION
-import remix.myplayer.service.MusicServiceRemote.setPlayQueue
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.nav.RouteCustomCoverCrop
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.theme.popupButton
-import remix.myplayer.util.MusicUtil.makeCmdIntent
-import remix.myplayer.util.ext.clickWithRipple
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.playbackViewModel
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.data.model.audio.APlayerModel
+import com.krithi.data.model.audio.Album
+import com.krithi.data.model.audio.Artist
+import com.krithi.data.model.audio.Folder
+import com.krithi.data.model.audio.Genre
+import com.krithi.data.model.audio.type
+import com.krithi.service.Command
+import com.krithi.service.MusicService.Companion.EXTRA_POSITION
+import com.krithi.service.MusicServiceRemote.setPlayQueue
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.nav.RouteCustomCoverCrop
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.theme.popupButton
+import com.krithi.util.MusicUtil.makeCmdIntent
+import com.krithi.util.ext.clickWithRipple
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.playbackViewModel
+import com.krithi.viewmodel.settingViewModel
 
 @Composable
 fun LibraryItemPopupButton(

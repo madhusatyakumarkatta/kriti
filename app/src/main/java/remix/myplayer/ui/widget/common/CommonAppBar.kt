@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.common
+package com.krithi.ui.widget.common
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -15,12 +15,12 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.helper.SleepTimer
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.nav.RouteSearch
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.viewmodel.timerViewModel
+import com.krithi.R
+import com.krithi.helper.SleepTimer
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.nav.RouteSearch
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.viewmodel.timerViewModel
 
 
 @OptIn(ExperimentalMaterial3Api::class)

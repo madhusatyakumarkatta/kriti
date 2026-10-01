@@ -1,4 +1,4 @@
-package remix.myplayer.service
+package com.krithi.service
 
 import android.annotation.SuppressLint
 import android.app.PendingIntent
@@ -28,52 +28,52 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.model.audio.Song.Companion.EMPTY_SONG
-import remix.myplayer.data.prefs.PrefKeys
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.data.prefs.SettingPrefs.Companion.LOCKSCREEN_APLAYER
-import remix.myplayer.data.prefs.SettingPrefs.Companion.LOCKSCREEN_CLOSE
-import remix.myplayer.data.prefs.SettingPrefs.Companion.LOCKSCREEN_SYSTEM
-import remix.myplayer.data.prefs.SettingPrefs.Companion.MODE_LOOP
-import remix.myplayer.data.prefs.SettingPrefs.Companion.MODE_REPEAT
-import remix.myplayer.data.prefs.SettingPrefs.Companion.MODE_SHUFFLE
-import remix.myplayer.data.prefs.SettingPrefs.Companion.OPEN_SOFTWARE
-import remix.myplayer.helper.EQHelper
-import remix.myplayer.helper.LanguageHelper
-import remix.myplayer.helper.ShakeDetector
-import remix.myplayer.helper.SleepTimer
-import remix.myplayer.lyric.LyricManager
-import remix.myplayer.misc.receiver.ExitReceiver
-import remix.myplayer.misc.receiver.HeadsetPlugReceiver
-import remix.myplayer.misc.receiver.MediaButtonReceiver
-import remix.myplayer.repo.HistoryRepository
-import remix.myplayer.repo.PlayListRepository
-import remix.myplayer.repo.SongRepository
-import remix.myplayer.repo.usecase.FetchMetaDataUseCase
-import remix.myplayer.service.notification.Notify
-import remix.myplayer.service.notification.NotifyImpl
-import remix.myplayer.service.notification.NotifyImpl24
-import remix.myplayer.service.playback.ExoPlayback
-import remix.myplayer.service.playback.MusicStateSource
-import remix.myplayer.service.playback.Playback
-import remix.myplayer.service.playback.ReplayGainController
-import remix.myplayer.service.playback.PlaybackFavoriteState
-import remix.myplayer.service.playback.PlaybackProgressSaver
-import remix.myplayer.ui.activity.LockScreenActivity
-import remix.myplayer.ui.activity.base.BaseMusicActivity
-import remix.myplayer.ui.activity.base.BaseMusicActivity.Companion.EXTRA_PERMISSION
-import remix.myplayer.ui.activity.base.BaseMusicActivity.Companion.EXTRA_PLAYLIST
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.util.Constants.ACTION_EXIT
-import remix.myplayer.util.PermissionUtil
-import remix.myplayer.util.Util
-import remix.myplayer.util.Util.registerLocalReceiver
-import remix.myplayer.util.Util.unregisterLocalReceiver
-import remix.myplayer.util.ext.checkMainThread
-import remix.myplayer.util.ext.getPendingIntentFlag
-import remix.myplayer.util.ext.tryLaunch
+import com.krithi.R
+import com.krithi.data.model.audio.Song
+import com.krithi.data.model.audio.Song.Companion.EMPTY_SONG
+import com.krithi.data.prefs.PrefKeys
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.data.prefs.SettingPrefs.Companion.LOCKSCREEN_APLAYER
+import com.krithi.data.prefs.SettingPrefs.Companion.LOCKSCREEN_CLOSE
+import com.krithi.data.prefs.SettingPrefs.Companion.LOCKSCREEN_SYSTEM
+import com.krithi.data.prefs.SettingPrefs.Companion.MODE_LOOP
+import com.krithi.data.prefs.SettingPrefs.Companion.MODE_REPEAT
+import com.krithi.data.prefs.SettingPrefs.Companion.MODE_SHUFFLE
+import com.krithi.data.prefs.SettingPrefs.Companion.OPEN_SOFTWARE
+import com.krithi.helper.EQHelper
+import com.krithi.helper.LanguageHelper
+import com.krithi.helper.ShakeDetector
+import com.krithi.helper.SleepTimer
+import com.krithi.lyric.LyricManager
+import com.krithi.misc.receiver.ExitReceiver
+import com.krithi.misc.receiver.HeadsetPlugReceiver
+import com.krithi.misc.receiver.MediaButtonReceiver
+import com.krithi.repo.HistoryRepository
+import com.krithi.repo.PlayListRepository
+import com.krithi.repo.SongRepository
+import com.krithi.repo.usecase.FetchMetaDataUseCase
+import com.krithi.service.notification.Notify
+import com.krithi.service.notification.NotifyImpl
+import com.krithi.service.notification.NotifyImpl24
+import com.krithi.service.playback.ExoPlayback
+import com.krithi.service.playback.MusicStateSource
+import com.krithi.service.playback.Playback
+import com.krithi.service.playback.ReplayGainController
+import com.krithi.service.playback.PlaybackFavoriteState
+import com.krithi.service.playback.PlaybackProgressSaver
+import com.krithi.ui.activity.LockScreenActivity
+import com.krithi.ui.activity.base.BaseMusicActivity
+import com.krithi.ui.activity.base.BaseMusicActivity.Companion.EXTRA_PERMISSION
+import com.krithi.ui.activity.base.BaseMusicActivity.Companion.EXTRA_PLAYLIST
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.util.Constants.ACTION_EXIT
+import com.krithi.util.PermissionUtil
+import com.krithi.util.Util
+import com.krithi.util.Util.registerLocalReceiver
+import com.krithi.util.Util.unregisterLocalReceiver
+import com.krithi.util.ext.checkMainThread
+import com.krithi.util.ext.getPendingIntentFlag
+import com.krithi.util.ext.tryLaunch
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -1368,7 +1368,7 @@ class MusicService : BaseService(),
     const val EXTRA_SONG = "song"
     const val EXTRA_POSITION = "position"
 
-    private const val APLAYER_PACKAGE_NAME = "remix.myplayer"
+    private const val APLAYER_PACKAGE_NAME = "com.krithi"
 
     // 媒体数据库变化
     const val MEDIA_STORE_CHANGE = "$APLAYER_PACKAGE_NAME.media_store.change"

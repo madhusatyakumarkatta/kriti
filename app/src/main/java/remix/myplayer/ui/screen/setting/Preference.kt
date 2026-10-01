@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.setting
+package com.krithi.ui.screen.setting
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -23,11 +23,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import remix.myplayer.R
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.util.ext.clickWithRipple
+import com.krithi.R
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.util.ext.clickWithRipple
 
 
 @Composable

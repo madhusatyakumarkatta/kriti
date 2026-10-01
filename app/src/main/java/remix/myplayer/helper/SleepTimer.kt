@@ -1,11 +1,11 @@
-package remix.myplayer.helper
+package com.krithi.helper
 
 import android.os.CountDownTimer
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import remix.myplayer.App
-import remix.myplayer.R
-import remix.myplayer.ui.nav.MessageNotifier
+import com.krithi.App
+import com.krithi.R
+import com.krithi.ui.nav.MessageNotifier
 import kotlin.math.ceil
 
 class SleepTimer(millisInFuture: Long, countDownInterval: Long) :

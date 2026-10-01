@@ -1,4 +1,4 @@
-package remix.myplayer.lyric
+package com.krithi.lyric
 
 import android.graphics.Canvas
 import android.graphics.Paint

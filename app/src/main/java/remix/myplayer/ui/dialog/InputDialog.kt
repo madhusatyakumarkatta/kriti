@@ -1,4 +1,4 @@
-package remix.myplayer.ui.dialog
+package com.krithi.ui.dialog
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -24,9 +24,9 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import remix.myplayer.R
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.TextPrimary
+import com.krithi.R
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.TextPrimary
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

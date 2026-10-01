@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.common
+package com.krithi.ui.widget.common
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
@@ -37,8 +37,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.toColorInt
-import remix.myplayer.ui.theme.APlayerTheme
-import remix.myplayer.ui.theme.LocalTheme
+import com.krithi.ui.theme.APlayerTheme
+import com.krithi.ui.theme.LocalTheme
 
 @Immutable
 data class LineSliderProperties(

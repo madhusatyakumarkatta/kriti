@@ -1,11 +1,11 @@
-package remix.myplayer.data.db
+package com.krithi.data.db
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.database.sqlite.SQLiteDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import remix.myplayer.data.db.room.entity.WebDav
+import com.krithi.data.db.room.entity.WebDav
 
 internal object DbMigrations {
 

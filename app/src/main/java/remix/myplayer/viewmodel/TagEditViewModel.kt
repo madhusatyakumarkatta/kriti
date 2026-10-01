@@ -1,4 +1,4 @@
-package remix.myplayer.viewmodel
+package com.krithi.viewmodel
 
 import android.graphics.Bitmap
 import androidx.compose.runtime.Stable
@@ -13,12 +13,12 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.helper.AudioTagFile
-import remix.myplayer.helper.AudioTagWriter
-import remix.myplayer.lyric.provider.EmbeddedProvider
-import remix.myplayer.ui.activity.base.BaseActivity
-import remix.myplayer.util.ImageUtil
+import com.krithi.data.model.audio.Song
+import com.krithi.helper.AudioTagFile
+import com.krithi.helper.AudioTagWriter
+import com.krithi.lyric.provider.EmbeddedProvider
+import com.krithi.ui.activity.base.BaseActivity
+import com.krithi.util.ImageUtil
 import java.io.File
 import javax.inject.Inject
 

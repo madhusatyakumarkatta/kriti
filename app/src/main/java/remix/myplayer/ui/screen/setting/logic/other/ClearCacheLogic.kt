@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.setting.logic.other
+package com.krithi.ui.screen.setting.logic.other
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -14,14 +14,14 @@ import com.bumptech.glide.Glide
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.ui.dialog.NormalDialog
-import remix.myplayer.ui.dialog.rememberDialogState
-import remix.myplayer.ui.screen.setting.Preference
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.util.Util
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.ui.dialog.NormalDialog
+import com.krithi.ui.dialog.rememberDialogState
+import com.krithi.ui.screen.setting.Preference
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.util.Util
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.settingViewModel
 
 @Composable
 fun ClearCacheLogic() {

@@ -1,9 +1,9 @@
-package remix.myplayer.ui.widget.app
+package com.krithi.ui.widget.app
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.service.playback.MusicStateSource
+import com.krithi.service.playback.MusicStateSource
 
 /**
  * 感知进度变化

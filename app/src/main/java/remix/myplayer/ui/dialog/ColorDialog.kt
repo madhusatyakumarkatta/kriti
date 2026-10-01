@@ -1,4 +1,4 @@
-package remix.myplayer.ui.dialog
+package com.krithi.ui.dialog
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -33,14 +33,14 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
-import remix.myplayer.R
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.LineSlider
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.common.defaultLineSliderProperties
-import remix.myplayer.util.ext.isPortraitOrientation
-import remix.myplayer.util.ext.isTablet
-import remix.myplayer.util.ext.toHexString
+import com.krithi.R
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.LineSlider
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.common.defaultLineSliderProperties
+import com.krithi.util.ext.isPortraitOrientation
+import com.krithi.util.ext.isTablet
+import com.krithi.util.ext.toHexString
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

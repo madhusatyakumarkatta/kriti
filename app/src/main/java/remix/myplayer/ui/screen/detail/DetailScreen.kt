@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.detail
+package com.krithi.ui.screen.detail
 
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.LocalActivity
@@ -38,30 +38,30 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.data.model.audio.APlayerModel
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicEventCallback
-import remix.myplayer.service.MusicService
-import remix.myplayer.service.MusicServiceRemote.setPlayQueue
-import remix.myplayer.ui.activity.base.BaseMusicActivity
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.app.BottomBar
-import remix.myplayer.ui.widget.app.MultiSelectBar
-import remix.myplayer.ui.widget.common.CommonAppBar
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.ui.widget.common.defaultAppBarActions
-import remix.myplayer.ui.widget.library.SongListHeader
-import remix.myplayer.ui.widget.library.list.ListSong
-import remix.myplayer.util.MusicUtil
-import remix.myplayer.util.ext.verticalScrollbar
-import remix.myplayer.viewmodel.MultiSelectState
-import remix.myplayer.viewmodel.PlayingScreenValue
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.mainViewModel
-import remix.myplayer.viewmodel.playbackViewModel
+import com.krithi.R
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.data.model.audio.APlayerModel
+import com.krithi.data.model.audio.Song
+import com.krithi.service.Command
+import com.krithi.service.MusicEventCallback
+import com.krithi.service.MusicService
+import com.krithi.service.MusicServiceRemote.setPlayQueue
+import com.krithi.ui.activity.base.BaseMusicActivity
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.app.BottomBar
+import com.krithi.ui.widget.app.MultiSelectBar
+import com.krithi.ui.widget.common.CommonAppBar
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.ui.widget.common.defaultAppBarActions
+import com.krithi.ui.widget.library.SongListHeader
+import com.krithi.ui.widget.library.list.ListSong
+import com.krithi.util.MusicUtil
+import com.krithi.util.ext.verticalScrollbar
+import com.krithi.viewmodel.MultiSelectState
+import com.krithi.viewmodel.PlayingScreenValue
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.mainViewModel
+import com.krithi.viewmodel.playbackViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

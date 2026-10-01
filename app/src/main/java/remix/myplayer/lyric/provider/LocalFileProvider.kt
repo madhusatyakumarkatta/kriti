@@ -1,11 +1,11 @@
-package remix.myplayer.lyric.provider
+package com.krithi.lyric.provider
 
 import android.content.Context
 import android.provider.MediaStore
 import dagger.hilt.android.qualifiers.ApplicationContext
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.model.misc.LyricOrder
-import remix.myplayer.lyric.LrcParser
+import com.krithi.data.model.audio.Song
+import com.krithi.data.model.misc.LyricOrder
+import com.krithi.lyric.LrcParser
 import timber.log.Timber
 import java.io.File
 import javax.inject.Inject

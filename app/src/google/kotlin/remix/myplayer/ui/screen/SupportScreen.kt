@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen
+package com.krithi.ui.screen
 
 import android.app.Activity
 import androidx.activity.compose.LocalActivity
@@ -37,13 +37,13 @@ import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.PurchasesUpdatedListener
 import com.android.billingclient.api.QueryProductDetailsParams
 import com.android.billingclient.api.QueryProductDetailsParams.Product
-import remix.myplayer.R
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.CommonAppBar
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.util.ext.clickWithRipple
+import com.krithi.R
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.CommonAppBar
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.util.ext.clickWithRipple
 import timber.log.Timber
 
 @Composable

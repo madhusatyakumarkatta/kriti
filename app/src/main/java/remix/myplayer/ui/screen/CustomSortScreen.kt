@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen
+package com.krithi.ui.screen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -30,19 +30,19 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.helper.SortOrder
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.CommonAppBar
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.ui.widget.library.GlideCover
-import remix.myplayer.util.Util
-import remix.myplayer.util.ext.clickableWithoutRipple
-import remix.myplayer.viewmodel.libraryViewModel
+import com.krithi.R
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.data.model.audio.Song
+import com.krithi.helper.SortOrder
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.CommonAppBar
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.ui.widget.library.GlideCover
+import com.krithi.util.Util
+import com.krithi.util.ext.clickableWithoutRipple
+import com.krithi.viewmodel.libraryViewModel
 import sh.calvin.reorderable.ReorderableItem
 import sh.calvin.reorderable.rememberReorderableLazyListState
 

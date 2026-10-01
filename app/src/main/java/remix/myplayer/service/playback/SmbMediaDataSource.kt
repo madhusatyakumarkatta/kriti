@@ -1,9 +1,9 @@
-package remix.myplayer.service.playback
+package com.krithi.service.playback
 
 import android.media.MediaDataSource
 import android.os.Build
 import androidx.annotation.RequiresApi
-import remix.myplayer.data.model.smb.SmbRandomAccessDelegate
+import com.krithi.data.model.smb.SmbRandomAccessDelegate
 import timber.log.Timber
 
 @RequiresApi(Build.VERSION_CODES.M)
@@ -13,7 +13,7 @@ class SmbMediaDataSource(uriString: String) : MediaDataSource() {
 
   init {
     try {
-      val clazz = Class.forName("remix.myplayer.smb.SmbRandomAccessDelegateImpl")
+      val clazz = Class.forName("com.krithi.smb.SmbRandomAccessDelegateImpl")
       delegate = clazz.getDeclaredConstructor().newInstance() as SmbRandomAccessDelegate
       delegate?.open(uriString)
     } catch (e: Exception) {

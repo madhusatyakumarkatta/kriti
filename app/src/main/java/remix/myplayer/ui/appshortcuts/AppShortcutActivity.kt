@@ -1,9 +1,9 @@
-package remix.myplayer.ui.appshortcuts
+package com.krithi.ui.appshortcuts
 
 import android.content.Intent
 import android.os.Bundle
-import remix.myplayer.service.MusicService
-import remix.myplayer.ui.activity.base.BaseMusicActivity
+import com.krithi.service.MusicService
+import com.krithi.ui.activity.base.BaseMusicActivity
 
 /**
  * Created by Remix on 2017/11/1.
@@ -34,6 +34,6 @@ class AppShortcutActivity : BaseMusicActivity() {
     const val SHORTCUT_TYPE_MY_LOVE = 1
     const val SHORTCUT_TYPE_LAST_ADDED = 2
 
-    const val KEY_SHORTCUT_TYPE = "com.remix.myplayer.appshortcuts.ShortcutType"
+    const val KEY_SHORTCUT_TYPE = "com.com.krithi.appshortcuts.ShortcutType"
   }
 }

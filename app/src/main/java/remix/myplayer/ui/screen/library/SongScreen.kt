@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.library
+package com.krithi.ui.screen.library
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
@@ -15,17 +15,17 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.flow.SharedFlow
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicService
-import remix.myplayer.service.MusicServiceRemote.setPlayQueue
-import remix.myplayer.ui.widget.library.SongListHeader
-import remix.myplayer.ui.widget.library.list.ListSong
-import remix.myplayer.util.MusicUtil
-import remix.myplayer.util.ext.verticalScrollbar
-import remix.myplayer.viewmodel.MultiSelectState
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.mainViewModel
-import remix.myplayer.viewmodel.playbackViewModel
+import com.krithi.service.Command
+import com.krithi.service.MusicService
+import com.krithi.service.MusicServiceRemote.setPlayQueue
+import com.krithi.ui.widget.library.SongListHeader
+import com.krithi.ui.widget.library.list.ListSong
+import com.krithi.util.MusicUtil
+import com.krithi.util.ext.verticalScrollbar
+import com.krithi.viewmodel.MultiSelectState
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.mainViewModel
+import com.krithi.viewmodel.playbackViewModel
 
 @Composable
 fun SongScreen(scrollToCurrentEvent: SharedFlow<Unit>? = null) {

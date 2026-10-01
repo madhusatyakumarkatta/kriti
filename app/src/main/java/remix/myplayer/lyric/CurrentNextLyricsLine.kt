@@ -1,4 +1,4 @@
-package remix.myplayer.lyric
+package com.krithi.lyric
 
 data class CurrentNextLyricsLine(
   val currentLine: LyricLine?,

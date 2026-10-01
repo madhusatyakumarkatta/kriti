@@ -1,7 +1,7 @@
-package remix.myplayer.data.model.misc
+package com.krithi.data.model.misc
 
-import remix.myplayer.R
-import remix.myplayer.helper.SortOrder
+import com.krithi.R
+import com.krithi.helper.SortOrder
 import java.io.Serializable
 
 @kotlinx.serialization.Serializable

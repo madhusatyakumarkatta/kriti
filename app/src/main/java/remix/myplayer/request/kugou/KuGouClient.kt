@@ -1,4 +1,4 @@
-package remix.myplayer.request.kugou
+package com.krithi.request.kugou
 
 import android.util.Base64
 import okhttp3.HttpUrl.Companion.toHttpUrl
@@ -8,8 +8,8 @@ import okhttp3.Request
 import okhttp3.RequestBody
 import org.json.JSONArray
 import org.json.JSONObject
-import remix.myplayer.lyric.LrcParser
-import remix.myplayer.lyric.decrypt.KuGouDecrypt.krcDecrypt
+import com.krithi.lyric.LrcParser
+import com.krithi.lyric.decrypt.KuGouDecrypt.krcDecrypt
 import timber.log.Timber
 import java.security.MessageDigest
 import javax.inject.Inject

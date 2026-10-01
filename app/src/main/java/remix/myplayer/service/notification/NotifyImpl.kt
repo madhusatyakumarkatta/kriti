@@ -1,4 +1,4 @@
-package remix.myplayer.service.notification
+package com.krithi.service.notification
 
 import android.app.Notification
 import android.content.Context
@@ -10,11 +10,11 @@ import androidx.core.app.NotificationCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import remix.myplayer.R
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicService
-import remix.myplayer.util.ColorUtil
-import remix.myplayer.util.DensityUtil
+import com.krithi.R
+import com.krithi.service.Command
+import com.krithi.service.MusicService
+import com.krithi.util.ColorUtil
+import com.krithi.util.DensityUtil
 
 
 /**

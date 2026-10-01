@@ -1,4 +1,4 @@
-package remix.myplayer.ui.dialog
+package com.krithi.ui.dialog
 
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,11 +14,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
-import remix.myplayer.R
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.data.model.audio.APlayerModel
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.ui.theme.LocalTheme
+import com.krithi.R
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.data.model.audio.APlayerModel
+import com.krithi.data.model.audio.Song
+import com.krithi.ui.theme.LocalTheme
 import timber.log.Timber
 
 @Composable

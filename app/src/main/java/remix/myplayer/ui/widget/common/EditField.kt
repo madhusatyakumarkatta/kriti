@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.common
+package com.krithi.ui.widget.common
 
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -15,7 +15,7 @@ import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
-import remix.myplayer.ui.theme.LocalTheme
+import com.krithi.ui.theme.LocalTheme
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable

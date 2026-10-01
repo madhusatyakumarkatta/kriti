@@ -1,4 +1,4 @@
-package remix.myplayer.data.model.github
+package com.krithi.data.model.github
 
 import java.io.Serializable
 

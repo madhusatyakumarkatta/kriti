@@ -1,4 +1,4 @@
-package remix.myplayer.data.db.room.dao
+package com.krithi.data.db.room.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -6,7 +6,7 @@ import androidx.room.OnConflictStrategy.Companion.REPLACE
 import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
-import remix.myplayer.data.db.room.entity.History
+import com.krithi.data.db.room.entity.History
 
 
 /**

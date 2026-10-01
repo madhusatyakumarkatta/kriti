@@ -1,10 +1,10 @@
-package remix.myplayer.ui.theme
+package com.krithi.ui.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
-import remix.myplayer.data.prefs.SettingPrefs
+import com.krithi.data.prefs.SettingPrefs
 
 @Composable
 fun ProvideAppFontScale(

@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.playing
+package com.krithi.ui.screen.playing
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.gestures.animateTo
@@ -29,13 +29,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.palette.graphics.Palette
 import kotlinx.coroutines.launch
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.theme.popupButton
-import remix.myplayer.util.ext.clickWithRipple
-import remix.myplayer.viewmodel.PlayingScreenValue
-import remix.myplayer.viewmodel.mainViewModel
+import com.krithi.R
+import com.krithi.data.model.audio.Song
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.theme.popupButton
+import com.krithi.util.ext.clickWithRipple
+import com.krithi.viewmodel.PlayingScreenValue
+import com.krithi.viewmodel.mainViewModel
 
 @Composable
 @Stable

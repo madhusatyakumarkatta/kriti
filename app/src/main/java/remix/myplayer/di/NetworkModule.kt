@@ -1,4 +1,4 @@
-package remix.myplayer.di
+package com.krithi.di
 
 import android.content.Context
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
@@ -11,12 +11,12 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
-import remix.myplayer.request.kugou.KuGouClient
-import remix.myplayer.request.netease.NetEaseClient
-import remix.myplayer.request.network.GithubApi
-import remix.myplayer.request.network.LastFMApi
-import remix.myplayer.request.network.OkHttpHelper
-import remix.myplayer.request.qq.QQClient
+import com.krithi.request.kugou.KuGouClient
+import com.krithi.request.netease.NetEaseClient
+import com.krithi.request.network.GithubApi
+import com.krithi.request.network.LastFMApi
+import com.krithi.request.network.OkHttpHelper
+import com.krithi.request.qq.QQClient
 import retrofit2.Retrofit
 import javax.inject.Singleton
 

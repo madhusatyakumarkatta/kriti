@@ -1,4 +1,4 @@
-package remix.myplayer.lyric
+package com.krithi.lyric
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -6,12 +6,12 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.decodeFromStream
 import kotlinx.serialization.json.encodeToStream
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.model.misc.LyricOrder
-import remix.myplayer.data.prefs.LyricPrefs
-import remix.myplayer.data.prefs.delegate
-import remix.myplayer.lyric.provider.ILyricsProvider
-import remix.myplayer.util.ext.checkWorkerThread
+import com.krithi.data.model.audio.Song
+import com.krithi.data.model.misc.LyricOrder
+import com.krithi.data.prefs.LyricPrefs
+import com.krithi.data.prefs.delegate
+import com.krithi.lyric.provider.ILyricsProvider
+import com.krithi.util.ext.checkWorkerThread
 import timber.log.Timber
 import java.io.File
 import java.io.FileNotFoundException

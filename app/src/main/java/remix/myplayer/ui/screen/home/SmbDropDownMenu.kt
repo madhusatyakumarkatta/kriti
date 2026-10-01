@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.home
+package com.krithi.ui.screen.home
 
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Text
@@ -8,17 +8,17 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.misc.manager.DynamicModuleStatus
-import remix.myplayer.ui.dialog.DialogState
-import remix.myplayer.ui.dialog.NormalDialog
-import remix.myplayer.ui.dialog.dismissLoading
-import remix.myplayer.ui.dialog.rememberDialogState
-import remix.myplayer.ui.dialog.showLoading
-import remix.myplayer.ui.dialog.updateLoadingText
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.viewmodel.SmbViewModel
+import com.krithi.R
+import com.krithi.misc.manager.DynamicModuleStatus
+import com.krithi.ui.dialog.DialogState
+import com.krithi.ui.dialog.NormalDialog
+import com.krithi.ui.dialog.dismissLoading
+import com.krithi.ui.dialog.rememberDialogState
+import com.krithi.ui.dialog.showLoading
+import com.krithi.ui.dialog.updateLoadingText
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.viewmodel.SmbViewModel
 import timber.log.Timber
 
 @Composable

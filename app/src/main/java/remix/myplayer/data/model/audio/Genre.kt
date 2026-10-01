@@ -1,4 +1,4 @@
-package remix.myplayer.data.model.audio
+package com.krithi.data.model.audio
 
 import kotlinx.serialization.Serializable
 import java.io.Serial

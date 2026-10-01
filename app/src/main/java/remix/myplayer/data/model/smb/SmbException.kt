@@ -1,4 +1,4 @@
-package remix.myplayer.data.model.smb
+package com.krithi.data.model.smb
 
 class SmbException(
   message: String? = null,

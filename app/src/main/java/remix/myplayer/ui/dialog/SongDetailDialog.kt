@@ -1,4 +1,4 @@
-package remix.myplayer.ui.dialog
+package com.krithi.ui.dialog
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,13 +23,13 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kyant.taglib.AudioProperties
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.helper.AudioTagFile
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.util.Constants.MB
-import remix.myplayer.util.Util
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.data.model.audio.Song
+import com.krithi.helper.AudioTagFile
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.util.Constants.MB
+import com.krithi.util.Util
+import com.krithi.viewmodel.settingViewModel
 import java.io.File
 
 @Composable

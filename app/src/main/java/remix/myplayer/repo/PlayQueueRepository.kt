@@ -1,4 +1,4 @@
-package remix.myplayer.repo
+package com.krithi.repo
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -8,11 +8,11 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
-import remix.myplayer.data.db.room.dao.PlayQueueDao
-import remix.myplayer.data.db.room.entity.PlayQueue
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.util.ext.checkWorkerThread
+import com.krithi.data.db.room.dao.PlayQueueDao
+import com.krithi.data.db.room.entity.PlayQueue
+import com.krithi.data.model.audio.Song
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.util.ext.checkWorkerThread
 import timber.log.Timber
 import javax.inject.Inject
 

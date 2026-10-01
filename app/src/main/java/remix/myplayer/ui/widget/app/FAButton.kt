@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.app
+package com.krithi.ui.widget.app
 
 import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
@@ -18,9 +18,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import remix.myplayer.R
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.util.ext.clickableWithoutRipple
+import com.krithi.R
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.util.ext.clickableWithoutRipple
 
 @SuppressLint("CheckResult")
 @Composable

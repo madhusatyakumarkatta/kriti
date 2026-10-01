@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.history
+package com.krithi.ui.screen.history
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
@@ -15,20 +15,20 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.helper.SleepTimer
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicService
-import remix.myplayer.service.MusicServiceRemote.setPlayQueue
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.AppBarAction
-import remix.myplayer.ui.widget.common.CommonAppBar
-import remix.myplayer.ui.widget.library.SongListHeader
-import remix.myplayer.ui.widget.library.list.ListSong
-import remix.myplayer.util.MusicUtil
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.playbackViewModel
-import remix.myplayer.viewmodel.timerViewModel
+import com.krithi.R
+import com.krithi.helper.SleepTimer
+import com.krithi.service.Command
+import com.krithi.service.MusicService
+import com.krithi.service.MusicServiceRemote.setPlayQueue
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.AppBarAction
+import com.krithi.ui.widget.common.CommonAppBar
+import com.krithi.ui.widget.library.SongListHeader
+import com.krithi.ui.widget.library.list.ListSong
+import com.krithi.util.MusicUtil
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.playbackViewModel
+import com.krithi.viewmodel.timerViewModel
 
 @Composable
 fun HistoryScreen() {

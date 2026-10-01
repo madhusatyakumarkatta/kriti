@@ -1,11 +1,11 @@
-package remix.myplayer.ui.appwidgets
+package com.krithi.ui.appwidgets
 
 import androidx.annotation.ColorInt
 import androidx.annotation.DrawableRes
-import remix.myplayer.R
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.service.playback.MusicStateSource
-import remix.myplayer.util.ColorUtil
+import com.krithi.R
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.service.playback.MusicStateSource
+import com.krithi.util.ColorUtil
 
 enum class AppWidgetSkin(
   @param:ColorInt var titleColor: Int, @param:ColorInt var artistColor: Int,

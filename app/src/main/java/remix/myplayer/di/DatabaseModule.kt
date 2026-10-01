@@ -1,4 +1,4 @@
-package remix.myplayer.di
+package com.krithi.di
 
 import android.content.Context
 import dagger.Module
@@ -6,12 +6,12 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import remix.myplayer.data.db.room.AppDatabase
-import remix.myplayer.data.db.room.dao.HistoryDao
-import remix.myplayer.data.db.room.dao.MetaDataCacheDao
-import remix.myplayer.data.db.room.dao.PlayListDao
-import remix.myplayer.data.db.room.dao.PlayQueueDao
-import remix.myplayer.data.db.room.dao.WebDavDao
+import com.krithi.data.db.room.AppDatabase
+import com.krithi.data.db.room.dao.HistoryDao
+import com.krithi.data.db.room.dao.MetaDataCacheDao
+import com.krithi.data.db.room.dao.PlayListDao
+import com.krithi.data.db.room.dao.PlayQueueDao
+import com.krithi.data.db.room.dao.WebDavDao
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -50,7 +50,7 @@ object DatabaseModule {
   }
 
   @Provides
-  fun provideSmbDao(database: AppDatabase): remix.myplayer.data.db.room.dao.SmbDao {
+  fun provideSmbDao(database: AppDatabase): com.krithi.data.db.room.dao.SmbDao {
     return database.smbDao()
   }
 }

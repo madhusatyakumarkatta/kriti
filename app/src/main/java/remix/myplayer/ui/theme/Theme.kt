@@ -1,4 +1,4 @@
-package remix.myplayer.ui.theme
+package com.krithi.ui.theme
 
 import android.app.Activity
 import androidx.compose.foundation.isSystemInDarkTheme

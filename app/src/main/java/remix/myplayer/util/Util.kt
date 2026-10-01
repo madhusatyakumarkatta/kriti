@@ -1,4 +1,4 @@
-package remix.myplayer.util
+package com.krithi.util
 
 import android.app.Activity
 import android.app.ActivityManager
@@ -33,12 +33,12 @@ import androidx.core.text.HtmlCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import remix.myplayer.App.Companion.context
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.misc.floatpermission.rom.RomUtils
-import remix.myplayer.misc.manager.APlayerActivityManager
-import remix.myplayer.ui.nav.MessageNotifier
+import com.krithi.App.Companion.context
+import com.krithi.R
+import com.krithi.data.model.audio.Song
+import com.krithi.misc.floatpermission.rom.RomUtils
+import com.krithi.misc.manager.APlayerActivityManager
+import com.krithi.ui.nav.MessageNotifier
 import timber.log.Timber
 import java.io.BufferedReader
 import java.io.ByteArrayOutputStream

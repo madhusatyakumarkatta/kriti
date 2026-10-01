@@ -1,4 +1,4 @@
-package remix.myplayer.data.model.lastfm
+package com.krithi.data.model.lastfm
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

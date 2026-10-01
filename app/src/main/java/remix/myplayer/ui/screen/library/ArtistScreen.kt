@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.library
+package com.krithi.ui.screen.library
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -19,20 +19,20 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.ui.nav.DetailScreenRoute
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.library.ModeHeader
-import remix.myplayer.ui.widget.library.list.GridItem
-import remix.myplayer.ui.widget.library.list.ListItem
-import remix.myplayer.util.ext.spanCount
-import remix.myplayer.util.ext.verticalScrollbar
-import remix.myplayer.viewmodel.MultiSelectState
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.mainViewModel
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.ui.nav.DetailScreenRoute
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.library.ModeHeader
+import com.krithi.ui.widget.library.list.GridItem
+import com.krithi.ui.widget.library.list.ListItem
+import com.krithi.util.ext.spanCount
+import com.krithi.util.ext.verticalScrollbar
+import com.krithi.viewmodel.MultiSelectState
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.mainViewModel
+import com.krithi.viewmodel.settingViewModel
 
 @Composable
 fun ArtistScreen() {

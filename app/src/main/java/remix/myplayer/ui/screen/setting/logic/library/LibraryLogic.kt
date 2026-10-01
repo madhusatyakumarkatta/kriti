@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.setting.logic.library
+package com.krithi.ui.screen.setting.logic.library
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,16 +24,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.ui.dialog.NormalDialog
-import remix.myplayer.ui.dialog.rememberDialogState
-import remix.myplayer.ui.screen.setting.NormalPreference
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.util.Util
-import remix.myplayer.util.ext.clickWithRipple
-import remix.myplayer.viewmodel.settingViewModel
-import remix.myplayer.viewmodel.settings.SettingViewModel
+import com.krithi.R
+import com.krithi.ui.dialog.NormalDialog
+import com.krithi.ui.dialog.rememberDialogState
+import com.krithi.ui.screen.setting.NormalPreference
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.util.Util
+import com.krithi.util.ext.clickWithRipple
+import com.krithi.viewmodel.settingViewModel
+import com.krithi.viewmodel.settings.SettingViewModel
 import sh.calvin.reorderable.ReorderableItem
 import sh.calvin.reorderable.rememberReorderableLazyListState
 

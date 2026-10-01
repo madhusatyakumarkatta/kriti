@@ -1,11 +1,11 @@
-package remix.myplayer.viewmodel
+package com.krithi.viewmodel
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.compositionLocalOf
-import remix.myplayer.util.ext.activityViewModel
-import remix.myplayer.viewmodel.settings.SettingViewModel
+import com.krithi.util.ext.activityViewModel
+import com.krithi.viewmodel.settings.SettingViewModel
 
 val LocalLibraryViewModel = compositionLocalOf<LibraryViewModel> {
   error("LibraryViewModel not provided")

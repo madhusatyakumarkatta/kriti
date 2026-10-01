@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen
+package com.krithi.ui.screen
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -38,19 +38,19 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.launch
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.theme.APlayerTheme
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.ui.widget.library.GlideCover
-import remix.myplayer.util.ext.clickWithRipple
-import remix.myplayer.viewmodel.LibraryViewModel
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.playbackViewModel
+import com.krithi.R
+import com.krithi.data.model.audio.Song
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.theme.APlayerTheme
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.ui.widget.library.GlideCover
+import com.krithi.util.ext.clickWithRipple
+import com.krithi.viewmodel.LibraryViewModel
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.playbackViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

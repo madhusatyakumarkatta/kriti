@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.popup
+package com.krithi.ui.widget.popup
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -24,13 +24,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.data.model.misc.Library
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.viewmodel.LibraryViewModel
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.settingViewModel
-import remix.myplayer.viewmodel.settings.SortCategory
+import com.krithi.R
+import com.krithi.data.model.misc.Library
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.viewmodel.LibraryViewModel
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.settingViewModel
+import com.krithi.viewmodel.settings.SortCategory
 
 @Composable
 fun ScreenPopupButton(library: Library?, vm: LibraryViewModel = libraryViewModel) {

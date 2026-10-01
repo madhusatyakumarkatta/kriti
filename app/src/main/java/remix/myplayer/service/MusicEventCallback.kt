@@ -1,6 +1,6 @@
-package remix.myplayer.service
+package com.krithi.service
 
-import remix.myplayer.data.model.audio.Song
+import com.krithi.data.model.audio.Song
 
 interface MusicEventCallback {
   fun onMediaStoreChanged()

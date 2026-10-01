@@ -1,6 +1,6 @@
-package remix.myplayer.data.model.misc
+package com.krithi.data.model.misc
 
-import remix.myplayer.R
+import com.krithi.R
 
 enum class LyricOrder {
   Def,

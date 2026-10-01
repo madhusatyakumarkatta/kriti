@@ -1,4 +1,4 @@
-package remix.myplayer.ui.dialog
+package com.krithi.ui.dialog
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -30,15 +30,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.app.CircleSeekBar
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.util.ext.clickableWithoutRipple
-import remix.myplayer.util.ext.isPortraitOrientation
-import remix.myplayer.viewmodel.timerViewModel
+import com.krithi.R
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.app.CircleSeekBar
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.util.ext.clickableWithoutRipple
+import com.krithi.util.ext.isPortraitOrientation
+import com.krithi.viewmodel.timerViewModel
 
 @Composable
 fun TimerDialog() {

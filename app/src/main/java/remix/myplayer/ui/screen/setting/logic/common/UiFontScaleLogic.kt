@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.setting.logic.common
+package com.krithi.ui.screen.setting.logic.common
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,17 +16,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.ui.dialog.NormalDialog
-import remix.myplayer.ui.dialog.rememberDialogState
-import remix.myplayer.ui.screen.setting.NormalPreference
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.LineSlider
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.ui.widget.common.defaultLineSliderProperties
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.ui.dialog.NormalDialog
+import com.krithi.ui.dialog.rememberDialogState
+import com.krithi.ui.screen.setting.NormalPreference
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.LineSlider
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.ui.widget.common.defaultLineSliderProperties
+import com.krithi.viewmodel.settingViewModel
 import java.util.Locale
 import kotlin.math.roundToInt
 

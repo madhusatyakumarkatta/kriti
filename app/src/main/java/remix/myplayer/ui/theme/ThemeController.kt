@@ -1,12 +1,12 @@
-package remix.myplayer.ui.theme
+package com.krithi.ui.theme
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
-import remix.myplayer.data.prefs.ThemePrefs
-import remix.myplayer.data.prefs.ThemePrefs.Companion.FOLLOW_SYSTEM
+import com.krithi.data.prefs.ThemePrefs
+import com.krithi.data.prefs.ThemePrefs.Companion.FOLLOW_SYSTEM
 import javax.inject.Inject
 
 val LocalThemeController = compositionLocalOf<ThemeController> {

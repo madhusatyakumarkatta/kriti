@@ -1,4 +1,4 @@
-package remix.myplayer.viewmodel
+package com.krithi.viewmodel
 
 import androidx.compose.runtime.Stable
 import androidx.lifecycle.ViewModel
@@ -13,17 +13,17 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.data.db.room.entity.WebDav
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.repo.WebDavRepository
-import remix.myplayer.repo.usecase.FetchMetaDataUseCase
-import remix.myplayer.ui.dialog.DialogState
-import remix.myplayer.ui.dialog.runWithLoading
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.state.DataUiState
-import remix.myplayer.util.ext.isAudio
-import remix.myplayer.util.ext.updateIf
+import com.krithi.R
+import com.krithi.data.db.room.entity.WebDav
+import com.krithi.data.model.audio.Song
+import com.krithi.repo.WebDavRepository
+import com.krithi.repo.usecase.FetchMetaDataUseCase
+import com.krithi.ui.dialog.DialogState
+import com.krithi.ui.dialog.runWithLoading
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.state.DataUiState
+import com.krithi.util.ext.isAudio
+import com.krithi.util.ext.updateIf
 import timber.log.Timber
 import javax.inject.Inject
 

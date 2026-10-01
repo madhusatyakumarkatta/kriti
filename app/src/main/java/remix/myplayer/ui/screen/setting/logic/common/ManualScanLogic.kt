@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.setting.logic.common
+package com.krithi.ui.screen.setting.logic.common
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -10,12 +10,12 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.launch
-import remix.myplayer.R
-import remix.myplayer.misc.MediaScanner
-import remix.myplayer.ui.dialog.FolderDialog
-import remix.myplayer.ui.dialog.rememberDialogState
-import remix.myplayer.ui.screen.setting.NormalPreference
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.misc.MediaScanner
+import com.krithi.ui.dialog.FolderDialog
+import com.krithi.ui.dialog.rememberDialogState
+import com.krithi.ui.screen.setting.NormalPreference
+import com.krithi.viewmodel.settingViewModel
 import java.io.File
 
 @Composable

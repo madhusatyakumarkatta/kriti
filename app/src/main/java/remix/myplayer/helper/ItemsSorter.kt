@@ -1,11 +1,11 @@
-package remix.myplayer.helper
+package com.krithi.helper
 
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.data.model.audio.Album
-import remix.myplayer.data.model.audio.Artist
-import remix.myplayer.data.model.audio.Folder
-import remix.myplayer.data.model.audio.Genre
-import remix.myplayer.data.model.audio.Song
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.data.model.audio.Album
+import com.krithi.data.model.audio.Artist
+import com.krithi.data.model.audio.Folder
+import com.krithi.data.model.audio.Genre
+import com.krithi.data.model.audio.Song
 import java.text.Collator
 
 object ItemsSorter {

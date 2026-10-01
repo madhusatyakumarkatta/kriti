@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.lyric
+package com.krithi.ui.widget.lyric
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -15,10 +15,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.rememberTextMeasurer
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
-import remix.myplayer.data.prefs.DesktopLyricPrefs.Companion.ELLIPSIS
-import remix.myplayer.lyric.LyricLine
-import remix.myplayer.lyric.PerWordLyricLine
-import remix.myplayer.ui.widget.lyric.PerWordLyricHelper.drawPerWordOverlay
+import com.krithi.data.prefs.DesktopLyricPrefs.Companion.ELLIPSIS
+import com.krithi.lyric.LyricLine
+import com.krithi.lyric.PerWordLyricLine
+import com.krithi.ui.widget.lyric.PerWordLyricHelper.drawPerWordOverlay
 
 @Composable
 fun LyricSingleLine(

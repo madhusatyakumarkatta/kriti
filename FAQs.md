@@ -147,7 +147,7 @@ APlayer is an Android software meaning it is only available to users using any d
 
 18.  **Where can I download APlayer?**
 
-The latest release of APlayer can be downloaded from [google playstore](https://play.google.com/store/apps/details?id=remix.myplayer). You can also download it [here](https://www.coolapk.com/apk/remix.myplayer). To view the latest releases and all releases of APlayer, click [here](https://github.com/rRemix/APlayer/releases)
+The latest release of APlayer can be downloaded from [google playstore](https://play.google.com/store/apps/details?id=com.krithi). You can also download it [here](https://www.coolapk.com/apk/com.krithi). To view the latest releases and all releases of APlayer, click [here](https://github.com/rRemix/APlayer/releases)
 
 ---
 

@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen
+package com.krithi.ui.screen
 
 import android.app.Activity
 import android.content.Intent
@@ -24,15 +24,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.core.net.toUri
 import kotlinx.coroutines.launch
-import remix.myplayer.R
-import remix.myplayer.ui.dialog.NormalDialog
-import remix.myplayer.ui.dialog.rememberDialogState
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.CommonAppBar
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.util.AlipayUtil
-import remix.myplayer.util.Util
-import remix.myplayer.util.ext.clickWithRipple
+import com.krithi.R
+import com.krithi.ui.dialog.NormalDialog
+import com.krithi.ui.dialog.rememberDialogState
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.CommonAppBar
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.util.AlipayUtil
+import com.krithi.util.Util
+import com.krithi.util.ext.clickWithRipple
 
 private data class DonationItem(val icon: Int, val titleRes: Int, val onClick: (Activity) -> Unit)
 

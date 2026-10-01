@@ -1,4 +1,4 @@
-package remix.myplayer.request.kugou
+package com.krithi.request.kugou
 
 data class KuGouSong(
   val id: Long,

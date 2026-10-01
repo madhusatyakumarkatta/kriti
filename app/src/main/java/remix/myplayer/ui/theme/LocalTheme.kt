@@ -1,4 +1,4 @@
-package remix.myplayer.ui.theme
+package com.krithi.ui.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
@@ -7,17 +7,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.colorResource
 import androidx.core.graphics.toColorInt
-import remix.myplayer.R
-import remix.myplayer.data.prefs.ThemePrefs.Companion.BLACK
-import remix.myplayer.data.prefs.ThemePrefs.Companion.DARK
-import remix.myplayer.data.prefs.ThemePrefs.Companion.LIGHT
-import remix.myplayer.util.ColorUtil
+import com.krithi.R
+import com.krithi.data.prefs.ThemePrefs.Companion.BLACK
+import com.krithi.data.prefs.ThemePrefs.Companion.DARK
+import com.krithi.data.prefs.ThemePrefs.Companion.LIGHT
+import com.krithi.util.ColorUtil
 
 
 val LocalTheme = compositionLocalOf<AppTheme> {
   return@compositionLocalOf AppTheme(
-    primary = Color(0xff698cf6),
-    secondary = Color(0xff698cf6),
+    primary = Color(0xff10b981),
+    secondary = Color(0xff10b981),
     theme = LIGHT
   )
 }

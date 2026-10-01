@@ -1,4 +1,4 @@
-package remix.myplayer.service.playback
+package com.krithi.service.playback
 
 import android.util.LruCache
 import androidx.annotation.OptIn
@@ -8,10 +8,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import remix.myplayer.data.model.audio.ReplayGain
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.helper.AudioTagFile
+import com.krithi.data.model.audio.ReplayGain
+import com.krithi.data.model.audio.Song
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.helper.AudioTagFile
 import timber.log.Timber
 import java.io.File
 import javax.inject.Inject

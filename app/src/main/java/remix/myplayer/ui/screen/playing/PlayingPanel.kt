@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.playing
+package com.krithi.ui.screen.playing
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -35,14 +35,14 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.palette.graphics.Palette
 import kotlinx.coroutines.launch
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.lyric.LyricManager
-import remix.myplayer.util.Util.registerLocalReceiver
-import remix.myplayer.util.Util.unregisterLocalReceiver
-import remix.myplayer.util.ext.isPortraitOrientation
-import remix.myplayer.util.ext.isTablet
-import remix.myplayer.viewmodel.playbackViewModel
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.lyric.LyricManager
+import com.krithi.util.Util.registerLocalReceiver
+import com.krithi.util.Util.unregisterLocalReceiver
+import com.krithi.util.ext.isPortraitOrientation
+import com.krithi.util.ext.isTablet
+import com.krithi.viewmodel.playbackViewModel
+import com.krithi.viewmodel.settingViewModel
 
 @Composable
 fun PlayingPanel(isVisible: Boolean) {

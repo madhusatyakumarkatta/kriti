@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.playing
+package com.krithi.ui.screen.playing
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -21,12 +21,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.palette.graphics.Palette
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.app.ProgressAware
-import remix.myplayer.ui.widget.common.LineSlider
-import remix.myplayer.ui.widget.common.defaultLineSliderProperties
-import remix.myplayer.util.Util
-import remix.myplayer.viewmodel.playbackViewModel
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.app.ProgressAware
+import com.krithi.ui.widget.common.LineSlider
+import com.krithi.ui.widget.common.defaultLineSliderProperties
+import com.krithi.util.Util
+import com.krithi.viewmodel.playbackViewModel
 import kotlin.math.roundToLong
 
 @Composable

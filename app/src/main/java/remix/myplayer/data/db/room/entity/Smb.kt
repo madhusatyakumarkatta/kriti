@@ -1,4 +1,4 @@
-package remix.myplayer.data.db.room.entity
+package com.krithi.data.db.room.entity
 
 import android.net.Uri
 import androidx.room.Entity

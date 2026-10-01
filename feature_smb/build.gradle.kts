@@ -3,7 +3,7 @@ plugins {
 }
 
 android {
-  namespace = "remix.myplayer.smb"
+  namespace = "com.krithi.smb"
   compileSdk = 36
 
   defaultConfig {

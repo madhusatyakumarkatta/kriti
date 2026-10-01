@@ -1,4 +1,4 @@
-package remix.myplayer.glide
+package com.krithi.glide
 
 import android.media.MediaMetadataRetriever
 import android.net.Uri

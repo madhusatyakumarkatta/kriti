@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.setting.logic.common
+package com.krithi.ui.screen.setting.logic.common
 
 import android.app.Activity
 import android.content.Intent
@@ -12,12 +12,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
-import remix.myplayer.R
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.ui.dialog.NormalDialog
-import remix.myplayer.ui.dialog.rememberDialogState
-import remix.myplayer.ui.screen.setting.NormalPreference
-import remix.myplayer.viewmodel.libraryViewModel
+import com.krithi.R
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.ui.dialog.NormalDialog
+import com.krithi.ui.dialog.rememberDialogState
+import com.krithi.ui.screen.setting.NormalPreference
+import com.krithi.viewmodel.libraryViewModel
 
 @Composable
 fun ExportPlayListLogic() {

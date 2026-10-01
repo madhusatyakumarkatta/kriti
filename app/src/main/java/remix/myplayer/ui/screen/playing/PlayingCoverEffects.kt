@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.playing
+package com.krithi.ui.screen.playing
 
 import androidx.compose.animation.AnimatedContentScope
 import androidx.compose.animation.EnterExitState

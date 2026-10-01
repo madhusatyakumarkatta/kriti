@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.popup
+package com.krithi.ui.widget.popup
 
 import android.content.Intent
 import androidx.activity.compose.LocalActivity
@@ -20,25 +20,25 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.APlayerModel
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicService.Companion.EXTRA_SONG
-import remix.myplayer.ui.activity.base.BaseActivity
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.nav.RouteCustomCoverCrop
-import remix.myplayer.ui.nav.RouteTagEdit
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.theme.popupButton
-import remix.myplayer.util.Constants
-import remix.myplayer.util.MusicUtil
-import remix.myplayer.util.Util
-import remix.myplayer.util.ext.clickWithRipple
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.playbackViewModel
-import remix.myplayer.viewmodel.settingViewModel
-import remix.myplayer.viewmodel.tagEditViewModel
+import com.krithi.R
+import com.krithi.data.model.audio.APlayerModel
+import com.krithi.data.model.audio.Song
+import com.krithi.service.Command
+import com.krithi.service.MusicService.Companion.EXTRA_SONG
+import com.krithi.ui.activity.base.BaseActivity
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.nav.RouteCustomCoverCrop
+import com.krithi.ui.nav.RouteTagEdit
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.theme.popupButton
+import com.krithi.util.Constants
+import com.krithi.util.MusicUtil
+import com.krithi.util.Util
+import com.krithi.util.ext.clickWithRipple
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.playbackViewModel
+import com.krithi.viewmodel.settingViewModel
+import com.krithi.viewmodel.tagEditViewModel
 
 @Composable
 fun SongPopupButton(

@@ -1,4 +1,4 @@
-package remix.myplayer.data.db.room.dao
+package com.krithi.data.db.room.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import kotlinx.coroutines.flow.Flow
-import remix.myplayer.data.db.room.entity.Smb
+import com.krithi.data.db.room.entity.Smb
 
 @Dao
 interface SmbDao {

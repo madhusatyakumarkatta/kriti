@@ -1,12 +1,12 @@
-package remix.myplayer.ui.screen.setting.logic.color
+package com.krithi.ui.screen.setting.logic.color
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.ui.screen.setting.SwitchPreference
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.ui.screen.setting.SwitchPreference
+import com.krithi.viewmodel.settingViewModel
 
 @Composable
 fun BlackThemeLogic() {

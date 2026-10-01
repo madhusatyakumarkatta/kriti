@@ -1,14 +1,14 @@
-package remix.myplayer.repo.usecase
+package com.krithi.repo.usecase
 
 import android.content.Context
 import android.net.Uri
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.repo.SongRepository
-import remix.myplayer.ui.nav.MessageNotifier
+import com.krithi.R
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.repo.SongRepository
+import com.krithi.ui.nav.MessageNotifier
 import javax.inject.Inject
 import javax.inject.Singleton
 

@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.app
+package com.krithi.ui.widget.app
 
 import android.content.Intent
 import androidx.compose.foundation.background
@@ -34,20 +34,20 @@ import androidx.compose.ui.unit.sp
 import androidx.core.graphics.toColorInt
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.launch
-import remix.myplayer.R
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicService
-import remix.myplayer.service.MusicService.Companion.EXTRA_COMMAND
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.ui.widget.library.GlideCover
-import remix.myplayer.util.Util
-import remix.myplayer.util.ext.clickableWithoutRipple
-import remix.myplayer.viewmodel.PlaybackViewModel
-import remix.myplayer.viewmodel.PlayingScreenValue
-import remix.myplayer.viewmodel.mainViewModel
-import remix.myplayer.viewmodel.playbackViewModel
+import com.krithi.R
+import com.krithi.service.Command
+import com.krithi.service.MusicService
+import com.krithi.service.MusicService.Companion.EXTRA_COMMAND
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.ui.widget.library.GlideCover
+import com.krithi.util.Util
+import com.krithi.util.ext.clickableWithoutRipple
+import com.krithi.viewmodel.PlaybackViewModel
+import com.krithi.viewmodel.PlayingScreenValue
+import com.krithi.viewmodel.mainViewModel
+import com.krithi.viewmodel.playbackViewModel
 import kotlin.math.absoluteValue
 
 private const val triggerThreshold = 10

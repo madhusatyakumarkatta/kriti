@@ -1,4 +1,4 @@
-package remix.myplayer.ui.activity
+package com.krithi.ui.activity
 
 import android.content.Intent
 import android.content.res.Configuration
@@ -22,23 +22,23 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
-import remix.myplayer.BuildConfig
-import remix.myplayer.ui.activity.base.BaseMusicActivity
-import remix.myplayer.ui.nav.AppNav
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.nav.playingScreenDeepLink
-import remix.myplayer.ui.theme.APlayerTheme
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.theme.LocalThemeController
-import remix.myplayer.ui.theme.ProvideAppFontScale
-import remix.myplayer.ui.theme.ThemeController
-import remix.myplayer.util.ThemeUtil
-import remix.myplayer.viewmodel.LibraryViewModel
-import remix.myplayer.viewmodel.MainViewModel
-import remix.myplayer.viewmodel.PlaybackViewModel
-import remix.myplayer.viewmodel.PlayingScreenValue
-import remix.myplayer.viewmodel.ProvideViewModels
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.BuildConfig
+import com.krithi.ui.activity.base.BaseMusicActivity
+import com.krithi.ui.nav.AppNav
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.nav.playingScreenDeepLink
+import com.krithi.ui.theme.APlayerTheme
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.theme.LocalThemeController
+import com.krithi.ui.theme.ProvideAppFontScale
+import com.krithi.ui.theme.ThemeController
+import com.krithi.util.ThemeUtil
+import com.krithi.viewmodel.LibraryViewModel
+import com.krithi.viewmodel.MainViewModel
+import com.krithi.viewmodel.PlaybackViewModel
+import com.krithi.viewmodel.PlayingScreenValue
+import com.krithi.viewmodel.ProvideViewModels
+import com.krithi.viewmodel.settingViewModel
 import timber.log.Timber
 import javax.inject.Inject
 

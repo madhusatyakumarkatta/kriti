@@ -1,4 +1,4 @@
-package remix.myplayer.data.db.room
+package com.krithi.data.db.room
 
 import android.content.Context
 import android.content.Intent
@@ -8,25 +8,25 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import remix.myplayer.data.db.DbMigrations.migration3to4
-import remix.myplayer.data.db.DbMigrations.migration4to5
-import remix.myplayer.data.db.DbMigrations.migration5to6
-import remix.myplayer.data.db.DbMigrations.migration6to7
-import remix.myplayer.data.db.room.dao.HistoryDao
-import remix.myplayer.data.db.room.dao.MetaDataCacheDao
-import remix.myplayer.data.db.room.dao.PlayListDao
-import remix.myplayer.data.db.room.dao.PlayQueueDao
-import remix.myplayer.data.db.room.dao.SmbDao
-import remix.myplayer.data.db.room.dao.WebDavDao
-import remix.myplayer.data.db.room.entity.History
-import remix.myplayer.data.db.room.entity.MetaDataCache
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.data.db.room.entity.PlayQueue
-import remix.myplayer.data.db.room.entity.Smb
-import remix.myplayer.data.db.room.entity.WebDav
-import remix.myplayer.service.MusicService
-import remix.myplayer.ui.activity.base.BaseMusicActivity.Companion.EXTRA_PLAYLIST
-import remix.myplayer.util.Util.sendLocalBroadcast
+import com.krithi.data.db.DbMigrations.migration3to4
+import com.krithi.data.db.DbMigrations.migration4to5
+import com.krithi.data.db.DbMigrations.migration5to6
+import com.krithi.data.db.DbMigrations.migration6to7
+import com.krithi.data.db.room.dao.HistoryDao
+import com.krithi.data.db.room.dao.MetaDataCacheDao
+import com.krithi.data.db.room.dao.PlayListDao
+import com.krithi.data.db.room.dao.PlayQueueDao
+import com.krithi.data.db.room.dao.SmbDao
+import com.krithi.data.db.room.dao.WebDavDao
+import com.krithi.data.db.room.entity.History
+import com.krithi.data.db.room.entity.MetaDataCache
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.data.db.room.entity.PlayQueue
+import com.krithi.data.db.room.entity.Smb
+import com.krithi.data.db.room.entity.WebDav
+import com.krithi.service.MusicService
+import com.krithi.ui.activity.base.BaseMusicActivity.Companion.EXTRA_PLAYLIST
+import com.krithi.util.Util.sendLocalBroadcast
 import timber.log.Timber
 
 /**

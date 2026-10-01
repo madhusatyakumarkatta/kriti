@@ -1,11 +1,11 @@
-package remix.myplayer.service.playback
+package com.krithi.service.playback
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import remix.myplayer.data.prefs.SettingPrefs
+import com.krithi.data.prefs.SettingPrefs
 import javax.inject.Inject
 
 class PlaybackProgressSaver @Inject constructor(

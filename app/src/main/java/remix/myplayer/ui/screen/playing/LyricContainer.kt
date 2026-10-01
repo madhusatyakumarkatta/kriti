@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.playing
+package com.krithi.ui.screen.playing
 
 import androidx.compose.animation.core.FastOutSlowInEasing
 import androidx.compose.animation.core.animateFloatAsState
@@ -39,13 +39,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.delay
-import remix.myplayer.lyric.LyricLine
-import remix.myplayer.lyric.PerWordLyricLine
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.ui.widget.lyric.LyricMultiLine
-import remix.myplayer.util.ext.clickWithRipple
-import remix.myplayer.viewmodel.playbackViewModel
+import com.krithi.lyric.LyricLine
+import com.krithi.lyric.PerWordLyricLine
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.ui.widget.lyric.LyricMultiLine
+import com.krithi.util.ext.clickWithRipple
+import com.krithi.viewmodel.playbackViewModel
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.roundToInt

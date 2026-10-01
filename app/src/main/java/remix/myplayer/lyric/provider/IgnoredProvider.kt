@@ -1,9 +1,9 @@
-package remix.myplayer.lyric.provider
+package com.krithi.lyric.provider
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.model.misc.LyricOrder
+import com.krithi.data.model.audio.Song
+import com.krithi.data.model.misc.LyricOrder
 import javax.inject.Inject
 import javax.inject.Singleton
 

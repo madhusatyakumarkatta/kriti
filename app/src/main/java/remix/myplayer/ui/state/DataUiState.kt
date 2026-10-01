@@ -1,4 +1,4 @@
-package remix.myplayer.ui.state
+package com.krithi.ui.state
 
 sealed class DataUiState<out T> {
 

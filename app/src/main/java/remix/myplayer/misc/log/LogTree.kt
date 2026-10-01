@@ -1,4 +1,4 @@
-package remix.myplayer.misc.log
+package com.krithi.misc.log
 
 import timber.log.Timber
 

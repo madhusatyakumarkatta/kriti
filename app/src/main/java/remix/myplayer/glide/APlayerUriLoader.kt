@@ -1,4 +1,4 @@
-package remix.myplayer.glide
+package com.krithi.glide
 
 import android.content.Context
 import android.net.Uri
@@ -11,14 +11,14 @@ import com.bumptech.glide.load.model.ModelLoader
 import com.bumptech.glide.load.model.ModelLoaderFactory
 import com.bumptech.glide.load.model.MultiModelLoaderFactory
 import dagger.hilt.android.EntryPointAccessors
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.data.model.audio.APlayerModel
-import remix.myplayer.data.model.audio.Album
-import remix.myplayer.data.model.audio.Artist
-import remix.myplayer.data.model.audio.Genre
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.prefs.CoverPrefs
-import remix.myplayer.data.prefs.CoverPrefsEntryPoint
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.data.model.audio.APlayerModel
+import com.krithi.data.model.audio.Album
+import com.krithi.data.model.audio.Artist
+import com.krithi.data.model.audio.Genre
+import com.krithi.data.model.audio.Song
+import com.krithi.data.prefs.CoverPrefs
+import com.krithi.data.prefs.CoverPrefsEntryPoint
 import java.io.InputStream
 import java.nio.ByteBuffer
 import java.security.MessageDigest

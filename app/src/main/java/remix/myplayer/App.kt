@@ -1,4 +1,4 @@
-package remix.myplayer
+package com.krithi
 
 import android.app.Application
 import android.content.Context
@@ -6,14 +6,14 @@ import android.content.res.Configuration
 import android.os.Build
 import com.hjq.permissions.XXPermissions
 import dagger.hilt.android.HiltAndroidApp
-import remix.myplayer.helper.AppMigration
-import remix.myplayer.helper.LanguageHelper.onConfigurationChanged
-import remix.myplayer.helper.LanguageHelper.saveSystemCurrentLanguage
-import remix.myplayer.helper.LanguageHelper.setApplicationLanguage
-import remix.myplayer.helper.LanguageHelper.setLocal
-import remix.myplayer.helper.ThirdPartyInitializer
-import remix.myplayer.misc.manager.APlayerActivityManager
-import remix.myplayer.ui.appshortcuts.DynamicShortcutManager
+import com.krithi.helper.AppMigration
+import com.krithi.helper.LanguageHelper.onConfigurationChanged
+import com.krithi.helper.LanguageHelper.saveSystemCurrentLanguage
+import com.krithi.helper.LanguageHelper.setApplicationLanguage
+import com.krithi.helper.LanguageHelper.setLocal
+import com.krithi.helper.ThirdPartyInitializer
+import com.krithi.misc.manager.APlayerActivityManager
+import com.krithi.ui.appshortcuts.DynamicShortcutManager
 import timber.log.Timber
 import javax.inject.Inject
 

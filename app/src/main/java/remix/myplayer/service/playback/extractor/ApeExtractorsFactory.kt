@@ -1,4 +1,4 @@
-package remix.myplayer.service.playback.extractor
+package com.krithi.service.playback.extractor
 
 import android.net.Uri
 import androidx.annotation.OptIn

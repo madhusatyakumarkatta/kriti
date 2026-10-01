@@ -1,9 +1,9 @@
-package remix.myplayer.ui.dialog
+package com.krithi.ui.dialog
 
 import android.os.Environment
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
-import remix.myplayer.R
+import com.krithi.R
 import java.io.File
 
 @Composable

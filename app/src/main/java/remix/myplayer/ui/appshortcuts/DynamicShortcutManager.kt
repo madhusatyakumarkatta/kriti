@@ -1,4 +1,4 @@
-package remix.myplayer.ui.appshortcuts
+package com.krithi.ui.appshortcuts
 
 import android.annotation.TargetApi
 import android.content.Context
@@ -6,11 +6,11 @@ import android.content.ContextWrapper
 import android.content.pm.ShortcutInfo
 import android.content.pm.ShortcutManager
 import android.os.Build
-import remix.myplayer.BuildConfig
-import remix.myplayer.ui.appshortcuts.shortcuttype.BaseShortcutType.Companion.ID_PREFIX
-import remix.myplayer.ui.appshortcuts.shortcuttype.LastAddedShortcutType
-import remix.myplayer.ui.appshortcuts.shortcuttype.MyLoveShortcutType
-import remix.myplayer.ui.appshortcuts.shortcuttype.ShuffleShortcutType
+import com.krithi.BuildConfig
+import com.krithi.ui.appshortcuts.shortcuttype.BaseShortcutType.Companion.ID_PREFIX
+import com.krithi.ui.appshortcuts.shortcuttype.LastAddedShortcutType
+import com.krithi.ui.appshortcuts.shortcuttype.MyLoveShortcutType
+import com.krithi.ui.appshortcuts.shortcuttype.ShuffleShortcutType
 
 /**
  * Created by Remix on 2017/11/1.

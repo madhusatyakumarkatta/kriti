@@ -1,8 +1,8 @@
-package remix.myplayer.util
+package com.krithi.util
 
-import remix.myplayer.data.model.audio.Album
-import remix.myplayer.data.model.audio.Artist
-import remix.myplayer.data.model.audio.Song
+import com.krithi.data.model.audio.Album
+import com.krithi.data.model.audio.Artist
+import com.krithi.data.model.audio.Song
 
 /**
  * 统一的搜索关键词生成工具类

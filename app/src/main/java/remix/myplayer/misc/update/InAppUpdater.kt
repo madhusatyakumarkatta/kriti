@@ -1,4 +1,4 @@
-package remix.myplayer.misc.update
+package com.krithi.misc.update
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
@@ -14,12 +14,12 @@ import androidx.work.workDataOf
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.serialization.json.Json
-import remix.myplayer.App
-import remix.myplayer.R
-import remix.myplayer.data.model.github.Release
-import remix.myplayer.data.prefs.InAppUpdatePrefs
-import remix.myplayer.request.network.GithubApi
-import remix.myplayer.ui.nav.MessageNotifier
+import com.krithi.App
+import com.krithi.R
+import com.krithi.data.model.github.Release
+import com.krithi.data.prefs.InAppUpdatePrefs
+import com.krithi.request.network.GithubApi
+import com.krithi.ui.nav.MessageNotifier
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton

@@ -1,4 +1,4 @@
-package remix.myplayer.misc
+package com.krithi.misc
 
 import android.content.Context
 import android.media.MediaScannerConnection
@@ -8,11 +8,11 @@ import android.webkit.MimeTypeMap
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.ui.dialog.dismissLoading
-import remix.myplayer.ui.dialog.showLoading
-import remix.myplayer.ui.dialog.updateLoadingText
-import remix.myplayer.ui.nav.MessageNotifier
+import com.krithi.R
+import com.krithi.ui.dialog.dismissLoading
+import com.krithi.ui.dialog.showLoading
+import com.krithi.ui.dialog.updateLoadingText
+import com.krithi.ui.nav.MessageNotifier
 import timber.log.Timber
 import java.io.File
 import kotlin.coroutines.resume

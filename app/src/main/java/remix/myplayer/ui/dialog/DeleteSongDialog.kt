@@ -1,12 +1,12 @@
-package remix.myplayer.ui.dialog
+package com.krithi.ui.dialog
 
 import androidx.activity.compose.LocalActivity
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.ui.activity.base.BaseActivity
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.ui.activity.base.BaseActivity
+import com.krithi.viewmodel.settingViewModel
 
 @Composable
 fun RemoveSongDialog() {

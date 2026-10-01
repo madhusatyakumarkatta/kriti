@@ -1,4 +1,4 @@
-package remix.myplayer.repo.usecase
+package com.krithi.repo.usecase
 
 import android.content.ContentResolver
 import android.content.Context
@@ -12,13 +12,13 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.misc.MediaScanner
-import remix.myplayer.repo.SongRepository
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicService
-import remix.myplayer.ui.nav.MessageNotifier
+import com.krithi.R
+import com.krithi.data.model.audio.Song
+import com.krithi.misc.MediaScanner
+import com.krithi.repo.SongRepository
+import com.krithi.service.Command
+import com.krithi.service.MusicService
+import com.krithi.ui.nav.MessageNotifier
 import timber.log.Timber
 import java.io.File
 import javax.inject.Inject

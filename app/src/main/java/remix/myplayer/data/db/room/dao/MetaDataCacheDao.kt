@@ -1,10 +1,10 @@
-package remix.myplayer.data.db.room.dao
+package com.krithi.data.db.room.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import remix.myplayer.data.db.room.entity.MetaDataCache
+import com.krithi.data.db.room.entity.MetaDataCache
 
 @Dao
 interface MetaDataCacheDao {

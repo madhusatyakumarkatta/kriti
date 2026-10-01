@@ -1,4 +1,4 @@
-package remix.myplayer.service.notification
+package com.krithi.service.notification
 
 import android.annotation.TargetApi
 import android.content.Intent
@@ -11,12 +11,12 @@ import androidx.core.app.NotificationCompat.PRIORITY_MAX
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicService
-import remix.myplayer.service.MusicService.Companion.EXTRA_COMMAND
-import remix.myplayer.util.DensityUtil
+import com.krithi.R
+import com.krithi.data.model.audio.Song
+import com.krithi.service.Command
+import com.krithi.service.MusicService
+import com.krithi.service.MusicService.Companion.EXTRA_COMMAND
+import com.krithi.util.DensityUtil
 
 /**
  * Created by Remix on 2017/11/22.

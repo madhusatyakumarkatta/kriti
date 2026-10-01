@@ -1,10 +1,10 @@
-package remix.myplayer.repo
+package com.krithi.repo
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
-import remix.myplayer.data.db.room.dao.WebDavDao
-import remix.myplayer.data.db.room.entity.WebDav
+import com.krithi.data.db.room.dao.WebDavDao
+import com.krithi.data.db.room.entity.WebDav
 import javax.inject.Inject
 
 interface WebDavRepository {

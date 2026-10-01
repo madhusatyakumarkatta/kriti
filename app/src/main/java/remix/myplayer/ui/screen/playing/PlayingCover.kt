@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.playing
+package com.krithi.ui.screen.playing
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.ExperimentalAnimationApi
@@ -14,14 +14,14 @@ import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.bumptech.glide.integration.compose.placeholder
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.glide.addBitmapListener
-import remix.myplayer.service.Command
-import remix.myplayer.service.playback.MusicStateSource
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.viewmodel.playbackViewModel
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.data.model.audio.Song
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.glide.addBitmapListener
+import com.krithi.service.Command
+import com.krithi.service.playback.MusicStateSource
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.viewmodel.playbackViewModel
+import com.krithi.viewmodel.settingViewModel
 import timber.log.Timber
 
 /**

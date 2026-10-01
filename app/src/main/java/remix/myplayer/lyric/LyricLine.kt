@@ -1,8 +1,8 @@
-package remix.myplayer.lyric
+package com.krithi.lyric
 
 import kotlinx.serialization.Serializable
-import remix.myplayer.App
-import remix.myplayer.R
+import com.krithi.App
+import com.krithi.R
 import java.util.Locale
 import java.util.concurrent.TimeUnit
 

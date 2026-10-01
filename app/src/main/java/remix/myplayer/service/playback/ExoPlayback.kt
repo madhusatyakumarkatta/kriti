@@ -1,4 +1,4 @@
-package remix.myplayer.service.playback
+package com.krithi.service.playback
 
 import android.content.Context
 import android.os.Build
@@ -33,16 +33,16 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.prefs.SettingPrefs.Companion.DECODER_MODE_FFMPEG
-import remix.myplayer.data.prefs.SettingPrefs.Companion.MODE_LOOP
-import remix.myplayer.data.prefs.SettingPrefs.Companion.MODE_REPEAT
-import remix.myplayer.data.prefs.SettingPrefs.Companion.MODE_SHUFFLE
-import remix.myplayer.service.AudioFocusManager
-import remix.myplayer.service.playback.Playback.PlayerCallback
-import remix.myplayer.service.playback.extractor.ApeExtractorsFactory
-import remix.myplayer.util.Constants.MB
-import remix.myplayer.util.ext.checkMainThread
+import com.krithi.data.model.audio.Song
+import com.krithi.data.prefs.SettingPrefs.Companion.DECODER_MODE_FFMPEG
+import com.krithi.data.prefs.SettingPrefs.Companion.MODE_LOOP
+import com.krithi.data.prefs.SettingPrefs.Companion.MODE_REPEAT
+import com.krithi.data.prefs.SettingPrefs.Companion.MODE_SHUFFLE
+import com.krithi.service.AudioFocusManager
+import com.krithi.service.playback.Playback.PlayerCallback
+import com.krithi.service.playback.extractor.ApeExtractorsFactory
+import com.krithi.util.Constants.MB
+import com.krithi.util.ext.checkMainThread
 import timber.log.Timber
 import java.io.File
 

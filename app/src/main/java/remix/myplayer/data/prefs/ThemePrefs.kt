@@ -1,4 +1,4 @@
-package remix.myplayer.data.prefs
+package com.krithi.data.prefs
 
 import android.content.Context
 import android.content.res.Configuration
@@ -14,8 +14,8 @@ class ThemePrefs @Inject constructor(
 ) :
   AbstractPref(context, name = PrefKeys.Theme.NAME) {
 
-  var primaryColor by PrefsDelegate(sp, PrefKeys.Theme.PRIMARY_COLOR, "#698cf6".toColorInt())
-  var secondaryColor by PrefsDelegate(sp, PrefKeys.Theme.SECONDARY_COLOR, "#698cf6".toColorInt())
+  var primaryColor by PrefsDelegate(sp, PrefKeys.Theme.PRIMARY_COLOR, "#10b981".toColorInt())
+  var secondaryColor by PrefsDelegate(sp, PrefKeys.Theme.SECONDARY_COLOR, "#10b981".toColorInt())
 
   // 从settingPrefs迁移
   var darkTheme by PrefsDelegate(

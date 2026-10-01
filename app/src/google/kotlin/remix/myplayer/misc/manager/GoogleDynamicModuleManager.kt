@@ -1,7 +1,7 @@
-package remix.myplayer.misc.manager
+package com.krithi.misc.manager
 
 import android.content.Context
-import remix.myplayer.BuildConfig
+import com.krithi.BuildConfig
 import com.google.android.play.core.splitinstall.testing.FakeSplitInstallManagerFactory
 import com.google.android.play.core.splitinstall.SplitInstallManager
 import com.google.android.play.core.splitinstall.SplitInstallManagerFactory

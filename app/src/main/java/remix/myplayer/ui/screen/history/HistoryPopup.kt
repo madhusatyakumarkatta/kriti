@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.history
+package com.krithi.ui.screen.history
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -23,10 +23,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
-import remix.myplayer.R
-import remix.myplayer.helper.SortOrder
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.viewmodel.libraryViewModel
+import com.krithi.R
+import com.krithi.helper.SortOrder
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.viewmodel.libraryViewModel
 
 @Composable
 fun HistoryPopup() {

@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.setting.logic.color
+package com.krithi.ui.screen.setting.logic.color
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -7,11 +7,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.ui.dialog.ColorDialog
-import remix.myplayer.ui.dialog.rememberDialogState
-import remix.myplayer.ui.screen.setting.ThemePreference
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.ui.dialog.ColorDialog
+import com.krithi.ui.dialog.rememberDialogState
+import com.krithi.ui.screen.setting.ThemePreference
+import com.krithi.viewmodel.settingViewModel
 
 @Composable
 fun PrimaryColorLogic() {

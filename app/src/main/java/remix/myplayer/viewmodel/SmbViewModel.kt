@@ -1,4 +1,4 @@
-package remix.myplayer.viewmodel
+package com.krithi.viewmodel
 
 import androidx.compose.runtime.Stable
 import androidx.lifecycle.ViewModel
@@ -9,18 +9,18 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
-import remix.myplayer.data.db.room.entity.Smb
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.model.smb.SmbClientDelegateProvider
-import remix.myplayer.data.model.smb.SmbFile
-import remix.myplayer.misc.manager.DynamicModuleManager
-import remix.myplayer.misc.manager.DynamicModuleStatus
-import remix.myplayer.repo.SmbRepository
-import remix.myplayer.repo.usecase.FetchMetaDataUseCase
-import remix.myplayer.ui.dialog.DialogState
-import remix.myplayer.ui.dialog.runWithLoading
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.state.DataUiState
+import com.krithi.data.db.room.entity.Smb
+import com.krithi.data.model.audio.Song
+import com.krithi.data.model.smb.SmbClientDelegateProvider
+import com.krithi.data.model.smb.SmbFile
+import com.krithi.misc.manager.DynamicModuleManager
+import com.krithi.misc.manager.DynamicModuleStatus
+import com.krithi.repo.SmbRepository
+import com.krithi.repo.usecase.FetchMetaDataUseCase
+import com.krithi.ui.dialog.DialogState
+import com.krithi.ui.dialog.runWithLoading
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.state.DataUiState
 import timber.log.Timber
 import javax.inject.Inject
 

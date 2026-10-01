@@ -1,4 +1,4 @@
-package remix.myplayer.util
+package com.krithi.util
 
 import android.content.ContentUris
 import android.content.ContentValues
@@ -10,9 +10,9 @@ import android.provider.MediaStore
 import android.provider.MediaStore.Audio
 import android.provider.Settings
 import androidx.core.net.toUri
-import remix.myplayer.R
-import remix.myplayer.service.MusicService
-import remix.myplayer.ui.nav.MessageNotifier
+import com.krithi.R
+import com.krithi.service.MusicService
+import com.krithi.ui.nav.MessageNotifier
 
 object MusicUtil {
 

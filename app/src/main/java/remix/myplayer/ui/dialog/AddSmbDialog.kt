@@ -1,4 +1,4 @@
-package remix.myplayer.ui.dialog
+package com.krithi.ui.dialog
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.runtime.Composable
@@ -9,10 +9,10 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import remix.myplayer.R
-import remix.myplayer.data.db.room.entity.Smb
-import remix.myplayer.ui.widget.common.EditField
-import remix.myplayer.viewmodel.SmbViewModel
+import com.krithi.R
+import com.krithi.data.db.room.entity.Smb
+import com.krithi.ui.widget.common.EditField
+import com.krithi.viewmodel.SmbViewModel
 
 @OptIn(ExperimentalComposeUiApi::class)
 @Composable

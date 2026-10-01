@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.playing
+package com.krithi.ui.screen.playing
 
 import android.content.BroadcastReceiver
 import android.content.Context
@@ -47,18 +47,18 @@ import androidx.core.graphics.toColorInt
 import androidx.palette.graphics.Palette
 import kotlinx.coroutines.delay
 import kotlin.math.roundToInt
-import remix.myplayer.R
-import remix.myplayer.data.prefs.SettingPrefs.Companion.BOTTOM_SHOW_BOTH
-import remix.myplayer.data.prefs.SettingPrefs.Companion.BOTTOM_SHOW_NEXT
-import remix.myplayer.data.prefs.SettingPrefs.Companion.BOTTOM_SHOW_NONE
-import remix.myplayer.data.prefs.SettingPrefs.Companion.BOTTOM_SHOW_VOLUME
-import remix.myplayer.service.playback.PlaybackUiState
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.LineSlider
-import remix.myplayer.ui.widget.common.defaultLineSliderProperties
-import remix.myplayer.util.ext.CenterInBox
-import remix.myplayer.util.ext.clickWithRipple
-import remix.myplayer.util.ext.clickableWithoutRipple
+import com.krithi.R
+import com.krithi.data.prefs.SettingPrefs.Companion.BOTTOM_SHOW_BOTH
+import com.krithi.data.prefs.SettingPrefs.Companion.BOTTOM_SHOW_NEXT
+import com.krithi.data.prefs.SettingPrefs.Companion.BOTTOM_SHOW_NONE
+import com.krithi.data.prefs.SettingPrefs.Companion.BOTTOM_SHOW_VOLUME
+import com.krithi.service.playback.PlaybackUiState
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.LineSlider
+import com.krithi.ui.widget.common.defaultLineSliderProperties
+import com.krithi.util.ext.CenterInBox
+import com.krithi.util.ext.clickWithRipple
+import com.krithi.util.ext.clickableWithoutRipple
 
 private const val ACTION_VOLUME_CHANGED = "android.media.VOLUME_CHANGED_ACTION"
 private const val EXTRA_VOLUME_STREAM_TYPE = "android.media.EXTRA_VOLUME_STREAM_TYPE"

@@ -1,4 +1,4 @@
-package remix.myplayer.ui.activity.base
+package com.krithi.ui.activity.base
 
 import android.content.BroadcastReceiver
 import android.content.ComponentName
@@ -11,13 +11,13 @@ import android.os.Handler
 import android.os.IBinder
 import android.os.Message
 import kotlinx.coroutines.cancel
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.service.MusicEventCallback
-import remix.myplayer.service.MusicService
-import remix.myplayer.service.MusicServiceRemote
-import remix.myplayer.util.Util.isAppOnForeground
-import remix.myplayer.util.Util.registerLocalReceiver
-import remix.myplayer.util.Util.unregisterLocalReceiver
+import com.krithi.data.model.audio.Song
+import com.krithi.service.MusicEventCallback
+import com.krithi.service.MusicService
+import com.krithi.service.MusicServiceRemote
+import com.krithi.util.Util.isAppOnForeground
+import com.krithi.util.Util.registerLocalReceiver
+import com.krithi.util.Util.unregisterLocalReceiver
 import timber.log.Timber
 import java.lang.ref.WeakReference
 

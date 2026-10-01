@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.app
+package com.krithi.ui.widget.app
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -16,16 +16,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.flow.SharedFlow
-import remix.myplayer.data.model.misc.Library
-import remix.myplayer.ui.screen.RemoteScreen
-import remix.myplayer.ui.screen.library.AlbumScreen
-import remix.myplayer.ui.screen.library.ArtistScreen
-import remix.myplayer.ui.screen.library.FolderScreen
-import remix.myplayer.ui.screen.library.GenreScreen
-import remix.myplayer.ui.screen.library.PlayListScreen
-import remix.myplayer.ui.screen.library.SongScreen
-import remix.myplayer.viewmodel.settingViewModel
-import remix.myplayer.viewmodel.settings.SettingViewModel
+import com.krithi.data.model.misc.Library
+import com.krithi.ui.screen.RemoteScreen
+import com.krithi.ui.screen.library.AlbumScreen
+import com.krithi.ui.screen.library.ArtistScreen
+import com.krithi.ui.screen.library.FolderScreen
+import com.krithi.ui.screen.library.GenreScreen
+import com.krithi.ui.screen.library.PlayListScreen
+import com.krithi.ui.screen.library.SongScreen
+import com.krithi.viewmodel.settingViewModel
+import com.krithi.viewmodel.settings.SettingViewModel
 
 @Composable
 fun ViewPager(

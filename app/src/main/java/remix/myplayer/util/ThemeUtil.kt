@@ -1,4 +1,4 @@
-package remix.myplayer.util
+package com.krithi.util
 
 import android.app.Activity
 import android.content.Context

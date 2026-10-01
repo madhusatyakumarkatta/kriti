@@ -1,4 +1,4 @@
-package remix.myplayer.ui.appshortcuts.shortcuttype
+package com.krithi.ui.appshortcuts.shortcuttype
 
 import android.annotation.TargetApi
 import android.content.Context
@@ -6,8 +6,8 @@ import android.content.pm.ShortcutInfo
 import android.graphics.drawable.Icon
 import android.os.Build
 
-import remix.myplayer.R
-import remix.myplayer.ui.appshortcuts.AppShortcutActivity
+import com.krithi.R
+import com.krithi.ui.appshortcuts.AppShortcutActivity
 
 /**
  * Created by Remix on 2017/11/1.

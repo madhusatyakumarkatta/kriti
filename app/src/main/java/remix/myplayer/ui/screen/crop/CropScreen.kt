@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.crop
+package com.krithi.ui.screen.crop
 
 import android.net.Uri
 import androidx.activity.compose.BackHandler
@@ -28,10 +28,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
-import remix.myplayer.R
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.CommonAppBar
-import remix.myplayer.util.ext.clickableWithoutRipple
+import com.krithi.R
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.CommonAppBar
+import com.krithi.util.ext.clickableWithoutRipple
 
 
 @Composable

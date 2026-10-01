@@ -1,6 +1,6 @@
-package remix.myplayer.glide
+package com.krithi.glide
 
-import remix.myplayer.helper.AudioTagFile
+import com.krithi.helper.AudioTagFile
 import java.io.ByteArrayInputStream
 import java.io.File
 import java.io.FileInputStream

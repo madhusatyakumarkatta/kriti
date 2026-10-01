@@ -1,6 +1,6 @@
-package remix.myplayer.data.model.smb
+package com.krithi.data.model.smb
 
-import remix.myplayer.data.db.room.entity.Smb
+import com.krithi.data.db.room.entity.Smb
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -20,7 +20,7 @@ class SmbClientDelegateProvider @Inject constructor() {
     if (cachedDelegate != null) return cachedDelegate
 
     return try {
-      val clazz = Class.forName("remix.myplayer.smb.SmbClientDelegateImpl")
+      val clazz = Class.forName("com.krithi.smb.SmbClientDelegateImpl")
       cachedDelegate = clazz.getDeclaredConstructor().newInstance() as SmbClientDelegate
       cachedDelegate
     } catch (e: Exception) {

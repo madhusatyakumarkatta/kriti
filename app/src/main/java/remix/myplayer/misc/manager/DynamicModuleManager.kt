@@ -1,4 +1,4 @@
-package remix.myplayer.misc.manager
+package com.krithi.misc.manager
 
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf

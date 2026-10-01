@@ -1,10 +1,10 @@
-package remix.myplayer.di
+package com.krithi.di
 
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import remix.myplayer.data.model.smb.SmbClientDelegate
+import com.krithi.data.model.smb.SmbClientDelegate
 import timber.log.Timber
 import javax.inject.Singleton
 
@@ -16,7 +16,7 @@ object SmbModule {
   @Singleton
   fun provideSmbClientDelegate(): SmbClientDelegate? {
     return try {
-      val clazz = Class.forName("remix.myplayer.smb.SmbClientDelegateImpl")
+      val clazz = Class.forName("com.krithi.smb.SmbClientDelegateImpl")
       clazz.getDeclaredConstructor().newInstance() as SmbClientDelegate
     } catch (e: Exception) {
       Timber.e(e, "Failed to load SmbClientDelegateImpl")

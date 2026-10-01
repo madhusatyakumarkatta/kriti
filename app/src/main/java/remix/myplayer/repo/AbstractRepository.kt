@@ -1,13 +1,13 @@
-package remix.myplayer.repo
+package com.krithi.repo
 
 import android.database.Cursor
 import android.os.Build
 import android.provider.MediaStore.Audio
 import android.provider.MediaStore.Audio.AudioColumns
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.model.audio.Song.Companion.EMPTY_SONG
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.util.Util
+import com.krithi.data.model.audio.Song
+import com.krithi.data.model.audio.Song.Companion.EMPTY_SONG
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.util.Util
 
 abstract class AbstractRepository(private val settingPrefs: SettingPrefs) {
   val baseSelection: String

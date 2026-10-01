@@ -1,4 +1,4 @@
-package remix.myplayer.data.model.audio
+package com.krithi.data.model.audio
 
 import android.content.ContentUris
 import android.media.MediaMetadataRetriever
@@ -7,8 +7,8 @@ import android.provider.MediaStore
 import androidx.core.net.toUri
 import dagger.hilt.android.EntryPointAccessors
 import okhttp3.Credentials
-import remix.myplayer.App
-import remix.myplayer.data.prefs.SettingPrefsEntryPoint
+import com.krithi.App
+import com.krithi.data.prefs.SettingPrefsEntryPoint
 import timber.log.Timber
 import java.io.Serial
 import java.util.concurrent.atomic.AtomicInteger

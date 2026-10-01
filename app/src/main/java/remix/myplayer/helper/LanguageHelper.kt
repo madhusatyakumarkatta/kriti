@@ -1,11 +1,11 @@
-package remix.myplayer.helper
+package com.krithi.helper
 
 import android.content.Context
 import android.content.res.Configuration
 import android.os.Build
 import android.os.LocaleList
 import androidx.core.content.edit
-import remix.myplayer.data.prefs.PrefKeys
+import com.krithi.data.prefs.PrefKeys
 import java.util.Locale
 
 object LanguageHelper {

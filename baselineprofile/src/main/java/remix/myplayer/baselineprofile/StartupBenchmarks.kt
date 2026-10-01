@@ -1,4 +1,4 @@
-package remix.myplayer.baselineprofile
+package com.krithi.baselineprofile
 
 import androidx.benchmark.macro.BaselineProfileMode
 import androidx.benchmark.macro.CompilationMode

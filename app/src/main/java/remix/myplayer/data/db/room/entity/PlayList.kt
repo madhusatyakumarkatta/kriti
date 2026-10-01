@@ -1,4 +1,4 @@
-package remix.myplayer.data.db.room.entity
+package com.krithi.data.db.room.entity
 
 import androidx.room.Entity
 import androidx.room.Index
@@ -7,7 +7,7 @@ import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
-import remix.myplayer.data.model.audio.APlayerModel
+import com.krithi.data.model.audio.APlayerModel
 import java.io.Serial
 
 /**

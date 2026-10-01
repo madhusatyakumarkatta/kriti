@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen
+package com.krithi.ui.screen
 
 import android.content.ActivityNotFoundException
 import android.content.Context
@@ -52,25 +52,25 @@ import androidx.core.net.toUri
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import remix.myplayer.BuildConfig
-import remix.myplayer.R
-import remix.myplayer.misc.AppInfo
-import remix.myplayer.misc.SystemInfo
-import remix.myplayer.misc.log.LogFileWriter
-import remix.myplayer.ui.dialog.DialogState
-import remix.myplayer.ui.dialog.NormalDialog
-import remix.myplayer.ui.dialog.rememberDialogState
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.nav.RouteSupport
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.CommonAppBar
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.util.Util
-import remix.myplayer.util.ext.tryLaunch
-import remix.myplayer.util.ext.zipFrom
-import remix.myplayer.util.ext.zipOutputStream
+import com.krithi.BuildConfig
+import com.krithi.R
+import com.krithi.misc.AppInfo
+import com.krithi.misc.SystemInfo
+import com.krithi.misc.log.LogFileWriter
+import com.krithi.ui.dialog.DialogState
+import com.krithi.ui.dialog.NormalDialog
+import com.krithi.ui.dialog.rememberDialogState
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.nav.RouteSupport
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.CommonAppBar
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.util.Util
+import com.krithi.util.ext.tryLaunch
+import com.krithi.util.ext.zipFrom
+import com.krithi.util.ext.zipOutputStream
 import timber.log.Timber
 import java.io.File
 
@@ -78,9 +78,9 @@ private const val REPO_URL = "https://github.com/rRemix/APlayer"
 private const val RELEASES_URL = "$REPO_URL/releases"
 private const val PRIVACY_POLICY_URL = "$REPO_URL/blob/master/PrivacyPolicy.md"
 private const val PLAY_STORE_PACKAGE = "com.android.vending"
-private const val PLAY_STORE_MARKET_URL = "market://details?id=remix.myplayer"
+private const val PLAY_STORE_MARKET_URL = "market://details?id=com.krithi"
 private const val PLAY_STORE_WEB_URL =
-  "https://play.google.com/store/apps/details?id=remix.myplayer"
+  "https://play.google.com/store/apps/details?id=com.krithi"
 
 @Composable
 fun AboutScreen() {

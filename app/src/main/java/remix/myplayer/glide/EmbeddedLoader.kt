@@ -1,4 +1,4 @@
-package remix.myplayer.glide
+package com.krithi.glide
 
 import android.net.Uri
 import com.bumptech.glide.load.Options

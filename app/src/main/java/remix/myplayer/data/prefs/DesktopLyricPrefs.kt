@@ -1,4 +1,4 @@
-package remix.myplayer.data.prefs
+package com.krithi.data.prefs
 
 import android.content.Context
 import android.graphics.Color

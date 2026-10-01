@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalGlideComposeApi::class)
 
-package remix.myplayer.ui.activity
+package com.krithi.ui.activity
 
 import android.content.Intent
 import android.content.pm.ActivityInfo
@@ -57,24 +57,24 @@ import com.bumptech.glide.integration.compose.placeholder
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import remix.myplayer.R
-import remix.myplayer.glide.addBitmapListener
-import remix.myplayer.lyric.CurrentNextLyricsLine
-import remix.myplayer.lyric.LyricManager
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicService
-import remix.myplayer.service.MusicService.Companion.EXTRA_COMMAND
-import remix.myplayer.service.playback.MusicStateSource
-import remix.myplayer.service.playback.PlaybackUiState
-import remix.myplayer.ui.activity.base.BaseMusicActivity
-import remix.myplayer.ui.blur.StackBlurManager
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.app.rememberSmoothPosition
-import remix.myplayer.ui.widget.lyric.LyricSingleLine
-import remix.myplayer.util.ColorUtil
-import remix.myplayer.util.Util.sendLocalBroadcast
-import remix.myplayer.util.ext.clickableWithoutRipple
-import remix.myplayer.viewmodel.PlaybackViewModel
+import com.krithi.R
+import com.krithi.glide.addBitmapListener
+import com.krithi.lyric.CurrentNextLyricsLine
+import com.krithi.lyric.LyricManager
+import com.krithi.service.Command
+import com.krithi.service.MusicService
+import com.krithi.service.MusicService.Companion.EXTRA_COMMAND
+import com.krithi.service.playback.MusicStateSource
+import com.krithi.service.playback.PlaybackUiState
+import com.krithi.ui.activity.base.BaseMusicActivity
+import com.krithi.ui.blur.StackBlurManager
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.app.rememberSmoothPosition
+import com.krithi.ui.widget.lyric.LyricSingleLine
+import com.krithi.util.ColorUtil
+import com.krithi.util.Util.sendLocalBroadcast
+import com.krithi.util.ext.clickableWithoutRipple
+import com.krithi.viewmodel.PlaybackViewModel
 import timber.log.Timber
 import javax.inject.Inject
 

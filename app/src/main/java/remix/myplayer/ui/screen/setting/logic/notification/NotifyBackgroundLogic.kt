@@ -1,16 +1,16 @@
-package remix.myplayer.ui.screen.setting.logic.notification
+package com.krithi.ui.screen.setting.logic.notification
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.ui.dialog.ItemsCallbackSingleChoice
-import remix.myplayer.ui.dialog.NormalDialog
-import remix.myplayer.ui.dialog.rememberDialogState
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.screen.setting.NormalPreference
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.ui.dialog.ItemsCallbackSingleChoice
+import com.krithi.ui.dialog.NormalDialog
+import com.krithi.ui.dialog.rememberDialogState
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.screen.setting.NormalPreference
+import com.krithi.viewmodel.settingViewModel
 
 private val itemRes = listOf(R.string.use_system_color, R.string.use_black_color)
 

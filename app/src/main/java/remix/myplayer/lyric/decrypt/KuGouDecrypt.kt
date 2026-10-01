@@ -1,4 +1,4 @@
-package remix.myplayer.lyric.decrypt
+package com.krithi.lyric.decrypt
 
 import timber.log.Timber
 import java.io.ByteArrayOutputStream

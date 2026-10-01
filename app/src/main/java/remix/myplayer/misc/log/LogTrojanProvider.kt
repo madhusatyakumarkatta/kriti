@@ -1,4 +1,4 @@
-package remix.myplayer.misc.log
+package com.krithi.misc.log
 
 import android.content.ContentProvider
 import android.content.ContentValues

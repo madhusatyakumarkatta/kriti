@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.app
+package com.krithi.ui.widget.app
 
 import android.content.ComponentName
 import android.content.Intent
@@ -43,23 +43,23 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import kotlinx.coroutines.launch
-import remix.myplayer.R
-import remix.myplayer.data.prefs.ThemePrefs.Companion.BLACK
-import remix.myplayer.data.prefs.ThemePrefs.Companion.DARK
-import remix.myplayer.data.prefs.ThemePrefs.Companion.LIGHT
-import remix.myplayer.misc.receiver.ExitReceiver
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.nav.RouteHistory
-import remix.myplayer.ui.nav.RouteLastAdded
-import remix.myplayer.ui.nav.RouteSetting
-import remix.myplayer.ui.theme.AppTheme
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.library.GlideCover
-import remix.myplayer.util.Constants
-import remix.myplayer.util.ext.isPortraitOrientation
-import remix.myplayer.viewmodel.PlaybackViewModel
-import remix.myplayer.viewmodel.playbackViewModel
+import com.krithi.R
+import com.krithi.data.prefs.ThemePrefs.Companion.BLACK
+import com.krithi.data.prefs.ThemePrefs.Companion.DARK
+import com.krithi.data.prefs.ThemePrefs.Companion.LIGHT
+import com.krithi.misc.receiver.ExitReceiver
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.nav.RouteHistory
+import com.krithi.ui.nav.RouteLastAdded
+import com.krithi.ui.nav.RouteSetting
+import com.krithi.ui.theme.AppTheme
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.library.GlideCover
+import com.krithi.util.Constants
+import com.krithi.util.ext.isPortraitOrientation
+import com.krithi.viewmodel.PlaybackViewModel
+import com.krithi.viewmodel.playbackViewModel
 
 private val drawerTitles = mutableListOf(
   R.string.drawer_song,

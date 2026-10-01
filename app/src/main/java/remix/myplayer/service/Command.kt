@@ -1,4 +1,4 @@
-package remix.myplayer.service
+package com.krithi.service
 
 interface Command {
   companion object {

@@ -1,7 +1,7 @@
-package remix.myplayer.helper
+package com.krithi.helper
 
 import android.content.Context
-import remix.myplayer.BuildConfig
+import com.krithi.BuildConfig
 
 object ThirdPartyInitializer {
   fun init(context: Context) {

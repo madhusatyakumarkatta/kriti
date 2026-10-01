@@ -1,4 +1,4 @@
-package remix.myplayer.util.ext
+package com.krithi.util.ext
 
 import android.app.PendingIntent
 import android.content.Context

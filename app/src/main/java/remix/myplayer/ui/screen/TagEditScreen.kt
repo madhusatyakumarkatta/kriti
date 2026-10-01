@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package remix.myplayer.ui.screen
+package com.krithi.ui.screen
 
 import android.net.Uri
 import androidx.activity.compose.BackHandler
@@ -45,25 +45,25 @@ import androidx.navigation.NavBackStackEntry
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.misc.cache.DiskCache
-import remix.myplayer.ui.activity.base.BaseActivity
-import remix.myplayer.ui.dialog.DialogState
-import remix.myplayer.ui.dialog.ItemsCallback
-import remix.myplayer.ui.dialog.NormalDialog
-import remix.myplayer.ui.dialog.rememberDialogState
-import remix.myplayer.ui.nav.ExtraRestorePlayingScreen
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.nav.RouteTagEditCrop
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.CommonAppBar
-import remix.myplayer.ui.widget.common.EditField
-import remix.myplayer.util.ImageUtil
-import remix.myplayer.util.ext.clickableWithoutRipple
-import remix.myplayer.viewmodel.PlayingScreenValue
-import remix.myplayer.viewmodel.mainViewModel
-import remix.myplayer.viewmodel.tagEditViewModel
+import com.krithi.R
+import com.krithi.misc.cache.DiskCache
+import com.krithi.ui.activity.base.BaseActivity
+import com.krithi.ui.dialog.DialogState
+import com.krithi.ui.dialog.ItemsCallback
+import com.krithi.ui.dialog.NormalDialog
+import com.krithi.ui.dialog.rememberDialogState
+import com.krithi.ui.nav.ExtraRestorePlayingScreen
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.nav.RouteTagEditCrop
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.CommonAppBar
+import com.krithi.ui.widget.common.EditField
+import com.krithi.util.ImageUtil
+import com.krithi.util.ext.clickableWithoutRipple
+import com.krithi.viewmodel.PlayingScreenValue
+import com.krithi.viewmodel.mainViewModel
+import com.krithi.viewmodel.tagEditViewModel
 import timber.log.Timber
 import java.io.File
 

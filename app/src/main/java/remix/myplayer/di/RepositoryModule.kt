@@ -1,28 +1,28 @@
-package remix.myplayer.di
+package com.krithi.di
 
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import remix.myplayer.repo.AlbumRepoImpl
-import remix.myplayer.repo.AlbumRepository
-import remix.myplayer.repo.ArtistRepoImpl
-import remix.myplayer.repo.ArtistRepository
-import remix.myplayer.repo.FolderRepoImpl
-import remix.myplayer.repo.FolderRepository
-import remix.myplayer.repo.GenreRepoImpl
-import remix.myplayer.repo.GenreRepository
-import remix.myplayer.repo.HistoryRepoImpl
-import remix.myplayer.repo.HistoryRepository
-import remix.myplayer.repo.PlayListRepoImpl
-import remix.myplayer.repo.PlayListRepository
-import remix.myplayer.repo.PlayQueueRepoImpl
-import remix.myplayer.repo.PlayQueueRepository
-import remix.myplayer.repo.SmbRepoImpl
-import remix.myplayer.repo.SmbRepository
-import remix.myplayer.repo.SongRepoImpl
-import remix.myplayer.repo.SongRepository
-import remix.myplayer.repo.WebDavRepository
+import com.krithi.repo.AlbumRepoImpl
+import com.krithi.repo.AlbumRepository
+import com.krithi.repo.ArtistRepoImpl
+import com.krithi.repo.ArtistRepository
+import com.krithi.repo.FolderRepoImpl
+import com.krithi.repo.FolderRepository
+import com.krithi.repo.GenreRepoImpl
+import com.krithi.repo.GenreRepository
+import com.krithi.repo.HistoryRepoImpl
+import com.krithi.repo.HistoryRepository
+import com.krithi.repo.PlayListRepoImpl
+import com.krithi.repo.PlayListRepository
+import com.krithi.repo.PlayQueueRepoImpl
+import com.krithi.repo.PlayQueueRepository
+import com.krithi.repo.SmbRepoImpl
+import com.krithi.repo.SmbRepository
+import com.krithi.repo.SongRepoImpl
+import com.krithi.repo.SongRepository
+import com.krithi.repo.WebDavRepository
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -62,7 +62,7 @@ abstract class RepositoryModule {
 
   @Singleton
   @Binds
-  abstract fun bindWebDavRepo(repo: remix.myplayer.repo.WebDavRepoImpl): WebDavRepository
+  abstract fun bindWebDavRepo(repo: com.krithi.repo.WebDavRepoImpl): WebDavRepository
 
   @Singleton
   @Binds

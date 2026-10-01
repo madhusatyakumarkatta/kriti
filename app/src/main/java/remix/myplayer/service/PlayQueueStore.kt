@@ -1,10 +1,10 @@
-package remix.myplayer.service
+package com.krithi.service
 
 import kotlinx.coroutines.flow.first
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.repo.PlayQueueRepository
-import remix.myplayer.repo.SongRepository
+import com.krithi.data.model.audio.Song
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.repo.PlayQueueRepository
+import com.krithi.repo.SongRepository
 import javax.inject.Inject
 
 /**

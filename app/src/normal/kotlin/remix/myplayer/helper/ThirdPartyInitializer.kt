@@ -1,10 +1,10 @@
-package remix.myplayer.helper
+package com.krithi.helper
 
 import android.content.Context
 import android.os.Process
 import com.tencent.bugly.crashreport.CrashReport
-import remix.myplayer.BuildConfig
-import remix.myplayer.util.Util
+import com.krithi.BuildConfig
+import com.krithi.util.Util
 
 object ThirdPartyInitializer {
 

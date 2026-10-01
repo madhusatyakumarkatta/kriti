@@ -1,4 +1,4 @@
-package remix.myplayer.ui
+package com.krithi.ui
 
 import android.os.Build
 import androidx.activity.BackEventCompat
@@ -30,10 +30,10 @@ import androidx.compose.ui.unit.IntOffset
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
-import remix.myplayer.ui.screen.playing.PlayingPanel
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.viewmodel.PlayingScreenValue
-import remix.myplayer.viewmodel.mainViewModel
+import com.krithi.ui.screen.playing.PlayingPanel
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.viewmodel.PlayingScreenValue
+import com.krithi.viewmodel.mainViewModel
 import kotlin.math.roundToInt
 
 @Composable

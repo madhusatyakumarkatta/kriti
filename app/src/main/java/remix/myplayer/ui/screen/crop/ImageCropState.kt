@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.crop
+package com.krithi.ui.screen.crop
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -22,7 +22,7 @@ import com.canhub.cropper.CropImageOptions
 import com.canhub.cropper.CropImageView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import remix.myplayer.ui.theme.LocalTheme
+import com.krithi.ui.theme.LocalTheme
 
 class ImageCropState(private val progressColor: Int) {
 

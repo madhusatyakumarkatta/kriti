@@ -1,4 +1,4 @@
-package remix.myplayer.request.qq
+package com.krithi.request.qq
 
 import kotlinx.serialization.Serializable
 

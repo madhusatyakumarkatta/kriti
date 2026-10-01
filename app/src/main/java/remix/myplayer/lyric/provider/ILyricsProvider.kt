@@ -1,7 +1,7 @@
-package remix.myplayer.lyric.provider
+package com.krithi.lyric.provider
 
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.lyric.LyricLine
+import com.krithi.data.model.audio.Song
+import com.krithi.lyric.LyricLine
 
 interface ILyricsProvider {
 

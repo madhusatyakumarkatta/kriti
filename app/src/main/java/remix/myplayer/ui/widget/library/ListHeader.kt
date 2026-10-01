@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.library
+package com.krithi.ui.widget.library
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -19,16 +19,16 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicServiceRemote.setPlayQueue
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.util.ColorUtil
-import remix.myplayer.util.MusicUtil
-import remix.myplayer.util.ext.clickableWithoutRipple
+import com.krithi.R
+import com.krithi.data.model.audio.Song
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.service.Command
+import com.krithi.service.MusicServiceRemote.setPlayQueue
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.util.ColorUtil
+import com.krithi.util.MusicUtil
+import com.krithi.util.ext.clickableWithoutRipple
 
 @Composable
 fun SongListHeader(songs: List<Song>) {

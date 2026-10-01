@@ -1,4 +1,4 @@
-package remix.myplayer.request.netease
+package com.krithi.request.netease
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -12,9 +12,9 @@ import okhttp3.Request
 import okhttp3.RequestBody
 import org.json.JSONArray
 import org.json.JSONObject
-import remix.myplayer.lyric.LrcParser
-import remix.myplayer.lyric.decrypt.NetEaseEapiCrypt.eapiParamsEncrypt
-import remix.myplayer.lyric.decrypt.NetEaseEapiCrypt.eapiResponseDecrypt
+import com.krithi.lyric.LrcParser
+import com.krithi.lyric.decrypt.NetEaseEapiCrypt.eapiParamsEncrypt
+import com.krithi.lyric.decrypt.NetEaseEapiCrypt.eapiResponseDecrypt
 import timber.log.Timber
 import java.security.MessageDigest
 import javax.inject.Inject

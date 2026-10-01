@@ -1,16 +1,16 @@
-package remix.myplayer.ui.appwidgets.small
+package com.krithi.ui.appwidgets.small
 
 import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.service.MusicService
-import remix.myplayer.ui.appwidgets.AppWidgetSkin
-import remix.myplayer.ui.appwidgets.BaseAppwidget
-import remix.myplayer.util.Util
+import com.krithi.R
+import com.krithi.data.model.audio.Song
+import com.krithi.service.MusicService
+import com.krithi.ui.appwidgets.AppWidgetSkin
+import com.krithi.ui.appwidgets.BaseAppwidget
+import com.krithi.util.Util
 
 class AppWidgetSmallTransparent : BaseAppwidget() {
 

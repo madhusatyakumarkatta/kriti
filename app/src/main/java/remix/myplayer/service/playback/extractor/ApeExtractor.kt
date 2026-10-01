@@ -1,4 +1,4 @@
-package remix.myplayer.service.playback.extractor
+package com.krithi.service.playback.extractor
 
 import androidx.annotation.OptIn
 import androidx.media3.common.C

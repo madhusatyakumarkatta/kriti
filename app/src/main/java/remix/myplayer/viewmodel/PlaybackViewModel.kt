@@ -1,4 +1,4 @@
-package remix.myplayer.viewmodel
+package com.krithi.viewmodel
 
 import android.content.Context
 import android.content.Intent
@@ -23,18 +23,18 @@ import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.repo.PlayQueueRepository
-import remix.myplayer.service.Command
-import remix.myplayer.service.MusicEventCallback
-import remix.myplayer.service.MusicService
-import remix.myplayer.service.MusicServiceRemote
-import remix.myplayer.service.playback.MusicStateSource
-import remix.myplayer.service.playback.PlaybackUiState
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.util.Util
+import com.krithi.R
+import com.krithi.data.model.audio.Song
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.repo.PlayQueueRepository
+import com.krithi.service.Command
+import com.krithi.service.MusicEventCallback
+import com.krithi.service.MusicService
+import com.krithi.service.MusicServiceRemote
+import com.krithi.service.playback.MusicStateSource
+import com.krithi.service.playback.PlaybackUiState
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.util.Util
 import timber.log.Timber
 import javax.inject.Inject
 

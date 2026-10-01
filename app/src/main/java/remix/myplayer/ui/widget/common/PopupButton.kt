@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.common
+package com.krithi.ui.widget.common
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
@@ -17,10 +17,10 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import remix.myplayer.R
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.theme.popupButton
-import remix.myplayer.util.ext.clickWithRipple
+import com.krithi.R
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.theme.popupButton
+import com.krithi.util.ext.clickWithRipple
 
 @Composable
 fun PopupButton(menu: List<Int>, contentDescription: String? = null, onMenuClick: (Int) -> Unit) {

@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "remix.myplayer.baselineprofile"
+    namespace = "com.krithi.baselineprofile"
     compileSdk = 36
 
     compileOptions {
@@ -49,7 +49,7 @@ androidComponents {
         val artifactsLoader = v.artifacts.getBuiltArtifactsLoader()
         v.instrumentationRunnerArguments.put(
             "targetAppId",
-            v.testedApks.map { artifactsLoader.load(it)?.applicationId ?: "remix.myplayer"}
+            v.testedApks.map { artifactsLoader.load(it)?.applicationId ?: "com.krithi"}
         )
     }
 }

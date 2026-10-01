@@ -1,8 +1,8 @@
-package remix.myplayer.service.playback
+package com.krithi.service.playback
 
 import androidx.media3.common.MediaItem
 import androidx.media3.common.PlaybackException
-import remix.myplayer.data.model.audio.Song
+import com.krithi.data.model.audio.Song
 
 interface Playback {
 

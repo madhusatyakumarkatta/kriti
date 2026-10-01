@@ -1,10 +1,10 @@
-package remix.myplayer.service.playback
+package com.krithi.service.playback
 
 import android.net.Uri
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.BaseDataSource
 import androidx.media3.datasource.DataSpec
-import remix.myplayer.data.model.smb.SmbStreamDelegate
+import com.krithi.data.model.smb.SmbStreamDelegate
 import timber.log.Timber
 import java.io.IOException
 
@@ -18,7 +18,7 @@ class SmbDataSource : BaseDataSource(true) {
     transferInitializing(dataSpec)
     uri = dataSpec.uri
     try {
-      val clazz = Class.forName("remix.myplayer.smb.SmbStreamDelegateImpl")
+      val clazz = Class.forName("com.krithi.smb.SmbStreamDelegateImpl")
       delegate = clazz.getDeclaredConstructor().newInstance() as SmbStreamDelegate
       val length = delegate!!.open(dataSpec.uri.toString(), dataSpec.position)
       transferStarted(dataSpec)

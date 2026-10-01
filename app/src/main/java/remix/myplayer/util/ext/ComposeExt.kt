@@ -1,4 +1,4 @@
-package remix.myplayer.util.ext
+package com.krithi.util.ext
 
 import android.annotation.SuppressLint
 import androidx.compose.foundation.layout.Box
@@ -19,9 +19,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelStoreOwner
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
-import remix.myplayer.R
-import remix.myplayer.ui.dialog.NormalDialog
-import remix.myplayer.ui.dialog.rememberDialogState
+import com.krithi.R
+import com.krithi.ui.dialog.NormalDialog
+import com.krithi.ui.dialog.rememberDialogState
 
 @Composable
 fun ShowLyricTipDialog(onPositive: () -> Unit) {

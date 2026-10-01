@@ -1,9 +1,9 @@
-package remix.myplayer.viewmodel.settings
+package com.krithi.viewmodel.settings
 
 import androidx.compose.runtime.Stable
 import androidx.compose.ui.graphics.Color
-import remix.myplayer.data.model.misc.LyricOrder
-import remix.myplayer.ui.screen.playing.PlayingCoverAnimationStyle
+import com.krithi.data.model.misc.LyricOrder
+import com.krithi.ui.screen.playing.PlayingCoverAnimationStyle
 
 @Stable
 data class CommonSettings(

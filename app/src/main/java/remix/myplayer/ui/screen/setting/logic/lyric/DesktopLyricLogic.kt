@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.setting.logic.lyric
+package com.krithi.ui.screen.setting.logic.lyric
 
 import android.app.Activity
 import android.content.Context
@@ -19,12 +19,12 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.misc.floatpermission.FloatWindowManager
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.screen.setting.SwitchPreference
-import remix.myplayer.util.Util
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.misc.floatpermission.FloatWindowManager
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.screen.setting.SwitchPreference
+import com.krithi.util.Util
+import com.krithi.viewmodel.settingViewModel
 
 @Composable
 fun DesktopLyricLogic() {

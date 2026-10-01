@@ -1,12 +1,12 @@
-package remix.myplayer.service.playback
+package com.krithi.service.playback
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.repo.PlayListRepository
+import com.krithi.data.model.audio.Song
+import com.krithi.repo.PlayListRepository
 import javax.inject.Inject
 
 class PlaybackFavoriteState @Inject constructor(

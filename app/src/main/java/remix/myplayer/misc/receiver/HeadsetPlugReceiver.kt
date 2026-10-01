@@ -1,15 +1,15 @@
-package remix.myplayer.misc.receiver
+package com.krithi.misc.receiver
 
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.media.AudioManager
 import dagger.hilt.android.AndroidEntryPoint
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.data.prefs.SettingPrefs.Companion.HEADSET_PLUG
-import remix.myplayer.service.Command
-import remix.myplayer.service.playback.MusicStateSource
-import remix.myplayer.util.Util.sendCMDLocalBroadcast
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.data.prefs.SettingPrefs.Companion.HEADSET_PLUG
+import com.krithi.service.Command
+import com.krithi.service.playback.MusicStateSource
+import com.krithi.util.Util.sendCMDLocalBroadcast
 import timber.log.Timber
 import javax.inject.Inject
 

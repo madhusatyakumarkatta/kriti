@@ -1,4 +1,4 @@
-package remix.myplayer.misc.manager
+package com.krithi.misc.manager
 
 import android.app.Activity
 import android.app.Application

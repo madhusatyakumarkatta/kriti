@@ -1,4 +1,4 @@
-package remix.myplayer.smb
+package com.krithi.smb
 
 import android.net.Uri
 import androidx.annotation.Keep
@@ -12,8 +12,8 @@ import com.hierynomus.smbj.connection.Connection
 import com.hierynomus.smbj.session.Session
 import com.hierynomus.smbj.share.DiskShare
 import com.hierynomus.smbj.share.File
-import remix.myplayer.data.model.smb.SmbRandomAccessDelegate
-import remix.myplayer.data.model.smb.SmbStreamDelegate
+import com.krithi.data.model.smb.SmbRandomAccessDelegate
+import com.krithi.data.model.smb.SmbStreamDelegate
 import timber.log.Timber
 import java.io.IOException
 import java.io.InputStream

@@ -1,4 +1,4 @@
-package remix.myplayer.service
+package com.krithi.service
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -15,14 +15,14 @@ import com.bumptech.glide.request.transition.Transition
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.model.audio.Song.Companion.EMPTY_SONG
-import remix.myplayer.data.prefs.SettingPrefs.Companion.LOCKSCREEN_CLOSE
-import remix.myplayer.service.playback.Playback
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.theme.ThemeController
-import remix.myplayer.util.ext.tryLaunch
+import com.krithi.R
+import com.krithi.data.model.audio.Song
+import com.krithi.data.model.audio.Song.Companion.EMPTY_SONG
+import com.krithi.data.prefs.SettingPrefs.Companion.LOCKSCREEN_CLOSE
+import com.krithi.service.playback.Playback
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.theme.ThemeController
+import com.krithi.util.ext.tryLaunch
 import timber.log.Timber
 import javax.inject.Inject
 

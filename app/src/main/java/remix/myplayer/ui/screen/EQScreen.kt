@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen
+package com.krithi.ui.screen
 
 import android.media.audiofx.AudioEffect
 import androidx.activity.compose.BackHandler
@@ -37,22 +37,22 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavBackStackEntry
 import kotlinx.coroutines.launch
-import remix.myplayer.R
-import remix.myplayer.helper.EQHelper
-import remix.myplayer.service.MusicServiceRemote
-import remix.myplayer.ui.nav.ExtraRestorePlayingScreen
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.nav.MessageNotifier
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.common.CommonAppBar
-import remix.myplayer.ui.widget.common.LineSlider
-import remix.myplayer.ui.widget.common.TextPrimary
-import remix.myplayer.ui.widget.common.TextSecondary
-import remix.myplayer.ui.widget.common.defaultLineSliderProperties
-import remix.myplayer.util.ext.CenterInBox
-import remix.myplayer.util.ext.clickWithRipple
-import remix.myplayer.viewmodel.PlayingScreenValue
-import remix.myplayer.viewmodel.mainViewModel
+import com.krithi.R
+import com.krithi.helper.EQHelper
+import com.krithi.service.MusicServiceRemote
+import com.krithi.ui.nav.ExtraRestorePlayingScreen
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.nav.MessageNotifier
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.common.CommonAppBar
+import com.krithi.ui.widget.common.LineSlider
+import com.krithi.ui.widget.common.TextPrimary
+import com.krithi.ui.widget.common.TextSecondary
+import com.krithi.ui.widget.common.defaultLineSliderProperties
+import com.krithi.util.ext.CenterInBox
+import com.krithi.util.ext.clickWithRipple
+import com.krithi.viewmodel.PlayingScreenValue
+import com.krithi.viewmodel.mainViewModel
 import java.text.DecimalFormat
 import kotlin.math.roundToInt
 

@@ -1,4 +1,4 @@
-package remix.myplayer.ui.theme
+package com.krithi.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,9 +1,9 @@
-package remix.myplayer.lyric.provider
+package com.krithi.lyric.provider
 
-import remix.myplayer.data.model.audio.Album
-import remix.myplayer.data.model.audio.Artist
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.util.SearchKeyUtil
+import com.krithi.data.model.audio.Album
+import com.krithi.data.model.audio.Artist
+import com.krithi.data.model.audio.Song
+import com.krithi.util.SearchKeyUtil
 import kotlin.math.abs
 import kotlin.math.max
 

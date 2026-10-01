@@ -1,4 +1,4 @@
-package remix.myplayer.viewmodel
+package com.krithi.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.SavedStateHandle
@@ -12,13 +12,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
-import remix.myplayer.R
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.helper.SleepTimer.Companion.getMillisUntilFinish
-import remix.myplayer.helper.SleepTimer.Companion.isTicking
-import remix.myplayer.helper.SleepTimer.Companion.toggleTimer
-import remix.myplayer.ui.dialog.DialogState
-import remix.myplayer.ui.nav.MessageNotifier
+import com.krithi.R
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.helper.SleepTimer.Companion.getMillisUntilFinish
+import com.krithi.helper.SleepTimer.Companion.isTicking
+import com.krithi.helper.SleepTimer.Companion.toggleTimer
+import com.krithi.ui.dialog.DialogState
+import com.krithi.ui.nav.MessageNotifier
 import javax.inject.Inject
 
 @HiltViewModel

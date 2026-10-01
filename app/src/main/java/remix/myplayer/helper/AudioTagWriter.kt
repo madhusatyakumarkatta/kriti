@@ -1,4 +1,4 @@
-package remix.myplayer.helper
+package com.krithi.helper
 
 import android.app.RecoverableSecurityException
 import android.content.Context
@@ -14,12 +14,12 @@ import com.kyant.taglib.Picture
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import remix.myplayer.R
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.service.MusicService
-import remix.myplayer.ui.activity.base.BaseActivity
-import remix.myplayer.ui.activity.base.BaseMusicActivity
-import remix.myplayer.ui.nav.MessageNotifier
+import com.krithi.R
+import com.krithi.data.model.audio.Song
+import com.krithi.service.MusicService
+import com.krithi.ui.activity.base.BaseActivity
+import com.krithi.ui.activity.base.BaseMusicActivity
+import com.krithi.ui.nav.MessageNotifier
 import timber.log.Timber
 import java.io.ByteArrayOutputStream
 import java.io.File

@@ -1,14 +1,14 @@
-package remix.myplayer.lyric.provider
+package com.krithi.lyric.provider
 
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.model.misc.LyricOrder
-import remix.myplayer.data.prefs.LyricPrefs
-import remix.myplayer.lyric.LyricSearcher
-import remix.myplayer.lyric.provider.network.KuGouProvider
-import remix.myplayer.lyric.provider.network.NetEaseProvider
-import remix.myplayer.lyric.provider.network.QQProvider
+import com.krithi.data.model.audio.Song
+import com.krithi.data.model.misc.LyricOrder
+import com.krithi.data.prefs.LyricPrefs
+import com.krithi.lyric.LyricSearcher
+import com.krithi.lyric.provider.network.KuGouProvider
+import com.krithi.lyric.provider.network.NetEaseProvider
+import com.krithi.lyric.provider.network.QQProvider
 import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton

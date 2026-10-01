@@ -1,4 +1,4 @@
-package remix.myplayer.util.ext
+package com.krithi.util.ext
 
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
-import remix.myplayer.ui.theme.LocalTheme
+import com.krithi.ui.theme.LocalTheme
 import kotlin.math.abs
 import kotlin.math.roundToInt
 

@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.lyric
+package com.krithi.ui.widget.lyric
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -42,22 +42,22 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import kotlinx.coroutines.delay
-import remix.myplayer.R
-import remix.myplayer.data.prefs.DesktopLyricPrefs.Companion.ELLIPSIS
-import remix.myplayer.data.prefs.DesktopLyricPrefs.Companion.HIDE_PANEL_DELAY
-import remix.myplayer.lyric.CurrentNextLyricsLine
-import remix.myplayer.lyric.LyricManager
-import remix.myplayer.service.Command
-import remix.myplayer.service.playback.MusicStateSource
-import remix.myplayer.ui.dialog.ColorSpace
-import remix.myplayer.ui.theme.ThemeController
-import remix.myplayer.ui.widget.app.rememberSmoothPosition
-import remix.myplayer.util.MusicUtil.makeCmdIntent
-import remix.myplayer.util.Util.sendLocalBroadcast
-import remix.myplayer.util.ext.CenterInBox
-import remix.myplayer.util.ext.clickWithRipple
-import remix.myplayer.util.ext.clickableWithoutRipple
-import remix.myplayer.util.ext.isTablet
+import com.krithi.R
+import com.krithi.data.prefs.DesktopLyricPrefs.Companion.ELLIPSIS
+import com.krithi.data.prefs.DesktopLyricPrefs.Companion.HIDE_PANEL_DELAY
+import com.krithi.lyric.CurrentNextLyricsLine
+import com.krithi.lyric.LyricManager
+import com.krithi.service.Command
+import com.krithi.service.playback.MusicStateSource
+import com.krithi.ui.dialog.ColorSpace
+import com.krithi.ui.theme.ThemeController
+import com.krithi.ui.widget.app.rememberSmoothPosition
+import com.krithi.util.MusicUtil.makeCmdIntent
+import com.krithi.util.Util.sendLocalBroadcast
+import com.krithi.util.ext.CenterInBox
+import com.krithi.util.ext.clickWithRipple
+import com.krithi.util.ext.clickableWithoutRipple
+import com.krithi.util.ext.isTablet
 
 @Composable
 fun DesktopLyricOverlay(

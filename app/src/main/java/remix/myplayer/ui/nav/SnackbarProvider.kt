@@ -1,4 +1,4 @@
-package remix.myplayer.ui.nav
+package com.krithi.ui.nav
 
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable

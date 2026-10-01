@@ -1,4 +1,4 @@
-package remix.myplayer.helper
+package com.krithi.helper
 
 import android.os.ParcelFileDescriptor
 import com.kyant.taglib.AudioProperties
@@ -6,7 +6,7 @@ import com.kyant.taglib.Metadata
 import com.kyant.taglib.Picture
 import com.kyant.taglib.PropertyMap
 import com.kyant.taglib.TagLib
-import remix.myplayer.data.model.audio.ReplayGain
+import com.krithi.data.model.audio.ReplayGain
 import java.io.File
 import java.io.IOException
 

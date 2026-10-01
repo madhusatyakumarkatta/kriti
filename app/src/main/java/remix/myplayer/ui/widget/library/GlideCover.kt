@@ -1,4 +1,4 @@
-package remix.myplayer.ui.widget.library
+package com.krithi.ui.widget.library
 
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
@@ -8,8 +8,8 @@ import androidx.compose.ui.layout.ContentScale
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import com.bumptech.glide.integration.compose.GlideImage
 import com.bumptech.glide.integration.compose.placeholder
-import remix.myplayer.data.model.audio.APlayerModel
-import remix.myplayer.ui.theme.LocalTheme
+import com.krithi.data.model.audio.APlayerModel
+import com.krithi.ui.theme.LocalTheme
 
 @OptIn(ExperimentalGlideComposeApi::class)
 @Composable

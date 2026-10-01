@@ -1,13 +1,13 @@
-package remix.myplayer.repo
+package com.krithi.repo
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flatMapLatest
-import remix.myplayer.data.db.room.dao.HistoryDao
-import remix.myplayer.data.db.room.entity.History
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.data.prefs.historySortOrderFlow
+import com.krithi.data.db.room.dao.HistoryDao
+import com.krithi.data.db.room.entity.History
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.data.prefs.historySortOrderFlow
 import javax.inject.Inject
 
 interface HistoryRepository {

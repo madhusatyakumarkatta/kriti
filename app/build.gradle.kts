@@ -29,12 +29,12 @@ val properties = readProperties(rootProject.file("local.properties"))
 
 kotlin {
     compilerOptions {
-        freeCompilerArgs.addAll(listOf("-module-name", "remix.myplayer"))
+        freeCompilerArgs.addAll(listOf("-module-name", "com.krithi"))
     }
 }
 
 android {
-    namespace = "remix.myplayer"
+    namespace = "com.krithi"
 
     compileSdk = 36
     ndkVersion = "28.2.13676358"

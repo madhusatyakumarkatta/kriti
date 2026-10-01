@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.playing
+package com.krithi.ui.screen.playing
 
 import android.os.Build
 import androidx.activity.compose.LocalActivity
@@ -24,12 +24,12 @@ import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.util.ThemeUtil
-import remix.myplayer.viewmodel.playbackViewModel
-import remix.myplayer.viewmodel.settingViewModel
+import com.krithi.R
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.util.ThemeUtil
+import com.krithi.viewmodel.playbackViewModel
+import com.krithi.viewmodel.settingViewModel
 
 @Composable
 fun PlayingContainer(content: @Composable () -> Unit) {

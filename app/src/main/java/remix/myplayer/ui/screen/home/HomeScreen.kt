@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.home
+package com.krithi.ui.screen.home
 
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.AnimatedContent
@@ -43,20 +43,20 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.bumptech.glide.integration.compose.ExperimentalGlideComposeApi
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.launch
-import remix.myplayer.R
-import remix.myplayer.data.model.misc.Library
-import remix.myplayer.ui.dialog.CreatePlayListDialog
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.ui.widget.app.BottomBar
-import remix.myplayer.ui.widget.app.Drawer
-import remix.myplayer.ui.widget.app.FAButton
-import remix.myplayer.ui.widget.app.MultiSelectBar
-import remix.myplayer.ui.widget.app.ViewPager
-import remix.myplayer.viewmodel.libraryViewModel
-import remix.myplayer.viewmodel.mainViewModel
-import remix.myplayer.viewmodel.settingViewModel
-import remix.myplayer.viewmodel.smbViewModel
-import remix.myplayer.viewmodel.webDavViewModel
+import com.krithi.R
+import com.krithi.data.model.misc.Library
+import com.krithi.ui.dialog.CreatePlayListDialog
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.ui.widget.app.BottomBar
+import com.krithi.ui.widget.app.Drawer
+import com.krithi.ui.widget.app.FAButton
+import com.krithi.ui.widget.app.MultiSelectBar
+import com.krithi.ui.widget.app.ViewPager
+import com.krithi.viewmodel.libraryViewModel
+import com.krithi.viewmodel.mainViewModel
+import com.krithi.viewmodel.settingViewModel
+import com.krithi.viewmodel.smbViewModel
+import com.krithi.viewmodel.webDavViewModel
 
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalGlideComposeApi::class)
 @Composable

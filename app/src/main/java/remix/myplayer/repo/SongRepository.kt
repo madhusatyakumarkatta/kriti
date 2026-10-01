@@ -1,4 +1,4 @@
-package remix.myplayer.repo
+package com.krithi.repo
 
 import android.content.Context
 import android.database.Cursor
@@ -7,18 +7,18 @@ import android.provider.MediaStore
 import android.provider.MediaStore.Audio
 import android.provider.MediaStore.Audio.Genres
 import dagger.hilt.android.qualifiers.ApplicationContext
-import remix.myplayer.data.db.room.dao.PlayListDao
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.data.model.audio.APlayerModel
-import remix.myplayer.data.model.audio.Album
-import remix.myplayer.data.model.audio.Artist
-import remix.myplayer.data.model.audio.Folder
-import remix.myplayer.data.model.audio.Genre
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.helper.ItemsSorter
-import remix.myplayer.helper.SortOrder
-import remix.myplayer.util.ext.checkWorkerThread
+import com.krithi.data.db.room.dao.PlayListDao
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.data.model.audio.APlayerModel
+import com.krithi.data.model.audio.Album
+import com.krithi.data.model.audio.Artist
+import com.krithi.data.model.audio.Folder
+import com.krithi.data.model.audio.Genre
+import com.krithi.data.model.audio.Song
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.helper.ItemsSorter
+import com.krithi.helper.SortOrder
+import com.krithi.util.ext.checkWorkerThread
 import timber.log.Timber
 import java.util.Calendar
 import java.util.Date

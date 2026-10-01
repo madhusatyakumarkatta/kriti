@@ -1,14 +1,14 @@
-package remix.myplayer.ui.dialog
+package com.krithi.ui.dialog
 
 import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.nav.RouteSongChoose
-import remix.myplayer.viewmodel.libraryViewModel
+import com.krithi.R
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.nav.RouteSongChoose
+import com.krithi.viewmodel.libraryViewModel
 
 @Composable
 fun CreatePlayListDialog() {

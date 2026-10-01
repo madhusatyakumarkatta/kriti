@@ -1,12 +1,12 @@
-package remix.myplayer.repo
+package com.krithi.repo
 
 import android.content.Context
 import android.provider.MediaStore.Audio.Genres
 import dagger.hilt.android.qualifiers.ApplicationContext
-import remix.myplayer.data.model.audio.Genre
-import remix.myplayer.data.prefs.SettingPrefs
-import remix.myplayer.helper.ItemsSorter
-import remix.myplayer.util.PermissionUtil
+import com.krithi.data.model.audio.Genre
+import com.krithi.data.prefs.SettingPrefs
+import com.krithi.helper.ItemsSorter
+import com.krithi.util.PermissionUtil
 import timber.log.Timber
 import javax.inject.Inject
 

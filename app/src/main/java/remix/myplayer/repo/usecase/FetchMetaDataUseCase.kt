@@ -1,4 +1,4 @@
-package remix.myplayer.repo.usecase
+package com.krithi.repo.usecase
 
 import android.media.MediaMetadataRetriever
 import android.os.Build
@@ -10,10 +10,10 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
-import remix.myplayer.data.db.room.dao.MetaDataCacheDao
-import remix.myplayer.data.db.room.entity.MetaDataCache
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.service.playback.SmbMediaDataSource
+import com.krithi.data.db.room.dao.MetaDataCacheDao
+import com.krithi.data.db.room.entity.MetaDataCache
+import com.krithi.data.model.audio.Song
+import com.krithi.service.playback.SmbMediaDataSource
 import timber.log.Timber
 import java.util.concurrent.ConcurrentHashMap
 import javax.inject.Inject

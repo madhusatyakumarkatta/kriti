@@ -1,4 +1,4 @@
-package remix.myplayer.util
+package com.krithi.util
 
 import android.content.Context
 import android.graphics.Bitmap
@@ -8,8 +8,8 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import remix.myplayer.data.model.audio.Song
-import remix.myplayer.helper.AudioTagFile
+import com.krithi.data.model.audio.Song
+import com.krithi.helper.AudioTagFile
 import timber.log.Timber
 import java.io.File
 

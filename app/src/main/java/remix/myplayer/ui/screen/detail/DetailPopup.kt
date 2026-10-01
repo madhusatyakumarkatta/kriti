@@ -1,4 +1,4 @@
-package remix.myplayer.ui.screen.detail
+package com.krithi.ui.screen.detail
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -24,21 +24,21 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.DpOffset
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import remix.myplayer.R
-import remix.myplayer.data.db.room.entity.PlayList
-import remix.myplayer.data.model.audio.APlayerModel
-import remix.myplayer.data.model.audio.Album
-import remix.myplayer.data.model.audio.Artist
-import remix.myplayer.data.model.audio.Folder
-import remix.myplayer.data.model.audio.Genre
-import remix.myplayer.helper.SortOrder
-import remix.myplayer.ui.nav.LocalNavController
-import remix.myplayer.ui.nav.RouteCustomSort
-import remix.myplayer.ui.theme.LocalTheme
-import remix.myplayer.viewmodel.settingViewModel
-import remix.myplayer.viewmodel.settings.SettingViewModel
-import remix.myplayer.viewmodel.settings.SettingsState
-import remix.myplayer.viewmodel.settings.SortCategory
+import com.krithi.R
+import com.krithi.data.db.room.entity.PlayList
+import com.krithi.data.model.audio.APlayerModel
+import com.krithi.data.model.audio.Album
+import com.krithi.data.model.audio.Artist
+import com.krithi.data.model.audio.Folder
+import com.krithi.data.model.audio.Genre
+import com.krithi.helper.SortOrder
+import com.krithi.ui.nav.LocalNavController
+import com.krithi.ui.nav.RouteCustomSort
+import com.krithi.ui.theme.LocalTheme
+import com.krithi.viewmodel.settingViewModel
+import com.krithi.viewmodel.settings.SettingViewModel
+import com.krithi.viewmodel.settings.SettingsState
+import com.krithi.viewmodel.settings.SortCategory
 
 @Composable
 fun DetailPopupButton(model: APlayerModel, onSortOrderChange: () -> Unit) {
