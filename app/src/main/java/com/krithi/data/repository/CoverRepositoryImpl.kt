@@ -43,4 +43,32 @@ class CoverRepositoryImpl @Inject constructor(
             prefs.edit().putString(songId.toString(), uri).apply()
         }
     }
+
+    override fun getCustomTitle(songId: Long): String? {
+        return prefs.getString("title_$songId", null)
+    }
+
+    override fun observeCustomTitle(songId: Long): Flow<String?> = callbackFlow {
+        val key = "title_$songId"
+        trySend(prefs.getString(key, null))
+
+        val listener = SharedPreferences.OnSharedPreferenceChangeListener { sharedPreferences, changedKey ->
+            if (changedKey == key) {
+                trySend(sharedPreferences.getString(key, null))
+            }
+        }
+        prefs.registerOnSharedPreferenceChangeListener(listener)
+        awaitClose {
+            prefs.unregisterOnSharedPreferenceChangeListener(listener)
+        }
+    }
+
+    override fun setCustomTitle(songId: Long, title: String?) {
+        val key = "title_$songId"
+        if (title == null) {
+            prefs.edit().remove(key).apply()
+        } else {
+            prefs.edit().putString(key, title).apply()
+        }
+    }
 }

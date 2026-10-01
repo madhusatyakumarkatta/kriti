@@ -6,13 +6,15 @@ import android.net.Uri
 import android.provider.MediaStore
 import com.krithi.domain.model.Album
 import com.krithi.domain.model.Song
+import com.krithi.domain.repository.CoverRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 class MediaStoreDataSource @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val coverRepository: CoverRepository
 ) {
     suspend fun getSongs(): List<Song> = withContext(Dispatchers.IO) {
         val songs = mutableListOf<Song>()
@@ -73,12 +75,14 @@ class MediaStoreDataSource @Inject constructor(
                 val dataPath = cursor.getString(dataColumn) ?: ""
                 val folder = dataPath.substringBeforeLast("/")
 
+                val customTitle = coverRepository.getCustomTitle(id)
+
                 songs.add(
                     Song(
                         id = id,
                         mediaStoreId = id,
                         uri = contentUri,
-                        title = cursor.getString(titleColumn) ?: "Unknown",
+                        title = customTitle ?: cursor.getString(titleColumn) ?: "Unknown",
                         artist = cursor.getString(artistColumn) ?: "Unknown Artist",
                         album = cursor.getString(albumColumn) ?: "Unknown Album",
                         albumId = cursor.getLong(albumIdColumn),
@@ -91,7 +95,8 @@ class MediaStoreDataSource @Inject constructor(
                         dateAdded = cursor.getLong(dateAddedColumn),
                         fileSize = cursor.getLong(sizeColumn),
                         mimeType = cursor.getString(mimeTypeColumn) ?: "",
-                        folder = folder
+                        folder = folder,
+                        customCoverUri = coverRepository.getCustomCoverUri(id)
                     )
                 )
             }
