@@ -179,7 +179,7 @@ android {
         includeInApk = false
     }
 
-    dynamicFeatures += setOf(":feature_smb")
+    // dynamicFeatures += setOf(":feature_smb")
 
     room {
         schemaDirectory("$projectDir/schemas")
