@@ -73,6 +73,9 @@ dependencies {
 
     // Coil
     implementation("io.coil-kt:coil-compose:2.5.0")
+    
+    // Palette
+    implementation("androidx.palette:palette-ktx:1.0.0")
 
     // Media3 (Placeholder for Phase 2/3)
     val media3Version = "1.2.1"

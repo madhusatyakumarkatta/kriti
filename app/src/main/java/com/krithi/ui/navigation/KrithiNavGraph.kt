@@ -103,7 +103,11 @@ fun KrithiNavGraph(
                         )
                     }
                 }
-                composable("search") { SearchScreen() }
+                composable("search") { 
+                    SearchScreen(
+                        onNavigateToAlbum = { albumId -> navController.navigate("album/$albumId") }
+                    ) 
+                }
                 composable("now_playing") { 
                     NowPlayingScreen(onBack = { navController.popBackStack() }) 
                 }

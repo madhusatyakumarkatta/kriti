@@ -28,6 +28,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.media3.common.Player
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import coil.request.SuccessResult
+import coil.imageLoader
+import androidx.palette.graphics.Palette
+import androidx.core.graphics.drawable.toBitmap
 import com.krithi.ui.SharedPlaybackViewModel
 import com.krithi.ui.theme.BackgroundDark
 import com.krithi.ui.theme.PrimaryAccent
@@ -35,6 +39,10 @@ import com.krithi.ui.theme.PrimaryTextDark
 import com.krithi.ui.theme.SecondaryTextDark
 import com.krithi.ui.theme.SurfaceVariantDark
 import java.util.Locale
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.graphics.Color
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.tween
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -53,6 +61,45 @@ fun NowPlayingScreen(
     val isFavorite by viewModel.isFavorite.collectAsState()
 
     val context = LocalContext.current
+    
+    val dominantColor = remember { mutableStateOf(BackgroundDark) }
+    val animatedBackgroundColor by animateColorAsState(
+        targetValue = dominantColor.value,
+        animationSpec = tween(durationMillis = 1000)
+    )
+
+    val currentUri = customCoverUri ?: currentSong?.uri?.toString()
+    LaunchedEffect(currentUri) {
+        if (currentUri != null) {
+            try {
+                val request = ImageRequest.Builder(context)
+                    .data(currentUri)
+                    .allowHardware(false)
+                    .build()
+                val result = context.imageLoader.execute(request)
+                if (result is SuccessResult) {
+                    val bitmap = result.drawable.toBitmap()
+                    Palette.from(bitmap).generate { palette ->
+                        palette?.dominantSwatch?.rgb?.let { colorInt ->
+                            val color = Color(colorInt)
+                            dominantColor.value = Color(
+                                red = color.red,
+                                green = color.green,
+                                blue = color.blue,
+                                alpha = 1f
+                            ).copy(alpha = 0.5f) // Mix it with dark background by turning down alpha
+                        } ?: run {
+                            dominantColor.value = BackgroundDark
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                dominantColor.value = BackgroundDark
+            }
+        } else {
+            dominantColor.value = BackgroundDark
+        }
+    }
     val photoPickerLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.PickVisualMedia(),
         onResult = { uri ->
@@ -69,7 +116,7 @@ fun NowPlayingScreen(
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(BackgroundDark)
+            .background(animatedBackgroundColor)
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
