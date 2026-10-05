@@ -1,9 +1,11 @@
 package com.krithi.di
 
 import com.krithi.data.repository.CoverRepositoryImpl
+import com.krithi.data.repository.FavoriteRepositoryImpl
 import com.krithi.data.repository.MusicRepositoryImpl
 import com.krithi.data.repository.PlaylistRepositoryImpl
 import com.krithi.domain.repository.CoverRepository
+import com.krithi.domain.repository.FavoriteRepository
 import com.krithi.domain.repository.MusicRepository
 import com.krithi.domain.repository.PlaylistRepository
 import dagger.Binds
@@ -33,4 +35,10 @@ abstract class DataModule {
     abstract fun bindPlaylistRepository(
         playlistRepositoryImpl: PlaylistRepositoryImpl
     ): PlaylistRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindFavoriteRepository(
+        favoriteRepositoryImpl: FavoriteRepositoryImpl
+    ): FavoriteRepository
 }

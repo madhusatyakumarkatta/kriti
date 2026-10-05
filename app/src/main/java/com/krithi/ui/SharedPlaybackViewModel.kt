@@ -15,6 +15,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 import com.krithi.domain.repository.CoverRepository
+import com.krithi.domain.repository.FavoriteRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.flatMapLatest
@@ -24,7 +25,8 @@ import kotlinx.coroutines.flow.stateIn
 @HiltViewModel
 class SharedPlaybackViewModel @Inject constructor(
     private val playerManager: PlayerManager,
-    private val coverRepository: CoverRepository
+    private val coverRepository: CoverRepository,
+    private val favoriteRepository: FavoriteRepository
 ) : ViewModel() {
 
     val currentSong: StateFlow<Song?> = playerManager.currentSong
@@ -39,6 +41,15 @@ class SharedPlaybackViewModel @Inject constructor(
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), null)
 
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val isFavorite: StateFlow<Boolean> = currentSong.flatMapLatest { song ->
+        if (song != null) {
+            favoriteRepository.isFavorite(song.id)
+        } else {
+            flowOf(false)
+        }
+    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), false)
+
     private val _currentPosition = MutableStateFlow(0L)
     val currentPosition: StateFlow<Long> = _currentPosition.asStateFlow()
 
@@ -48,6 +59,9 @@ class SharedPlaybackViewModel @Inject constructor(
     private val _repeatMode = MutableStateFlow(Player.REPEAT_MODE_OFF)
     val repeatMode: StateFlow<Int> = _repeatMode.asStateFlow()
 
+    private val _shuffleModeEnabled = MutableStateFlow(false)
+    val shuffleModeEnabled: StateFlow<Boolean> = _shuffleModeEnabled.asStateFlow()
+
     init {
         viewModelScope.launch {
             while (isActive) {
@@ -55,6 +69,7 @@ class SharedPlaybackViewModel @Inject constructor(
                     _currentPosition.value = playerManager.getCurrentPosition()
                     _duration.value = playerManager.getDuration()
                     _repeatMode.value = playerManager.getRepeatMode()
+                    _shuffleModeEnabled.value = playerManager.getShuffleModeEnabled()
                 }
                 delay(1000) // Update every second
             }
@@ -86,12 +101,29 @@ class SharedPlaybackViewModel @Inject constructor(
         playerManager.toggleRepeatMode()
         _repeatMode.value = playerManager.getRepeatMode()
     }
+    
+    fun toggleShuffleMode() {
+        playerManager.toggleShuffleMode()
+        _shuffleModeEnabled.value = playerManager.getShuffleModeEnabled()
+    }
 
     fun setCustomCover(songId: Long, uri: String?) {
         coverRepository.setCustomCoverUri(songId, uri)
     }
 
     fun renameSong(songId: Long, newName: String) {
+        coverRepository.setCustomTitle(songId, newName)
         playerManager.renameSong(songId, newName)
+    }
+
+    fun toggleFavorite() {
+        val song = currentSong.value ?: return
+        viewModelScope.launch {
+            if (isFavorite.value) {
+                favoriteRepository.removeFavorite(song.id)
+            } else {
+                favoriteRepository.addFavorite(song.id)
+            }
+        }
     }
 }

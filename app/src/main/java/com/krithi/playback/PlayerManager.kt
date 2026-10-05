@@ -112,6 +112,14 @@ class PlayerManager @Inject constructor(
     
     fun getRepeatMode(): Int = mediaController?.repeatMode ?: Player.REPEAT_MODE_OFF
 
+    fun toggleShuffleMode() {
+        mediaController?.let { controller ->
+            controller.shuffleModeEnabled = !controller.shuffleModeEnabled
+        }
+    }
+    
+    fun getShuffleModeEnabled(): Boolean = mediaController?.shuffleModeEnabled ?: false
+
     fun renameSong(songId: Long, newName: String) {
         // Find in current playlist
         val index = currentPlaylist.indexOfFirst { it.id == songId }

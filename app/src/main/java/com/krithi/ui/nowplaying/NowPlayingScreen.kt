@@ -49,6 +49,8 @@ fun NowPlayingScreen(
     val duration by viewModel.duration.collectAsState()
     val customCoverUri by viewModel.customCoverUri.collectAsState()
     val repeatMode by viewModel.repeatMode.collectAsState()
+    val shuffleModeEnabled by viewModel.shuffleModeEnabled.collectAsState()
+    val isFavorite by viewModel.isFavorite.collectAsState()
 
     val context = LocalContext.current
     val photoPickerLauncher = rememberLauncherForActivityResult(
@@ -190,8 +192,12 @@ fun NowPlayingScreen(
                     overflow = TextOverflow.Ellipsis
                 )
             }
-            IconButton(onClick = { /* TODO: Favorite */ }) {
-                Icon(Icons.Default.FavoriteBorder, contentDescription = "Favorite", tint = PrimaryTextDark)
+            IconButton(onClick = { viewModel.toggleFavorite() }) {
+                Icon(
+                    imageVector = if (isFavorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder, 
+                    contentDescription = "Favorite", 
+                    tint = if (isFavorite) PrimaryAccent else PrimaryTextDark
+                )
             }
         }
 
@@ -227,7 +233,13 @@ fun NowPlayingScreen(
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            IconButton(onClick = {}) { Icon(Icons.Default.Shuffle, contentDescription = "Shuffle", tint = PrimaryTextDark) }
+            IconButton(onClick = { viewModel.toggleShuffleMode() }) { 
+                Icon(
+                    imageVector = Icons.Default.Shuffle, 
+                    contentDescription = "Shuffle", 
+                    tint = if (shuffleModeEnabled) PrimaryAccent else PrimaryTextDark
+                ) 
+            }
             IconButton(onClick = { viewModel.skipToPrevious() }) { Icon(Icons.Default.SkipPrevious, contentDescription = "Previous", tint = PrimaryTextDark, modifier = Modifier.size(36.dp)) }
             
             FloatingActionButton(
