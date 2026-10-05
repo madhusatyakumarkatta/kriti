@@ -29,6 +29,7 @@ class SharedPlaybackViewModel @Inject constructor(
     private val favoriteRepository: FavoriteRepository
 ) : ViewModel() {
 
+    val currentPlaylist: StateFlow<List<Song>> = playerManager.currentPlaylistFlow
     val currentSong: StateFlow<Song?> = playerManager.currentSong
     val isPlaying: StateFlow<Boolean> = playerManager.isPlaying
 

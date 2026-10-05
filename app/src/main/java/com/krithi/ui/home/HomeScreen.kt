@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.MusicNote
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -26,6 +27,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.krithi.domain.model.Song
+import com.krithi.ui.theme.PrimaryAccent
 import com.krithi.ui.theme.PrimaryTextDark
 import com.krithi.ui.theme.SecondaryTextDark
 import com.krithi.ui.theme.SurfaceVariantDark
@@ -33,7 +35,8 @@ import com.krithi.ui.theme.SurfaceVariantDark
 @Composable
 fun HomeScreen(
     modifier: Modifier = Modifier,
-    viewModel: HomeViewModel = hiltViewModel()
+    viewModel: HomeViewModel = hiltViewModel(),
+    onNavigateToFavorites: () -> Unit
 ) {
     val songs by viewModel.songs.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
@@ -87,6 +90,9 @@ fun HomeScreen(
                 modifier = Modifier.fillMaxSize(),
                 contentPadding = PaddingValues(bottom = 80.dp) // padding for miniplayer
             ) {
+                item {
+                    FavoritesBanner(onClick = onNavigateToFavorites)
+                }
                 itemsIndexed(songs, key = { _, song -> song.id }) { index, song ->
                     SongListItem(
                         song = song,
@@ -95,6 +101,30 @@ fun HomeScreen(
                 }
             }
         }
+    }
+}
+
+@Composable
+fun FavoritesBanner(onClick: () -> Unit) {
+    Row(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable { onClick() }
+            .padding(16.dp),
+        verticalAlignment = Alignment.CenterVertically
+    ) {
+        Icon(
+            imageVector = Icons.Default.Favorite,
+            contentDescription = "Favorites",
+            tint = PrimaryAccent,
+            modifier = Modifier.size(32.dp)
+        )
+        Spacer(modifier = Modifier.width(16.dp))
+        Text(
+            text = "Your Favorites",
+            color = PrimaryTextDark,
+            style = MaterialTheme.typography.titleMedium
+        )
     }
 }
 

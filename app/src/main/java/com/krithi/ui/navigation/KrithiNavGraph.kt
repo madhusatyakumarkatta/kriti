@@ -30,6 +30,7 @@ import com.krithi.ui.theme.PrimaryTextDark
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
+import com.krithi.ui.favorites.FavoritesScreen
 
 @Composable
 fun KrithiNavGraph(
@@ -90,7 +91,9 @@ fun KrithiNavGraph(
                 navController = navController,
                 startDestination = "home"
             ) {
-                composable("home") { HomeScreen() }
+                composable("home") { 
+                    HomeScreen(onNavigateToFavorites = { navController.navigate("favorites") }) 
+                }
                 composable("library") { LibraryScreen(
                     onNavigateToAlbum = { albumId -> navController.navigate("album/$albumId") }
                 ) }
@@ -108,10 +111,17 @@ fun KrithiNavGraph(
                         onNavigateToAlbum = { albumId -> navController.navigate("album/$albumId") }
                     ) 
                 }
-                composable("now_playing") { 
+                composable("favorites") {
+                    FavoritesScreen(onBack = { navController.popBackStack() })
+                }
+                composable(
+                    route = "now_playing",
+                    enterTransition = { slideInVertically(initialOffsetY = { it }) },
+                    exitTransition = { slideOutVertically(targetOffsetY = { it }) }
+                ) { 
                     NowPlayingScreen(onBack = { navController.popBackStack() }) 
                 }
-                composable("settings") { SettingsScreen() }
+                composable("settings") { SettingsScreen(onBack = { navController.popBackStack() }) }
             }
         }
     }

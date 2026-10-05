@@ -7,6 +7,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -43,6 +45,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.lazy.LazyColumn
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -59,6 +62,7 @@ fun NowPlayingScreen(
     val repeatMode by viewModel.repeatMode.collectAsState()
     val shuffleModeEnabled by viewModel.shuffleModeEnabled.collectAsState()
     val isFavorite by viewModel.isFavorite.collectAsState()
+    val currentPlaylist by viewModel.currentPlaylist.collectAsState()
 
     val context = LocalContext.current
     
@@ -113,6 +117,8 @@ fun NowPlayingScreen(
         }
     )
 
+    val showQueueBottomSheet = remember { mutableStateOf(false) }
+
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -130,8 +136,8 @@ fun NowPlayingScreen(
                 Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Back", tint = PrimaryTextDark)
             }
             Text("Now Playing", style = MaterialTheme.typography.titleMedium, color = PrimaryTextDark)
-            IconButton(onClick = { /* TODO: Info */ }) {
-                Icon(Icons.Default.Info, contentDescription = "Info", tint = PrimaryTextDark)
+            IconButton(onClick = { showQueueBottomSheet.value = true }) {
+                Icon(Icons.Default.Menu, contentDescription = "Queue", tint = PrimaryTextDark)
             }
         }
 
@@ -313,6 +319,64 @@ fun NowPlayingScreen(
         }
 
         Spacer(modifier = Modifier.height(32.dp))
+    }
+    
+    if (showQueueBottomSheet.value) {
+        ModalBottomSheet(
+            onDismissRequest = { showQueueBottomSheet.value = false },
+            containerColor = BackgroundDark
+        ) {
+            Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
+                Text(
+                    text = "Up Next",
+                    style = MaterialTheme.typography.titleLarge,
+                    color = PrimaryTextDark,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                )
+                LazyColumn(
+                    modifier = Modifier.fillMaxWidth().weight(1f, fill = false)
+                ) {
+                    items(currentPlaylist.size, key = { currentPlaylist[it].id }) { index ->
+                        val song = currentPlaylist[index]
+                        val isCurrent = song.id == currentSong?.id
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(if (isCurrent) SurfaceVariantDark else BackgroundDark, RoundedCornerShape(8.dp))
+                                .clickable {
+                                    viewModel.playSongs(currentPlaylist, index)
+                                }
+                                .padding(16.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = song.title,
+                                    color = if (isCurrent) PrimaryAccent else PrimaryTextDark,
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                                Text(
+                                    text = song.artist,
+                                    color = SecondaryTextDark,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                            }
+                            if (isCurrent) {
+                                Icon(
+                                    imageVector = Icons.Default.PlayArrow,
+                                    contentDescription = "Playing",
+                                    tint = PrimaryAccent
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

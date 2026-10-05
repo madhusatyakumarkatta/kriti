@@ -28,7 +28,12 @@ class PlayerManager @Inject constructor(
     private val _isPlaying = MutableStateFlow(false)
     val isPlaying: StateFlow<Boolean> = _isPlaying.asStateFlow()
 
-    private var currentPlaylist: List<Song> = emptyList()
+    private val _currentPlaylistFlow = MutableStateFlow<List<Song>>(emptyList())
+    val currentPlaylistFlow: StateFlow<List<Song>> = _currentPlaylistFlow.asStateFlow()
+
+    private var currentPlaylist: List<Song>
+        get() = _currentPlaylistFlow.value
+        set(value) { _currentPlaylistFlow.value = value }
 
     suspend fun initialize() {
         if (mediaController != null) return
