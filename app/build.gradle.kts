@@ -77,6 +77,9 @@ dependencies {
     // Palette
     implementation("androidx.palette:palette-ktx:1.0.0")
 
+    // JAudioTagger for Lyrics
+    implementation("net.jthink:jaudiotagger:3.0.1")
+
     // Media3 (Placeholder for Phase 2/3)
     val media3Version = "1.2.1"
     implementation("androidx.media3:media3-exoplayer:$media3Version")
