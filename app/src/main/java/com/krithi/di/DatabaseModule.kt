@@ -3,6 +3,7 @@ package com.krithi.di
 import android.content.Context
 import androidx.room.Room
 import com.krithi.data.local.dao.FavoriteDao
+import com.krithi.data.local.dao.HistoryDao
 import com.krithi.data.local.database.KrithiDatabase
 import com.krithi.data.local.dao.PlaylistDao
 import dagger.Module
@@ -34,5 +35,10 @@ object DatabaseModule {
     @Provides
     fun provideFavoriteDao(database: KrithiDatabase): FavoriteDao {
         return database.favoriteDao
+    }
+
+    @Provides
+    fun provideHistoryDao(database: KrithiDatabase): HistoryDao {
+        return database.historyDao
     }
 }

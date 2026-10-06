@@ -46,6 +46,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.ui.text.style.TextAlign
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -63,8 +64,11 @@ fun NowPlayingScreen(
     val shuffleModeEnabled by viewModel.shuffleModeEnabled.collectAsState()
     val isFavorite by viewModel.isFavorite.collectAsState()
     val currentPlaylist by viewModel.currentPlaylist.collectAsState()
+    val sleepTimerTimeRemaining by viewModel.sleepTimerTimeRemaining.collectAsState()
 
     val context = LocalContext.current
+    
+    val showLyrics = remember { mutableStateOf(false) }
     
     val dominantColor = remember { mutableStateOf(BackgroundDark) }
     val animatedBackgroundColor by animateColorAsState(
@@ -135,89 +139,134 @@ fun NowPlayingScreen(
             IconButton(onClick = onBack) {
                 Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Back", tint = PrimaryTextDark)
             }
-            Text("Now Playing", style = MaterialTheme.typography.titleMedium, color = PrimaryTextDark)
-            IconButton(onClick = { showQueueBottomSheet.value = true }) {
-                Icon(Icons.Default.Menu, contentDescription = "Queue", tint = PrimaryTextDark)
+            Row {
+                Text("Now Playing", style = MaterialTheme.typography.titleMedium, color = if (!showLyrics.value) PrimaryTextDark else SecondaryTextDark, modifier = Modifier.clickable { showLyrics.value = false }.padding(horizontal = 8.dp))
+                Text("Lyrics", style = MaterialTheme.typography.titleMedium, color = if (showLyrics.value) PrimaryTextDark else SecondaryTextDark, modifier = Modifier.clickable { showLyrics.value = true }.padding(horizontal = 8.dp))
+            }
+            Row {
+                val showSleepTimerMenu = remember { mutableStateOf(false) }
+                Box {
+                    IconButton(onClick = { showSleepTimerMenu.value = true }) {
+                        Icon(Icons.Default.Timer, contentDescription = "Sleep Timer", tint = if (sleepTimerTimeRemaining != null) PrimaryAccent else PrimaryTextDark)
+                    }
+                    DropdownMenu(
+                        expanded = showSleepTimerMenu.value,
+                        onDismissRequest = { showSleepTimerMenu.value = false },
+                        modifier = Modifier.background(SurfaceVariantDark)
+                    ) {
+                        listOf(0, 5, 15, 30, 45, 60).forEach { mins ->
+                            DropdownMenuItem(
+                                text = { Text(if (mins == 0) "Off" else "$mins minutes", color = PrimaryTextDark) },
+                                onClick = {
+                                    viewModel.setSleepTimer(mins)
+                                    showSleepTimerMenu.value = false
+                                }
+                            )
+                        }
+                    }
+                }
+                IconButton(onClick = { showQueueBottomSheet.value = true }) {
+                    Icon(Icons.Default.Menu, contentDescription = "Queue", tint = PrimaryTextDark)
+                }
             }
         }
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Album Art
-        Box(
-            modifier = Modifier
-                .aspectRatio(1f)
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(32.dp))
-                .background(SurfaceVariantDark)
-                .clickable {
-                    photoPickerLauncher.launch(
-                        PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
-                    )
-                }
-        ) {
-            AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(customCoverUri ?: currentSong?.uri ?: "https://placeholder.com/500") 
-                    .crossfade(true)
-                    .build(),
-                contentDescription = "Large Album Art",
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize()
-            )
-            
-            val showRenameDialog = remember { mutableStateOf(false) }
-            
-            // Edit icon overlay
+        if (showLyrics.value) {
             Box(
                 modifier = Modifier
-                    .align(Alignment.BottomEnd)
-                    .padding(16.dp)
-                    .background(BackgroundDark.copy(alpha = 0.7f), RoundedCornerShape(50))
-                    .clickable { showRenameDialog.value = true }
-                    .padding(8.dp)
+                    .aspectRatio(1f)
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(32.dp))
+                    .background(SurfaceVariantDark.copy(alpha = 0.5f))
+                    .padding(16.dp),
+                contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    imageVector = Icons.Default.Edit,
-                    contentDescription = "Edit Song Name",
-                    tint = PrimaryTextDark,
-                    modifier = Modifier.size(24.dp)
+                Text(
+                    text = "Lyrics not found for this song.\n\n(ID3 Lyrics extraction coming soon)",
+                    color = SecondaryTextDark,
+                    style = MaterialTheme.typography.bodyLarge,
+                    textAlign = TextAlign.Center
                 )
             }
-            
-            if (showRenameDialog.value) {
-                val newName = remember { mutableStateOf(currentSong?.title ?: "") }
-                AlertDialog(
-                    onDismissRequest = { showRenameDialog.value = false },
-                    title = { Text("Rename Song", color = PrimaryTextDark) },
-                    text = {
-                        OutlinedTextField(
-                            value = newName.value,
-                            onValueChange = { newName.value = it },
-                            label = { Text("Song Name") },
-                            colors = OutlinedTextFieldDefaults.colors(
-                                focusedTextColor = PrimaryTextDark,
-                                unfocusedTextColor = PrimaryTextDark
-                            )
+        } else {
+            // Album Art
+            Box(
+                modifier = Modifier
+                    .aspectRatio(1f)
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(32.dp))
+                    .background(SurfaceVariantDark)
+                    .clickable {
+                        photoPickerLauncher.launch(
+                            PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
                         )
-                    },
-                    confirmButton = {
-                        Button(onClick = {
-                            currentSong?.let {
-                                viewModel.renameSong(it.id, newName.value)
-                            }
-                            showRenameDialog.value = false
-                        }) {
-                            Text("Save")
-                        }
-                    },
-                    dismissButton = {
-                        TextButton(onClick = { showRenameDialog.value = false }) {
-                            Text("Cancel")
-                        }
-                    },
-                    containerColor = BackgroundDark
+                    }
+            ) {
+                AsyncImage(
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(customCoverUri ?: currentSong?.uri ?: "https://placeholder.com/500") 
+                        .crossfade(true)
+                        .build(),
+                    contentDescription = "Large Album Art",
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize()
                 )
+                
+                val showRenameDialog = remember { mutableStateOf(false) }
+                
+                // Edit icon overlay
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.BottomEnd)
+                        .padding(16.dp)
+                        .background(BackgroundDark.copy(alpha = 0.7f), RoundedCornerShape(50))
+                        .clickable { showRenameDialog.value = true }
+                        .padding(8.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Edit,
+                        contentDescription = "Edit Song Name",
+                        tint = PrimaryTextDark,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+                
+                if (showRenameDialog.value) {
+                    val newName = remember { mutableStateOf(currentSong?.title ?: "") }
+                    AlertDialog(
+                        onDismissRequest = { showRenameDialog.value = false },
+                        title = { Text("Rename Song", color = PrimaryTextDark) },
+                        text = {
+                            OutlinedTextField(
+                                value = newName.value,
+                                onValueChange = { newName.value = it },
+                                label = { Text("Song Name") },
+                                colors = OutlinedTextFieldDefaults.colors(
+                                    focusedTextColor = PrimaryTextDark,
+                                    unfocusedTextColor = PrimaryTextDark
+                                )
+                            )
+                        },
+                        confirmButton = {
+                            Button(onClick = {
+                                currentSong?.let {
+                                    viewModel.renameSong(it.id, newName.value)
+                                }
+                                showRenameDialog.value = false
+                            }) {
+                                Text("Save")
+                            }
+                        },
+                        dismissButton = {
+                            TextButton(onClick = { showRenameDialog.value = false }) {
+                                Text("Cancel")
+                            }
+                        },
+                        containerColor = BackgroundDark
+                    )
+                }
             }
         }
 

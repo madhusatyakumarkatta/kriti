@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.krithi.domain.model.Song
 import com.krithi.domain.repository.MusicRepository
+import com.krithi.domain.repository.HistoryRepository
 import com.krithi.playback.PlayerManager
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -15,11 +16,15 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val musicRepository: MusicRepository,
+    private val historyRepository: HistoryRepository,
     private val playerManager: PlayerManager
 ) : ViewModel() {
 
     private val _songs = MutableStateFlow<List<Song>>(emptyList())
     val songs: StateFlow<List<Song>> = _songs.asStateFlow()
+
+    private val _recentSongs = MutableStateFlow<List<Song>>(emptyList())
+    val recentSongs: StateFlow<List<Song>> = _recentSongs.asStateFlow()
 
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading.asStateFlow()
@@ -37,6 +42,12 @@ class HomeViewModel @Inject constructor(
             val loadedSongs = musicRepository.getSongs()
             _songs.value = loadedSongs
             _isLoading.value = false
+            
+            // load history
+            historyRepository.getRecentHistorySongIds().collect { ids ->
+                val songMap = loadedSongs.associateBy { it.id }
+                _recentSongs.value = ids.mapNotNull { songMap[it] }.distinct()
+            }
         }
     }
 

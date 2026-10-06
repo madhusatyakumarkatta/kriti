@@ -31,6 +31,7 @@ class SharedPlaybackViewModel @Inject constructor(
 
     val currentPlaylist: StateFlow<List<Song>> = playerManager.currentPlaylistFlow
     val currentSong: StateFlow<Song?> = playerManager.currentSong
+    val sleepTimerTimeRemaining: StateFlow<Long?> = playerManager.sleepTimerTimeRemaining
     val isPlaying: StateFlow<Boolean> = playerManager.isPlaying
 
     @OptIn(ExperimentalCoroutinesApi::class)
@@ -126,5 +127,9 @@ class SharedPlaybackViewModel @Inject constructor(
                 favoriteRepository.addFavorite(song.id)
             }
         }
+    }
+
+    fun setSleepTimer(minutes: Int) {
+        playerManager.setSleepTimer(minutes)
     }
 }
