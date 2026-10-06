@@ -30,6 +30,7 @@ import com.krithi.ui.theme.PrimaryTextDark
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
+import androidx.navigation.navDeepLink
 import com.krithi.ui.favorites.FavoritesScreen
 
 @Composable
@@ -106,12 +107,18 @@ fun KrithiNavGraph(
                         )
                     }
                 }
-                composable("search") { 
+                composable(
+                    route = "search",
+                    deepLinks = listOf(navDeepLink { uriPattern = "krithi://shortcuts/search" })
+                ) { 
                     SearchScreen(
                         onNavigateToAlbum = { albumId -> navController.navigate("album/$albumId") }
                     ) 
                 }
-                composable("favorites") {
+                composable(
+                    route = "favorites",
+                    deepLinks = listOf(navDeepLink { uriPattern = "krithi://shortcuts/favorites" })
+                ) {
                     FavoritesScreen(onBack = { navController.popBackStack() })
                 }
                 composable(

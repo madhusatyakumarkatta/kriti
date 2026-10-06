@@ -21,6 +21,13 @@ import android.content.IntentSender
 import android.os.Build
 import com.krithi.playback.PlayerManager
 
+enum class SortOption {
+    TITLE_ASC,
+    TITLE_DESC,
+    DATE_ADDED,
+    DURATION_DESC
+}
+
 @HiltViewModel
 class LibraryViewModel @Inject constructor(
     private val getSongsUseCase: GetSongsUseCase,
@@ -31,6 +38,9 @@ class LibraryViewModel @Inject constructor(
 
     private val _uiState = MutableStateFlow<LibraryUiState>(LibraryUiState.PermissionRequired)
     val uiState: StateFlow<LibraryUiState> = _uiState.asStateFlow()
+    
+    private val _sortOption = MutableStateFlow(SortOption.TITLE_ASC)
+    val sortOption: StateFlow<SortOption> = _sortOption.asStateFlow()
     
     private val _playlists = MutableStateFlow<List<Playlist>>(emptyList())
     val playlists: StateFlow<List<Playlist>> = _playlists.asStateFlow()
@@ -66,8 +76,16 @@ class LibraryViewModel @Inject constructor(
     fun loadLibrary() {
         viewModelScope.launch {
             try {
-                val songs = getSongsUseCase()
+                val baseSongs = getSongsUseCase()
                 val albums = getAlbumsUseCase()
+                
+                val songs = when (_sortOption.value) {
+                    SortOption.TITLE_ASC -> baseSongs.sortedBy { it.title.lowercase() }
+                    SortOption.TITLE_DESC -> baseSongs.sortedByDescending { it.title.lowercase() }
+                    SortOption.DATE_ADDED -> baseSongs.sortedByDescending { it.dateAdded }
+                    SortOption.DURATION_DESC -> baseSongs.sortedByDescending { it.duration }
+                }
+
                 if (songs.isEmpty() && albums.isEmpty()) {
                     _uiState.value = LibraryUiState.Empty
                 } else {
@@ -77,6 +95,11 @@ class LibraryViewModel @Inject constructor(
                 _uiState.value = LibraryUiState.Error(e.message ?: "Failed to load library")
             }
         }
+    }
+
+    fun setSortOption(option: SortOption) {
+        _sortOption.value = option
+        loadLibrary()
     }
 
     fun createPlaylist(name: String) {
