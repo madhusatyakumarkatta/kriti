@@ -5,6 +5,8 @@ import android.os.Build
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.itemsIndexed
@@ -16,6 +18,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Album
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Sort
 import androidx.compose.foundation.clickable
 import androidx.compose.material3.*
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
@@ -37,6 +40,7 @@ import androidx.activity.result.IntentSenderRequest
 import com.krithi.domain.model.Song
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import com.krithi.ui.theme.SurfaceVariantDark
 
 @Composable
 fun LibraryScreen(
@@ -47,6 +51,7 @@ fun LibraryScreen(
     val uiState by viewModel.uiState.collectAsState()
     val playlists by viewModel.playlists.collectAsState()
     val selectedPlaylistSongs by viewModel.selectedPlaylistSongs.collectAsState()
+    val sortOption by viewModel.sortOption.collectAsState()
     var selectedTabIndex by remember { mutableStateOf(0) }
     val tabs = listOf("Songs", "Albums", "Playlists")
     val context = LocalContext.current
@@ -128,24 +133,49 @@ fun LibraryScreen(
                 is LibraryUiState.Success -> {
                     when (selectedTabIndex) {
                         0 -> { // Songs
-                            LazyColumn(modifier = Modifier.fillMaxSize()) {
-                                itemsIndexed(state.songs, key = { _, it -> it.id }) { index, song ->
-                                    SongRow(song = song, onClick = { 
-                                        viewModel.playSongs(state.songs, index)
-                                    }, onOptionsClick = { action ->
-                                        if (action == "delete") {
-                                            val intentSender = viewModel.getDeleteIntentSender(context, song.uri)
-                                            if (intentSender != null) {
-                                                deleteLauncher.launch(IntentSenderRequest.Builder(intentSender).build())
-                                            } else {
-                                                if (viewModel.deleteSongLegacy(context, song.uri)) {
-                                                    viewModel.loadLibrary()
-                                                }
-                                            }
-                                        } else if (action == "add_to_playlist") {
-                                            showPlaylistDialog = song
+                            var showSortMenu by remember { mutableStateOf(false) }
+                            Column {
+                                Row(
+                                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 8.dp),
+                                    horizontalArrangement = Arrangement.SpaceBetween,
+                                    verticalAlignment = Alignment.CenterVertically
+                                ) {
+                                    Text("All Songs", style = MaterialTheme.typography.titleMedium, color = PrimaryTextDark)
+                                    Box {
+                                        IconButton(onClick = { showSortMenu = true }) {
+                                            Icon(Icons.Default.Sort, contentDescription = "Sort", tint = PrimaryTextDark)
                                         }
-                                    })
+                                        DropdownMenu(
+                                            expanded = showSortMenu,
+                                            onDismissRequest = { showSortMenu = false },
+                                            modifier = Modifier.background(SurfaceVariantDark)
+                                        ) {
+                                            DropdownMenuItem(text = { Text("Title (A-Z)", color = PrimaryTextDark) }, onClick = { viewModel.setSortOption(SortOption.TITLE_ASC); showSortMenu = false })
+                                            DropdownMenuItem(text = { Text("Title (Z-A)", color = PrimaryTextDark) }, onClick = { viewModel.setSortOption(SortOption.TITLE_DESC); showSortMenu = false })
+                                            DropdownMenuItem(text = { Text("Recently Added", color = PrimaryTextDark) }, onClick = { viewModel.setSortOption(SortOption.DATE_ADDED); showSortMenu = false })
+                                            DropdownMenuItem(text = { Text("Duration", color = PrimaryTextDark) }, onClick = { viewModel.setSortOption(SortOption.DURATION_DESC); showSortMenu = false })
+                                        }
+                                    }
+                                }
+                                LazyColumn(modifier = Modifier.fillMaxSize()) {
+                                    itemsIndexed(state.songs, key = { _, it -> it.id }) { index, song ->
+                                        SongRow(song = song, onClick = { 
+                                            viewModel.playSongs(state.songs, index)
+                                        }, onOptionsClick = { action ->
+                                            if (action == "delete") {
+                                                val intentSender = viewModel.getDeleteIntentSender(context, song.uri)
+                                                if (intentSender != null) {
+                                                    deleteLauncher.launch(IntentSenderRequest.Builder(intentSender).build())
+                                                } else {
+                                                    if (viewModel.deleteSongLegacy(context, song.uri)) {
+                                                        viewModel.loadLibrary()
+                                                    }
+                                                }
+                                            } else if (action == "add_to_playlist") {
+                                                showPlaylistDialog = song
+                                            }
+                                        })
+                                    }
                                 }
                             }
                         }

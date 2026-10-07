@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shortcut_favorites_short">Favorites</string>
+    <string name="shortcut_favorites_long">Play Favorites</string>
+    <string name="shortcut_search_short">Search</string>
+    <string name="shortcut_search_long">Search Music</string>
+    <string name="shortcut_disabled">Shortcut disabled</string>
+</resources>

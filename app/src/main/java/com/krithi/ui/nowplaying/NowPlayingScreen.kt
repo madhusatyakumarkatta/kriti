@@ -7,6 +7,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -28,6 +30,10 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.media3.common.Player
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import coil.request.SuccessResult
+import coil.imageLoader
+import androidx.palette.graphics.Palette
+import androidx.core.graphics.drawable.toBitmap
 import com.krithi.ui.SharedPlaybackViewModel
 import com.krithi.ui.theme.BackgroundDark
 import com.krithi.ui.theme.PrimaryAccent
@@ -35,6 +41,12 @@ import com.krithi.ui.theme.PrimaryTextDark
 import com.krithi.ui.theme.SecondaryTextDark
 import com.krithi.ui.theme.SurfaceVariantDark
 import java.util.Locale
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.graphics.Color
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.core.tween
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.ui.text.style.TextAlign
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -51,8 +63,52 @@ fun NowPlayingScreen(
     val repeatMode by viewModel.repeatMode.collectAsState()
     val shuffleModeEnabled by viewModel.shuffleModeEnabled.collectAsState()
     val isFavorite by viewModel.isFavorite.collectAsState()
+    val currentPlaylist by viewModel.currentPlaylist.collectAsState()
+    val sleepTimerTimeRemaining by viewModel.sleepTimerTimeRemaining.collectAsState()
+    val lyrics by viewModel.lyrics.collectAsState()
 
     val context = LocalContext.current
+    
+    val showLyrics = remember { mutableStateOf(false) }
+    
+    val dominantColor = remember { mutableStateOf(BackgroundDark) }
+    val animatedBackgroundColor by animateColorAsState(
+        targetValue = dominantColor.value,
+        animationSpec = tween(durationMillis = 1000)
+    )
+
+    val currentUri = customCoverUri ?: currentSong?.uri?.toString()
+    LaunchedEffect(currentUri) {
+        if (currentUri != null) {
+            try {
+                val request = ImageRequest.Builder(context)
+                    .data(currentUri)
+                    .allowHardware(false)
+                    .build()
+                val result = context.imageLoader.execute(request)
+                if (result is SuccessResult) {
+                    val bitmap = result.drawable.toBitmap()
+                    Palette.from(bitmap).generate { palette ->
+                        palette?.dominantSwatch?.rgb?.let { colorInt ->
+                            val color = Color(colorInt)
+                            dominantColor.value = Color(
+                                red = color.red,
+                                green = color.green,
+                                blue = color.blue,
+                                alpha = 1f
+                            ).copy(alpha = 0.5f) // Mix it with dark background by turning down alpha
+                        } ?: run {
+                            dominantColor.value = BackgroundDark
+                        }
+                    }
+                }
+            } catch (e: Exception) {
+                dominantColor.value = BackgroundDark
+            }
+        } else {
+            dominantColor.value = BackgroundDark
+        }
+    }
     val photoPickerLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.PickVisualMedia(),
         onResult = { uri ->
@@ -66,10 +122,12 @@ fun NowPlayingScreen(
         }
     )
 
+    val showQueueBottomSheet = remember { mutableStateOf(false) }
+
     Column(
         modifier = modifier
             .fillMaxSize()
-            .background(BackgroundDark)
+            .background(animatedBackgroundColor)
             .padding(24.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -82,89 +140,138 @@ fun NowPlayingScreen(
             IconButton(onClick = onBack) {
                 Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Back", tint = PrimaryTextDark)
             }
-            Text("Now Playing", style = MaterialTheme.typography.titleMedium, color = PrimaryTextDark)
-            IconButton(onClick = { /* TODO: Info */ }) {
-                Icon(Icons.Default.Info, contentDescription = "Info", tint = PrimaryTextDark)
+            Row {
+                Text("Now Playing", style = MaterialTheme.typography.titleMedium, color = if (!showLyrics.value) PrimaryTextDark else SecondaryTextDark, modifier = Modifier.clickable { showLyrics.value = false }.padding(horizontal = 8.dp))
+                Text("Lyrics", style = MaterialTheme.typography.titleMedium, color = if (showLyrics.value) PrimaryTextDark else SecondaryTextDark, modifier = Modifier.clickable { showLyrics.value = true }.padding(horizontal = 8.dp))
+            }
+            Row {
+                val showSleepTimerMenu = remember { mutableStateOf(false) }
+                Box {
+                    IconButton(onClick = { showSleepTimerMenu.value = true }) {
+                        Icon(Icons.Default.Timer, contentDescription = "Sleep Timer", tint = if (sleepTimerTimeRemaining != null) PrimaryAccent else PrimaryTextDark)
+                    }
+                    DropdownMenu(
+                        expanded = showSleepTimerMenu.value,
+                        onDismissRequest = { showSleepTimerMenu.value = false },
+                        modifier = Modifier.background(SurfaceVariantDark)
+                    ) {
+                        listOf(0, 5, 15, 30, 45, 60).forEach { mins ->
+                            DropdownMenuItem(
+                                text = { Text(if (mins == 0) "Off" else "$mins minutes", color = PrimaryTextDark) },
+                                onClick = {
+                                    viewModel.setSleepTimer(mins)
+                                    showSleepTimerMenu.value = false
+                                }
+                            )
+                        }
+                    }
+                }
+                IconButton(onClick = { showQueueBottomSheet.value = true }) {
+                    Icon(Icons.Default.Menu, contentDescription = "Queue", tint = PrimaryTextDark)
+                }
             }
         }
 
         Spacer(modifier = Modifier.height(32.dp))
 
-        // Album Art
-        Box(
-            modifier = Modifier
-                .aspectRatio(1f)
-                .fillMaxWidth()
-                .clip(RoundedCornerShape(32.dp))
-                .background(SurfaceVariantDark)
-                .clickable {
-                    photoPickerLauncher.launch(
-                        PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
-                    )
-                }
-        ) {
-            AsyncImage(
-                model = ImageRequest.Builder(LocalContext.current)
-                    .data(customCoverUri ?: currentSong?.uri ?: "https://placeholder.com/500") 
-                    .crossfade(true)
-                    .build(),
-                contentDescription = "Large Album Art",
-                contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize()
-            )
-            
-            val showRenameDialog = remember { mutableStateOf(false) }
-            
-            // Edit icon overlay
+        if (showLyrics.value) {
             Box(
                 modifier = Modifier
-                    .align(Alignment.BottomEnd)
-                    .padding(16.dp)
-                    .background(BackgroundDark.copy(alpha = 0.7f), RoundedCornerShape(50))
-                    .clickable { showRenameDialog.value = true }
-                    .padding(8.dp)
+                    .aspectRatio(1f)
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(32.dp))
+                    .background(SurfaceVariantDark.copy(alpha = 0.5f))
+                    .padding(16.dp),
+                contentAlignment = Alignment.Center
             ) {
-                Icon(
-                    imageVector = Icons.Default.Edit,
-                    contentDescription = "Edit Song Name",
-                    tint = PrimaryTextDark,
-                    modifier = Modifier.size(24.dp)
-                )
-            }
-            
-            if (showRenameDialog.value) {
-                val newName = remember { mutableStateOf(currentSong?.title ?: "") }
-                AlertDialog(
-                    onDismissRequest = { showRenameDialog.value = false },
-                    title = { Text("Rename Song", color = PrimaryTextDark) },
-                    text = {
-                        OutlinedTextField(
-                            value = newName.value,
-                            onValueChange = { newName.value = it },
-                            label = { Text("Song Name") },
-                            colors = OutlinedTextFieldDefaults.colors(
-                                focusedTextColor = PrimaryTextDark,
-                                unfocusedTextColor = PrimaryTextDark
-                            )
+                LazyColumn(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    item {
+                        Text(
+                            text = lyrics ?: "Lyrics not found for this song.\n\nMake sure the file contains embedded ID3 lyrics.",
+                            color = SecondaryTextDark,
+                            style = MaterialTheme.typography.bodyLarge,
+                            textAlign = TextAlign.Center
                         )
-                    },
-                    confirmButton = {
-                        Button(onClick = {
-                            currentSong?.let {
-                                viewModel.renameSong(it.id, newName.value)
-                            }
-                            showRenameDialog.value = false
-                        }) {
-                            Text("Save")
-                        }
-                    },
-                    dismissButton = {
-                        TextButton(onClick = { showRenameDialog.value = false }) {
-                            Text("Cancel")
-                        }
-                    },
-                    containerColor = BackgroundDark
+                    }
+                }
+            }
+        } else {
+            // Album Art
+            Box(
+                modifier = Modifier
+                    .aspectRatio(1f)
+                    .fillMaxWidth()
+                    .clip(RoundedCornerShape(32.dp))
+                    .background(SurfaceVariantDark)
+                    .clickable {
+                        photoPickerLauncher.launch(
+                            PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)
+                        )
+                    }
+            ) {
+                AsyncImage(
+                    model = ImageRequest.Builder(LocalContext.current)
+                        .data(customCoverUri ?: currentSong?.uri ?: "https://placeholder.com/500") 
+                        .crossfade(true)
+                        .build(),
+                    contentDescription = "Large Album Art",
+                    contentScale = ContentScale.Crop,
+                    modifier = Modifier.fillMaxSize()
                 )
+                
+                val showRenameDialog = remember { mutableStateOf(false) }
+                
+                // Edit icon overlay
+                Box(
+                    modifier = Modifier
+                        .align(Alignment.BottomEnd)
+                        .padding(16.dp)
+                        .background(BackgroundDark.copy(alpha = 0.7f), RoundedCornerShape(50))
+                        .clickable { showRenameDialog.value = true }
+                        .padding(8.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Default.Edit,
+                        contentDescription = "Edit Song Name",
+                        tint = PrimaryTextDark,
+                        modifier = Modifier.size(24.dp)
+                    )
+                }
+                
+                if (showRenameDialog.value) {
+                    val newName = remember { mutableStateOf(currentSong?.title ?: "") }
+                    AlertDialog(
+                        onDismissRequest = { showRenameDialog.value = false },
+                        title = { Text("Rename Song", color = PrimaryTextDark) },
+                        text = {
+                            OutlinedTextField(
+                                value = newName.value,
+                                onValueChange = { newName.value = it },
+                                label = { Text("Song Name") },
+                                colors = OutlinedTextFieldDefaults.colors(
+                                    focusedTextColor = PrimaryTextDark,
+                                    unfocusedTextColor = PrimaryTextDark
+                                )
+                            )
+                        },
+                        confirmButton = {
+                            Button(onClick = {
+                                currentSong?.let {
+                                    viewModel.renameSong(it.id, newName.value)
+                                }
+                                showRenameDialog.value = false
+                            }) {
+                                Text("Save")
+                            }
+                        },
+                        dismissButton = {
+                            TextButton(onClick = { showRenameDialog.value = false }) {
+                                Text("Cancel")
+                            }
+                        },
+                        containerColor = BackgroundDark
+                    )
+                }
             }
         }
 
@@ -266,6 +373,64 @@ fun NowPlayingScreen(
         }
 
         Spacer(modifier = Modifier.height(32.dp))
+    }
+    
+    if (showQueueBottomSheet.value) {
+        ModalBottomSheet(
+            onDismissRequest = { showQueueBottomSheet.value = false },
+            containerColor = BackgroundDark
+        ) {
+            Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
+                Text(
+                    text = "Up Next",
+                    style = MaterialTheme.typography.titleLarge,
+                    color = PrimaryTextDark,
+                    modifier = Modifier.padding(bottom = 16.dp)
+                )
+                LazyColumn(
+                    modifier = Modifier.fillMaxWidth().weight(1f, fill = false)
+                ) {
+                    items(currentPlaylist.size, key = { currentPlaylist[it].id }) { index ->
+                        val song = currentPlaylist[index]
+                        val isCurrent = song.id == currentSong?.id
+                        Row(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(if (isCurrent) SurfaceVariantDark else BackgroundDark, RoundedCornerShape(8.dp))
+                                .clickable {
+                                    viewModel.playSongs(currentPlaylist, index)
+                                }
+                                .padding(16.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column(modifier = Modifier.weight(1f)) {
+                                Text(
+                                    text = song.title,
+                                    color = if (isCurrent) PrimaryAccent else PrimaryTextDark,
+                                    style = MaterialTheme.typography.bodyLarge,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                                Text(
+                                    text = song.artist,
+                                    color = SecondaryTextDark,
+                                    style = MaterialTheme.typography.bodyMedium,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis
+                                )
+                            }
+                            if (isCurrent) {
+                                Icon(
+                                    imageVector = Icons.Default.PlayArrow,
+                                    contentDescription = "Playing",
+                                    tint = PrimaryAccent
+                                )
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

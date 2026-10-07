@@ -21,15 +21,19 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
+import com.krithi.domain.usecase.ExtractLyricsUseCase
 
 @HiltViewModel
 class SharedPlaybackViewModel @Inject constructor(
     private val playerManager: PlayerManager,
     private val coverRepository: CoverRepository,
-    private val favoriteRepository: FavoriteRepository
+    private val favoriteRepository: FavoriteRepository,
+    private val extractLyricsUseCase: ExtractLyricsUseCase
 ) : ViewModel() {
 
+    val currentPlaylist: StateFlow<List<Song>> = playerManager.currentPlaylistFlow
     val currentSong: StateFlow<Song?> = playerManager.currentSong
+    val sleepTimerTimeRemaining: StateFlow<Long?> = playerManager.sleepTimerTimeRemaining
     val isPlaying: StateFlow<Boolean> = playerManager.isPlaying
 
     @OptIn(ExperimentalCoroutinesApi::class)
@@ -40,6 +44,9 @@ class SharedPlaybackViewModel @Inject constructor(
             flowOf(null)
         }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), null)
+    
+    private val _lyrics = MutableStateFlow<String?>(null)
+    val lyrics: StateFlow<String?> = _lyrics.asStateFlow()
 
     @OptIn(ExperimentalCoroutinesApi::class)
     val isFavorite: StateFlow<Boolean> = currentSong.flatMapLatest { song ->
@@ -72,6 +79,16 @@ class SharedPlaybackViewModel @Inject constructor(
                     _shuffleModeEnabled.value = playerManager.getShuffleModeEnabled()
                 }
                 delay(1000) // Update every second
+            }
+        }
+        
+        viewModelScope.launch {
+            currentSong.collect { song ->
+                if (song != null) {
+                    _lyrics.value = extractLyricsUseCase(song.uri)
+                } else {
+                    _lyrics.value = null
+                }
             }
         }
     }
@@ -125,5 +142,9 @@ class SharedPlaybackViewModel @Inject constructor(
                 favoriteRepository.addFavorite(song.id)
             }
         }
+    }
+
+    fun setSleepTimer(minutes: Int) {
+        playerManager.setSleepTimer(minutes)
     }
 }

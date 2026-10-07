@@ -13,12 +13,19 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.guava.await
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
+import com.krithi.domain.repository.HistoryRepository
 
 @Singleton
 class PlayerManager @Inject constructor(
-    @ApplicationContext private val context: Context
+    @ApplicationContext private val context: Context,
+    private val historyRepository: HistoryRepository
 ) {
     private var mediaController: MediaController? = null
 
@@ -28,7 +35,16 @@ class PlayerManager @Inject constructor(
     private val _isPlaying = MutableStateFlow(false)
     val isPlaying: StateFlow<Boolean> = _isPlaying.asStateFlow()
 
-    private var currentPlaylist: List<Song> = emptyList()
+    private val _currentPlaylistFlow = MutableStateFlow<List<Song>>(emptyList())
+    val currentPlaylistFlow: StateFlow<List<Song>> = _currentPlaylistFlow.asStateFlow()
+
+    private var currentPlaylist: List<Song>
+        get() = _currentPlaylistFlow.value
+        set(value) { _currentPlaylistFlow.value = value }
+
+    private var sleepTimerJob: Job? = null
+    private val _sleepTimerTimeRemaining = MutableStateFlow<Long?>(null)
+    val sleepTimerTimeRemaining: StateFlow<Long?> = _sleepTimerTimeRemaining.asStateFlow()
 
     suspend fun initialize() {
         if (mediaController != null) return
@@ -51,6 +67,13 @@ class PlayerManager @Inject constructor(
     private fun updateCurrentSong(mediaItem: MediaItem?) {
         val songId = mediaItem?.mediaId?.toLongOrNull()
         _currentSong.value = currentPlaylist.find { it.id == songId }
+        
+        // Save to history
+        songId?.let { id ->
+            CoroutineScope(Dispatchers.IO).launch {
+                historyRepository.addHistory(id)
+            }
+        }
     }
 
     fun playSongs(songs: List<Song>, startIndex: Int = 0) {
@@ -133,9 +156,24 @@ class PlayerManager @Inject constructor(
             if (_currentSong.value?.id == songId) {
                 _currentSong.value = updatedSong
             }
-            
-            // Note: Ideally, this should update the underlying Database or MediaStore
-            // but for instant UI reflection during playback, we update the runtime models here.
+        }
+    }
+
+    fun setSleepTimer(minutes: Int) {
+        sleepTimerJob?.cancel()
+        if (minutes <= 0) {
+            _sleepTimerTimeRemaining.value = null
+            return
+        }
+        sleepTimerJob = CoroutineScope(Dispatchers.Main).launch {
+            var remaining = minutes * 60L
+            while (remaining > 0) {
+                _sleepTimerTimeRemaining.value = remaining
+                delay(1000)
+                remaining--
+            }
+            _sleepTimerTimeRemaining.value = null
+            mediaController?.pause()
         }
     }
 }
