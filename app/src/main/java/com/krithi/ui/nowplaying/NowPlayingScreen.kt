@@ -65,6 +65,7 @@ fun NowPlayingScreen(
     val isFavorite by viewModel.isFavorite.collectAsState()
     val currentPlaylist by viewModel.currentPlaylist.collectAsState()
     val sleepTimerTimeRemaining by viewModel.sleepTimerTimeRemaining.collectAsState()
+    val lyrics by viewModel.lyrics.collectAsState()
 
     val context = LocalContext.current
     
@@ -183,12 +184,16 @@ fun NowPlayingScreen(
                     .padding(16.dp),
                 contentAlignment = Alignment.Center
             ) {
-                Text(
-                    text = "Lyrics not found for this song.\n\n(ID3 Lyrics extraction coming soon)",
-                    color = SecondaryTextDark,
-                    style = MaterialTheme.typography.bodyLarge,
-                    textAlign = TextAlign.Center
-                )
+                LazyColumn(modifier = Modifier.fillMaxSize(), horizontalAlignment = Alignment.CenterHorizontally) {
+                    item {
+                        Text(
+                            text = lyrics ?: "Lyrics not found for this song.\n\nMake sure the file contains embedded ID3 lyrics.",
+                            color = SecondaryTextDark,
+                            style = MaterialTheme.typography.bodyLarge,
+                            textAlign = TextAlign.Center
+                        )
+                    }
+                }
             }
         } else {
             // Album Art
