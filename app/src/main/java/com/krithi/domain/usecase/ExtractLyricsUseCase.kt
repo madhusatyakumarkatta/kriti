@@ -27,7 +27,7 @@ class ExtractLyricsUseCase @Inject constructor(
 
             val lyrics = tag.getFirst(FieldKey.LYRICS)
             if (lyrics.isNullOrBlank()) null else lyrics
-        } catch (e: Exception) {
+        } catch (e: Throwable) {
             e.printStackTrace()
             null
         }

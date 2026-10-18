@@ -15,6 +15,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.guava.await
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -24,6 +25,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 import com.krithi.domain.repository.HistoryRepository
 import com.krithi.widget.KrithiWidgetProvider
+import kotlinx.coroutines.sync.Mutex
 
 @Singleton
 class PlayerManager @Inject constructor(
@@ -49,22 +51,27 @@ class PlayerManager @Inject constructor(
     private val _sleepTimerTimeRemaining = MutableStateFlow<Long?>(null)
     val sleepTimerTimeRemaining: StateFlow<Long?> = _sleepTimerTimeRemaining.asStateFlow()
 
+    private val initMutex = Mutex()
+
     suspend fun initialize() {
-        if (mediaController != null) return
-        val sessionToken = SessionToken(context, ComponentName(context, MusicService::class.java))
-        mediaController = MediaController.Builder(context, sessionToken).buildAsync().await()
+        initMutex.withLock {
+            if (mediaController != null) return@withLock
+            val sessionToken = SessionToken(context, ComponentName(context, MusicService::class.java))
+            val controller = MediaController.Builder(context, sessionToken).buildAsync().await()
 
-        mediaController?.addListener(object : Player.Listener {
-            override fun onMediaItemTransition(mediaItem: MediaItem?, reason: Int) {
-                super.onMediaItemTransition(mediaItem, reason)
-                updateCurrentSong(mediaItem)
-            }
+            controller.addListener(object : Player.Listener {
+                override fun onMediaItemTransition(mediaItem: MediaItem?, reason: Int) {
+                    super.onMediaItemTransition(mediaItem, reason)
+                    updateCurrentSong(mediaItem)
+                }
 
-            override fun onIsPlayingChanged(isPlaying: Boolean) {
-                super.onIsPlayingChanged(isPlaying)
-                _isPlaying.value = isPlaying
-            }
-        })
+                override fun onIsPlayingChanged(isPlaying: Boolean) {
+                    super.onIsPlayingChanged(isPlaying)
+                    _isPlaying.value = isPlaying
+                }
+            })
+            mediaController = controller
+        }
     }
 
     private fun updateCurrentSong(mediaItem: MediaItem?) {
@@ -91,7 +98,16 @@ class PlayerManager @Inject constructor(
 
     fun playSongs(songs: List<Song>, startIndex: Int = 0) {
         currentPlaylist = songs
-        val mediaItems = songs.map { song ->
+        
+        // Android IPC (Binder) has a 1MB transaction limit. Passing thousands of songs with metadata
+        // at once will crash the app with TransactionTooLargeException.
+        // We limit the queue sent to MediaController to a window of 100 songs around the start index.
+        val startWindow = maxOf(0, startIndex - 50)
+        val endWindow = minOf(songs.size, startIndex + 50)
+        val windowedSongs = songs.subList(startWindow, endWindow)
+        val newStartIndex = startIndex - startWindow
+
+        val mediaItems = windowedSongs.map { song ->
             MediaItem.Builder()
                 .setMediaId(song.id.toString())
                 .setUri(song.uri)
@@ -105,7 +121,7 @@ class PlayerManager @Inject constructor(
         }
         
         mediaController?.apply {
-            setMediaItems(mediaItems, startIndex, 0)
+            setMediaItems(mediaItems, newStartIndex, 0)
             prepare()
             play()
         }

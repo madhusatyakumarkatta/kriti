@@ -28,7 +28,6 @@ object PlaybackModule {
 
     @OptIn(UnstableApi::class)
     @Provides
-    @Singleton
     fun provideExoPlayer(
         @ApplicationContext context: Context,
         audioAttributes: AudioAttributes
@@ -36,11 +35,9 @@ object PlaybackModule {
         val player = ExoPlayer.Builder(context)
             .setAudioAttributes(audioAttributes, true)
             .setHandleAudioBecomingNoisy(true)
-            .setWakeMode(C.WAKE_MODE_LOCAL) // Helps ensure CPU stays awake during track transitions for true gapless
+            .setWakeMode(C.WAKE_MODE_LOCAL)
             .build()
             
-        // Enable silence skipping for tighter gapless playback
-        player.skipSilenceEnabled = true
         return player
     }
 }
