@@ -85,11 +85,13 @@ class LibraryViewModel @Inject constructor(
                     SortOption.DATE_ADDED -> baseSongs.sortedByDescending { it.dateAdded }
                     SortOption.DURATION_DESC -> baseSongs.sortedByDescending { it.duration }
                 }
+                
+                val folders = songs.groupBy { it.folder }.filterKeys { it.isNotEmpty() }
 
                 if (songs.isEmpty() && albums.isEmpty()) {
                     _uiState.value = LibraryUiState.Empty
                 } else {
-                    _uiState.value = LibraryUiState.Success(songs, albums)
+                    _uiState.value = LibraryUiState.Success(songs, albums, folders)
                 }
             } catch (e: Exception) {
                 _uiState.value = LibraryUiState.Error(e.message ?: "Failed to load library")

@@ -53,7 +53,7 @@ fun LibraryScreen(
     val selectedPlaylistSongs by viewModel.selectedPlaylistSongs.collectAsState()
     val sortOption by viewModel.sortOption.collectAsState()
     var selectedTabIndex by remember { mutableStateOf(0) }
-    val tabs = listOf("Songs", "Albums", "Playlists")
+    val tabs = listOf("Songs", "Albums", "Folders", "Playlists")
     val context = LocalContext.current
     
     var showPlaylistDialog by remember { mutableStateOf<Song?>(null) }
@@ -195,7 +195,29 @@ fun LibraryScreen(
                                 }
                             }
                         }
-                        2 -> {
+                        2 -> { // Folders
+                            LazyColumn(modifier = Modifier.fillMaxSize()) {
+                                state.folders.forEach { (folderPath, folderSongs) ->
+                                    item {
+                                        val folderName = folderPath.substringAfterLast("/")
+                                        Text(
+                                            text = folderName,
+                                            style = MaterialTheme.typography.titleMedium,
+                                            color = PrimaryAccent,
+                                            modifier = Modifier.padding(start = 16.dp, top = 16.dp, bottom = 8.dp)
+                                        )
+                                    }
+                                    itemsIndexed(folderSongs, key = { _, song -> song.id }) { index, song ->
+                                        SongRow(song = song, onClick = {
+                                            viewModel.playSongs(folderSongs, index)
+                                        }, onOptionsClick = { action ->
+                                            if (action == "add_to_playlist") showPlaylistDialog = song
+                                        })
+                                    }
+                                }
+                            }
+                        }
+                        3 -> { // Playlists
                             if (selectedPlaylistId != null) {
                                 val currentPlaylist = playlists.find { it.id == selectedPlaylistId }
                                 Column(modifier = Modifier.fillMaxSize()) {

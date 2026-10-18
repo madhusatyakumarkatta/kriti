@@ -5,7 +5,11 @@ import com.krithi.domain.model.Song
 
 sealed interface LibraryUiState {
     object Loading : LibraryUiState
-    data class Success(val songs: List<Song>, val albums: List<Album>) : LibraryUiState
+    data class Success(
+        val songs: List<Song>, 
+        val albums: List<Album>,
+        val folders: Map<String, List<Song>> = emptyMap()
+    ) : LibraryUiState
     object Empty : LibraryUiState
     object PermissionRequired : LibraryUiState
     data class Error(val message: String) : LibraryUiState
