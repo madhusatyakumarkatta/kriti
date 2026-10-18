@@ -1,7 +1,9 @@
 package com.krithi.playback
 
+import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
+import android.content.Intent
 import androidx.media3.common.MediaItem
 import androidx.media3.common.MediaMetadata
 import androidx.media3.common.Player
@@ -21,6 +23,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
 import com.krithi.domain.repository.HistoryRepository
+import com.krithi.widget.KrithiWidgetProvider
 
 @Singleton
 class PlayerManager @Inject constructor(
@@ -74,6 +77,16 @@ class PlayerManager @Inject constructor(
                 historyRepository.addHistory(id)
             }
         }
+        
+        // Notify Widget
+        val intent = Intent(context, KrithiWidgetProvider::class.java).apply {
+            action = AppWidgetManager.ACTION_APPWIDGET_UPDATE
+        }
+        val ids = AppWidgetManager.getInstance(context).getAppWidgetIds(
+            ComponentName(context, KrithiWidgetProvider::class.java)
+        )
+        intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, ids)
+        context.sendBroadcast(intent)
     }
 
     fun playSongs(songs: List<Song>, startIndex: Int = 0) {

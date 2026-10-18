@@ -7,15 +7,17 @@ import com.krithi.domain.repository.MusicRepository
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import org.mockito.Mockito
 
 class GetSongsUseCaseTest {
 
     @Test
     fun `invoke should return list of songs from repository`() = runBlocking {
         // Arrange
+        val mockUri = Mockito.mock(Uri::class.java)
         val mockSongs = listOf(
-            Song(1, 1, Uri.EMPTY, "Title1", "Artist1", "Album1", 1, 1, 1000, 1, 1, "", 2022, 123, 100, "", ""),
-            Song(2, 2, Uri.EMPTY, "Title2", "Artist2", "Album2", 2, 2, 2000, 2, 1, "", 2023, 124, 200, "", "")
+            Song(1, 1, mockUri, "Title1", "Artist1", "Album1", 1, 1, 1000, 1, 1, "", 2022, 123, 100, "", ""),
+            Song(2, 2, mockUri, "Title2", "Artist2", "Album2", 2, 2, 2000, 2, 1, "", 2023, 124, 200, "", "")
         )
         val mockRepository = object : MusicRepository {
             override suspend fun getSongs(): List<Song> = mockSongs

@@ -32,6 +32,12 @@ class KrithiWidgetProvider : AppWidgetProvider() {
         ) {
             val views = RemoteViews(context.packageName, R.layout.widget_krithi)
 
+            // Since widget runs in separate process, we don't have direct access to PlayerManager
+            // For a full app, we'd query MediaController or use a broadcast
+            // Placeholder metadata update
+            views.setTextViewText(R.id.widget_title, "Krithi Music")
+            views.setTextViewText(R.id.widget_artist, "Tap to open")
+
             // Open app on click
             val intent = Intent(context, MainActivity::class.java)
             val pendingIntent = PendingIntent.getActivity(
