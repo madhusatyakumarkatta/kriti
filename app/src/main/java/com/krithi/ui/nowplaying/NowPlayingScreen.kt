@@ -9,6 +9,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
@@ -419,7 +420,20 @@ fun NowPlayingScreen(
                                     overflow = TextOverflow.Ellipsis
                                 )
                             }
-                            if (isCurrent) {
+                            if (!isCurrent) {
+                                Row {
+                                    if (index > 0) {
+                                        IconButton(onClick = { viewModel.moveSongInQueue(index, index - 1) }) {
+                                            Icon(Icons.Default.KeyboardArrowUp, contentDescription = "Move Up", tint = SecondaryTextDark)
+                                        }
+                                    }
+                                    if (index < currentPlaylist.size - 1) {
+                                        IconButton(onClick = { viewModel.moveSongInQueue(index, index + 1) }) {
+                                            Icon(Icons.Default.KeyboardArrowDown, contentDescription = "Move Down", tint = SecondaryTextDark)
+                                        }
+                                    }
+                                }
+                            } else {
                                 Icon(
                                     imageVector = Icons.Default.PlayArrow,
                                     contentDescription = "Playing",

@@ -45,4 +45,12 @@ class FavoritesViewModel @Inject constructor(
     fun playSong(index: Int) {
         playerManager.playSongs(_favoriteSongs.value, index)
     }
+
+    fun addSongNext(song: Song) {
+        playerManager.addSongNext(song)
+    }
+    
+    fun addSongToQueue(song: Song) {
+        playerManager.addSongToQueue(song)
+    }
 }

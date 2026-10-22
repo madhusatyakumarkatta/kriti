@@ -96,6 +96,20 @@ fun SongRow(
                         }
                     )
                     DropdownMenuItem(
+                        text = { Text("Play Next", color = PrimaryTextDark) },
+                        onClick = {
+                            expanded.value = false
+                            onOptionsClick("play_next")
+                        }
+                    )
+                    DropdownMenuItem(
+                        text = { Text("Add to Queue", color = PrimaryTextDark) },
+                        onClick = {
+                            expanded.value = false
+                            onOptionsClick("add_to_queue")
+                        }
+                    )
+                    DropdownMenuItem(
                         text = { Text("Delete", color = PrimaryTextDark) },
                         onClick = {
                             expanded.value = false

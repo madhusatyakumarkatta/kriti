@@ -108,6 +108,18 @@ class SharedPlaybackViewModel @Inject constructor(
     fun skipToPrevious() {
         playerManager.skipToPrevious()
     }
+    
+    fun addSongNext(song: Song) {
+        playerManager.addSongNext(song)
+    }
+    
+    fun addSongToQueue(song: Song) {
+        playerManager.addSongToQueue(song)
+    }
+    
+    fun moveSongInQueue(fromIndex: Int, toIndex: Int) {
+        playerManager.moveSongInQueue(fromIndex, toIndex)
+    }
 
     fun seekTo(position: Long) {
         playerManager.seekTo(position)

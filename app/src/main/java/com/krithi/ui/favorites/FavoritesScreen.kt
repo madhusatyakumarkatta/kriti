@@ -17,6 +17,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import com.krithi.ui.components.SongRow
 import com.krithi.ui.theme.BackgroundDark
 import com.krithi.ui.theme.PrimaryTextDark
+import android.widget.Toast
+import androidx.compose.ui.platform.LocalContext
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -27,6 +29,7 @@ fun FavoritesScreen(
 ) {
     val favoriteSongs by viewModel.favoriteSongs.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
+    val context = LocalContext.current
 
     Column(modifier = modifier.fillMaxSize().background(BackgroundDark)) {
         TopAppBar(
@@ -55,7 +58,16 @@ fun FavoritesScreen(
                 itemsIndexed(favoriteSongs, key = { _, song -> song.id }) { index, song ->
                     SongRow(
                         song = song,
-                        onClick = { viewModel.playSong(index) }
+                        onClick = { viewModel.playSong(index) },
+                        onOptionsClick = { action ->
+                            if (action == "play_next") {
+                                viewModel.addSongNext(song)
+                                Toast.makeText(context, "Playing next", Toast.LENGTH_SHORT).show()
+                            } else if (action == "add_to_queue") {
+                                viewModel.addSongToQueue(song)
+                                Toast.makeText(context, "Added to queue", Toast.LENGTH_SHORT).show()
+                            }
+                        }
                     )
                 }
             }

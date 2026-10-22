@@ -70,6 +70,14 @@ class SearchViewModel @Inject constructor(
             playerManager.playSongs(currentResults, index)
         }
     }
+    
+    fun addSongNext(song: Song) {
+        playerManager.addSongNext(song)
+    }
+    
+    fun addSongToQueue(song: Song) {
+        playerManager.addSongToQueue(song)
+    }
 }
 
 data class SearchResults(

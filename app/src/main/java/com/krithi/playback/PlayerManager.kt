@@ -97,17 +97,13 @@ class PlayerManager @Inject constructor(
     }
 
     fun playSongs(songs: List<Song>, startIndex: Int = 0) {
-        currentPlaylist = songs
+        // Limit to 1000 songs to prevent TransactionTooLargeException
+        val limitedSongs = if (songs.size > 1000) songs.take(1000) else songs
+        val safeStartIndex = if (startIndex >= limitedSongs.size) 0 else startIndex
         
-        // Android IPC (Binder) has a 1MB transaction limit. Passing thousands of songs with metadata
-        // at once will crash the app with TransactionTooLargeException.
-        // We limit the queue sent to MediaController to a window of 100 songs around the start index.
-        val startWindow = maxOf(0, startIndex - 50)
-        val endWindow = minOf(songs.size, startIndex + 50)
-        val windowedSongs = songs.subList(startWindow, endWindow)
-        val newStartIndex = startIndex - startWindow
+        currentPlaylist = limitedSongs
 
-        val mediaItems = windowedSongs.map { song ->
+        val mediaItems = limitedSongs.map { song ->
             MediaItem.Builder()
                 .setMediaId(song.id.toString())
                 .setUri(song.uri)
@@ -121,10 +117,55 @@ class PlayerManager @Inject constructor(
         }
         
         mediaController?.apply {
-            setMediaItems(mediaItems, newStartIndex, 0)
+            setMediaItems(mediaItems, safeStartIndex, 0)
             prepare()
             play()
         }
+    }
+
+    fun addSongNext(song: Song) {
+        val currentIndex = mediaController?.currentMediaItemIndex ?: 0
+        val currentSongId = _currentSong.value?.id
+        val playlistIndex = currentPlaylist.indexOfFirst { it.id == currentSongId }
+        
+        val insertPlaylistIndex = if (playlistIndex != -1) playlistIndex + 1 else currentPlaylist.size
+        
+        val list = currentPlaylist.toMutableList()
+        list.add(insertPlaylistIndex, song)
+        currentPlaylist = list
+        
+        val mediaItem = MediaItem.Builder()
+            .setMediaId(song.id.toString())
+            .setUri(song.uri)
+            .setMediaMetadata(MediaMetadata.Builder().setTitle(song.title).setArtist(song.artist).build())
+            .build()
+            
+        mediaController?.addMediaItem(currentIndex + 1, mediaItem)
+    }
+
+    fun addSongToQueue(song: Song) {
+        val list = currentPlaylist.toMutableList()
+        list.add(song)
+        currentPlaylist = list
+        
+        val mediaItem = MediaItem.Builder()
+            .setMediaId(song.id.toString())
+            .setUri(song.uri)
+            .setMediaMetadata(MediaMetadata.Builder().setTitle(song.title).setArtist(song.artist).build())
+            .build()
+            
+        mediaController?.addMediaItem(mediaItem)
+    }
+
+    fun moveSongInQueue(fromIndex: Int, toIndex: Int) {
+        if (fromIndex == toIndex || fromIndex < 0 || toIndex < 0 || fromIndex >= currentPlaylist.size || toIndex >= currentPlaylist.size) return
+        
+        val list = currentPlaylist.toMutableList()
+        val item = list.removeAt(fromIndex)
+        list.add(toIndex, item)
+        currentPlaylist = list
+        
+        mediaController?.moveMediaItem(fromIndex, toIndex)
     }
 
     fun togglePlayPause() {

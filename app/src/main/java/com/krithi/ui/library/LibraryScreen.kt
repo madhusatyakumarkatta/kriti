@@ -173,6 +173,12 @@ fun LibraryScreen(
                                                 }
                                             } else if (action == "add_to_playlist") {
                                                 showPlaylistDialog = song
+                                            } else if (action == "play_next") {
+                                                viewModel.addSongNext(song)
+                                                Toast.makeText(context, "Playing next", Toast.LENGTH_SHORT).show()
+                                            } else if (action == "add_to_queue") {
+                                                viewModel.addSongToQueue(song)
+                                                Toast.makeText(context, "Added to queue", Toast.LENGTH_SHORT).show()
                                             }
                                         })
                                     }
@@ -211,7 +217,24 @@ fun LibraryScreen(
                                         SongRow(song = song, onClick = {
                                             viewModel.playSongs(folderSongs, index)
                                         }, onOptionsClick = { action ->
-                                            if (action == "add_to_playlist") showPlaylistDialog = song
+                                            if (action == "add_to_playlist") {
+                                                showPlaylistDialog = song
+                                            } else if (action == "play_next") {
+                                                viewModel.addSongNext(song)
+                                                Toast.makeText(context, "Playing next", Toast.LENGTH_SHORT).show()
+                                            } else if (action == "add_to_queue") {
+                                                viewModel.addSongToQueue(song)
+                                                Toast.makeText(context, "Added to queue", Toast.LENGTH_SHORT).show()
+                                            } else if (action == "delete") {
+                                                val intentSender = viewModel.getDeleteIntentSender(context, song.uri)
+                                                if (intentSender != null) {
+                                                    deleteLauncher.launch(IntentSenderRequest.Builder(intentSender).build())
+                                                } else {
+                                                    if (viewModel.deleteSongLegacy(context, song.uri)) {
+                                                        viewModel.loadLibrary()
+                                                    }
+                                                }
+                                            }
                                         })
                                     }
                                 }
@@ -241,6 +264,14 @@ fun LibraryScreen(
                                                 if (action == "delete") {
                                                     viewModel.removeSongFromPlaylist(selectedPlaylistId!!, song.id)
                                                     viewModel.selectPlaylist(selectedPlaylistId)
+                                                } else if (action == "play_next") {
+                                                    viewModel.addSongNext(song)
+                                                    Toast.makeText(context, "Playing next", Toast.LENGTH_SHORT).show()
+                                                } else if (action == "add_to_queue") {
+                                                    viewModel.addSongToQueue(song)
+                                                    Toast.makeText(context, "Added to queue", Toast.LENGTH_SHORT).show()
+                                                } else if (action == "add_to_playlist") {
+                                                    showPlaylistDialog = song
                                                 }
                                             })
                                         }

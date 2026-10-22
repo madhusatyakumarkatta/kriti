@@ -42,8 +42,7 @@ fun KrithiNavGraph(
     val currentRoute = navBackStackEntry?.destination?.route ?: "home"
 
     val showBottomNav = currentRoute in listOf("home", "library", "search")
-    // In Phase 1, we show MiniPlayer on main screens if wanted, here we just show it as placeholder
-    val showMiniPlayer = showBottomNav
+    val showMiniPlayer = currentRoute in listOf("home", "library", "search", "favorites", "album/{albumId}")
 
     Scaffold(
         topBar = {
@@ -63,15 +62,19 @@ fun KrithiNavGraph(
             }
         },
         bottomBar = {
-            AnimatedVisibility(
-                visible = showBottomNav,
-                enter = slideInVertically(initialOffsetY = { it }),
-                exit = slideOutVertically(targetOffsetY = { it })
-            ) {
-                Column {
-                    if (showMiniPlayer) {
-                        MiniPlayer(onNavigateToNowPlaying = { navController.navigate("now_playing") })
-                    }
+            Column {
+                AnimatedVisibility(
+                    visible = showMiniPlayer,
+                    enter = slideInVertically(initialOffsetY = { it }),
+                    exit = slideOutVertically(targetOffsetY = { it })
+                ) {
+                    MiniPlayer(onNavigateToNowPlaying = { navController.navigate("now_playing") })
+                }
+                AnimatedVisibility(
+                    visible = showBottomNav,
+                    enter = slideInVertically(initialOffsetY = { it }),
+                    exit = slideOutVertically(targetOffsetY = { it })
+                ) {
                     KrithiBottomNavigation(
                         currentRoute = currentRoute,
                         onNavigate = { route ->

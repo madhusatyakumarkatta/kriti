@@ -121,6 +121,14 @@ class LibraryViewModel @Inject constructor(
             playlistRepository.removeSongFromPlaylist(playlistId, songId)
         }
     }
+    
+    fun addSongNext(song: Song) {
+        playerManager.addSongNext(song)
+    }
+    
+    fun addSongToQueue(song: Song) {
+        playerManager.addSongToQueue(song)
+    }
 
     fun selectPlaylist(playlistId: Long?) {
         playlistSongsJob?.cancel()

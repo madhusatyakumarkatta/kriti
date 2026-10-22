@@ -21,6 +21,8 @@ import com.krithi.ui.theme.PrimaryAccent
 import com.krithi.ui.theme.PrimaryTextDark
 import com.krithi.ui.theme.SecondaryTextDark
 import com.krithi.ui.theme.SurfaceVariantDark
+import android.widget.Toast
+import androidx.compose.ui.platform.LocalContext
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -31,6 +33,7 @@ fun SearchScreen(
 ) {
     val searchQuery by viewModel.searchQuery.collectAsState()
     val searchResults by viewModel.searchResults.collectAsState()
+    val context = LocalContext.current
 
     Column(
         modifier = modifier
@@ -87,7 +90,15 @@ fun SearchScreen(
                         )
                     }
                     items(searchResults.songs) { song ->
-                        SongRow(song = song, onClick = { viewModel.playSong(song) })
+                        SongRow(song = song, onClick = { viewModel.playSong(song) }, onOptionsClick = { action ->
+                            if (action == "play_next") {
+                                viewModel.addSongNext(song)
+                                Toast.makeText(context, "Playing next", Toast.LENGTH_SHORT).show()
+                            } else if (action == "add_to_queue") {
+                                viewModel.addSongToQueue(song)
+                                Toast.makeText(context, "Added to queue", Toast.LENGTH_SHORT).show()
+                            }
+                        })
                     }
                 }
 
